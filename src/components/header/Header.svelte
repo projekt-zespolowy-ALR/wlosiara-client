@@ -1,0 +1,22 @@
+<script type="ts">
+	import Navbar from "./Navbar.svelte";
+
+</script>
+
+<div class="header">
+    <img src="images/logo.jpg" alt="włosiara.pl" class="logo">
+    <Navbar/>
+</div>
+
+<style>
+    .header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .logo {
+        height: 50px;
+    }
+</style>
+
+
