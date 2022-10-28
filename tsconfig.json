@@ -30,6 +30,6 @@
 		"strictFunctionTypes": true,
 		"strictPropertyInitialization": true,
 		"strictNullChecks": true,
-		"useUnknownInCatchVariables": false,
+		"useUnknownInCatchVariables": false
 	}
 }
