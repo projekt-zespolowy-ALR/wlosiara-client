@@ -7,7 +7,6 @@ expect.extend(matchers);
 describe("Landing page", () => {
 	test("Welcome message", () => {
 		render(LandingPage);
-
-		expect(screen.getByText("Welcome to SvelteKit")).toBeInTheDocument();
+		expect(screen.getByText("Content")).toBeInTheDocument();
 	});
 });
