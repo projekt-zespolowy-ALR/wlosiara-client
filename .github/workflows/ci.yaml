@@ -1,0 +1,43 @@
+name: Continuous integration
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  prettier-check:
+    name: Prettier check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Install dependencies
+        run: |
+          npm ci
+      - name: Run prettier
+        run: |
+          npm run prettier-check
+  eslint-check:
+    name: ESLint check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Install dependencies
+        run: |
+          npm ci
+      - name: Run eslint
+        run: |
+          npm run eslint-check
+  svelte-check:
+    name: Svelte check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Install dependencies
+        run: |
+          npm ci
+      - name: Run svelte-check
+        run: |
+          npm run svelte-check
