@@ -1,13 +1,13 @@
 <script type="ts">
 	import Content from "../components/Content.svelte";
 	import Footer from "../components/Footer.svelte";
-    import Header from "../components/header/Header.svelte";
+	import Header from "../components/header/Header.svelte";
 </script>
 
 <div class="wrapper">
-<Header/>
-<Content/>
-<Footer/>
+	<Header />
+	<Content />
+	<Footer />
 </div>
 
 <style>
