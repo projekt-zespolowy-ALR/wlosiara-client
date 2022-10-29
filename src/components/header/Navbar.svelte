@@ -1,12 +1,12 @@
 <script type="ts"></script>
 
 <ul class="navbar">
-	<li><a href="#">Strona główna</a></li>
-	<li><a href="#">Dopasuj pielęgnację</a></li>
-	<li><a href="#">Quiz</a></li>
-	<li><a href="#">Baza produktów</a></li>
-	<li><a href="#">Aktualności</a></li>
-	<li><a href="#">Baza wiedzy</a></li>
+	<li><a href="/a">Strona główna</a></li>
+	<li><a href="/b">Dopasuj pielęgnację</a></li>
+	<li><a href="/c">Quiz</a></li>
+	<li><a href="/d">Baza produktów</a></li>
+	<li><a href="/e">Aktualności</a></li>
+	<li><a href="/f">Baza wiedzy</a></li>
 </ul>
 
 <style>
