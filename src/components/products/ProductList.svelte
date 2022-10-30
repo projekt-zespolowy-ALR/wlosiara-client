@@ -1,11 +1,10 @@
 <script type="ts">
-	import Product from "./Product.svelte";
+	import {ProductStore} from "../../stores/productStore";
+	import ProductListItem from "./ProductListItem.svelte";
 </script>
 
 <ul>
-	<li>
-		<Product />
-		<Product />
-		<Product />
-	</li>
+	{#each $ProductStore as product (product.id)}
+		<ProductListItem {product} />
+	{/each}
 </ul>
