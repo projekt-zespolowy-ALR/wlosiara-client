@@ -6,7 +6,7 @@
 
 <div class="wrapper">
 	<Header />
-	<ProductList/>
+	<ProductList />
 	<Footer />
 </div>
 

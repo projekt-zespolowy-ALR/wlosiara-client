@@ -1,12 +1,15 @@
 <script type="ts"></script>
 
 <ul class="navbar">
-	<li><a href="/a">
-		<i class="fa-solid fa-house"></i>
-		Strona główna</a></li>
+	<li>
+		<a href="/a">
+			<i class="fa-solid fa-house" />
+			Strona główna</a
+		>
+	</li>
 	<li><a href="/b">Dopasuj pielęgnację</a></li>
 	<li><a href="/c">Quiz</a></li>
-	<li><a href="/d">Baza produktów</a></li>
+	<li><a href="/baza-produktow">Baza produktów</a></li>
 	<li><a href="/e">Aktualności</a></li>
 	<li><a href="/f">Baza wiedzy</a></li>
 </ul>
@@ -20,5 +23,9 @@
 		width: 100%;
 		border-bottom: gray 2px solid;
 		padding: 10px 0;
+	}
+	a {
+		text-decoration: none;
+		color: black;
 	}
 </style>
