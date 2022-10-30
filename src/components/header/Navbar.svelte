@@ -1,7 +1,9 @@
 <script type="ts"></script>
 
 <ul class="navbar">
-	<li><a href="/a">Strona główna</a></li>
+	<li><a href="/a">
+		<i class="fa-solid fa-house"></i>
+		Strona główna</a></li>
 	<li><a href="/b">Dopasuj pielęgnację</a></li>
 	<li><a href="/c">Quiz</a></li>
 	<li><a href="/d">Baza produktów</a></li>
