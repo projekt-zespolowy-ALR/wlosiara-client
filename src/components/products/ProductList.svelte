@@ -5,6 +5,6 @@
 
 <ul>
 	{#each $ProductStore as product (product.id)}
-    	<ProductListItem {product}/>
+		<ProductListItem {product} />
 	{/each}
 </ul>

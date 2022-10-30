@@ -8,6 +8,6 @@
 		bottom: 0;
 		width: 100%;
 		height: 50px;
-		background-color: #1F1F1F;
+		background-color: #1f1f1f;
 	}
 </style>
