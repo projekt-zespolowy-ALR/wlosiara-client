@@ -1,38 +1,97 @@
-# create-svelte
+# wlosiara.pl - Website
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+This repository contains the source code of a website wlosiara.pl where hair care enthusiasts can find information about interesting products, tips, reviews and more.
 
-## Creating a project
+SvelteKit with TypeScript is used as a framework.
 
-If you're seeing this, you've probably already done this step. Congrats!
+# Local development
+
+## Requirements
+
+Install the requirements using npm:
 
 ```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
+npm ci
 ```
 
-## Developing
+## Run
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Run the development server:
 
 ```bash
 npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
 ```
 
-## Building
+## Build and preview the production version
 
-To create a production version of your app:
+Build the production version:
 
 ```bash
 npm run build
 ```
 
-You can preview the production build with `npm run preview`.
+To view the built website, run:
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+```bash
+npm run preview
+```
+
+This will spin up a local server hosting the website.
+
+## Before committing
+
+There are some checks defined in the repository pipeline that run when you push your changes. You should make sure your code passes those checks before committing.
+
+You can find some of the checks quite strict, but every check improves the quality of the code and makes it easier to maintain.
+
+### Check formatting
+
+The code is formatted using [Prettier](https://prettier.io).
+To check if your code is formatted correctly, run:
+
+```bash
+npm run prettier-check
+```
+
+To automatically format your code, run:
+
+```bash
+npm run prettier-fix
+```
+
+### Check linting
+
+The code is linted using [ESLint](https://eslint.org).
+To check if your code is linted correctly, run:
+
+```bash
+npm run eslint-check
+```
+
+To automatically fix linting errors (if possible), run:
+
+```bash
+npm run eslint-fix
+```
+
+### Check syntax and types
+
+You should check if your code even "compiles". To do so, run:
+
+```bash
+npm run svelte-check
+```
+
+Despite the script name, it also checks for [TypeScript](https://www.typescriptlang.org) errors ([SvelteKit](https://kit.svelte.dev) does it under the hood).
+
+### Run tests
+
+The code is tested using [Vitest](https://vitest.dev).
+To run the tests, run:
+
+```bash
+npm run vitest-check
+```
+
+Code coverage is provided by [c8](https://github.com/bcoe/c8).
+After running the tests, you can see the coverage report by opening `coverage/index.html` in your browser.
