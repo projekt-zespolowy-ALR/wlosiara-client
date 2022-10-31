@@ -24,8 +24,12 @@
 		flex-direction: row;
 		justify-content: space-around;
 		width: 100%;
-		border-bottom: gray 2px solid;
 		padding: 10px 0;
+		margin-bottom: 0;
+		background-color: white;
+		border-bottom-left-radius: 3%;
+		border-bottom-right-radius: 3%;
+		box-shadow: 3px 3px 5px lightgray;
 	}
 	a {
 		text-decoration: none;
