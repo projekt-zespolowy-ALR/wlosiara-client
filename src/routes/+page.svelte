@@ -15,5 +15,6 @@
 		height: 95vh;
 		margin: 0;
 		font-family: "Poppins", sans-serif;
+		background-color: #f9f9f9;
 	}
 </style>
