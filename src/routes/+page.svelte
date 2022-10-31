@@ -14,6 +14,6 @@
 	.wrapper {
 		height: 95vh;
 		margin: 0;
-		font-family: 'Poppins', sans-serif;
+		font-family: "Poppins", sans-serif;
 	}
 </style>

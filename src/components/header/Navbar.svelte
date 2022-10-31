@@ -1,7 +1,5 @@
 <script type="ts">
 	import LoginSignIn from "./LoginSignIn.svelte";
-
-
 </script>
 
 <ul class="navbar">
@@ -16,7 +14,7 @@
 	<li><a href="/baza-produktow">Baza produktów</a></li>
 	<li><a href="/e">Aktualności</a></li>
 	<li><a href="/f">Baza wiedzy</a></li>
-	<LoginSignIn/>
+	<LoginSignIn />
 </ul>
 
 <style>
@@ -36,8 +34,7 @@
 	}
 
 	i {
-		color: #6233C6;
+		color: #6233c6;
 		font-size: 16px;
 	}
-	
 </style>
