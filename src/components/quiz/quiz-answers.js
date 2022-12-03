@@ -5,15 +5,15 @@ export const quiz_anwen = [
         "answers": [
             {
                 "answer": "gładkie i lśniące",
-                "type": "N"
+                "type": "Niskoporowate"
             },
             {
                 "answer": "w dobrej kondycji, ale czasem się puszą",
-                "type": "S"
+                "type": "Średnioporowate"
             },
             {
                 "answer": "suche lub zniszczone",
-                "type": "W"
+                "type": "Wysokoporowate"
             }
         ]
     },
@@ -23,15 +23,15 @@ export const quiz_anwen = [
         "answers": [
             {
                 "answer": "krótko (mniej niż 1,5 h)",
-                "type": "W"
+                "type": "Wysokoporowate"
             },
             {
                 "answer": "średnio (1,5 - 3h)",
-                "type": "S"
+                "type": "Średnioporowate"
             },
             {
                 "answer": "długo (powyżej 3h)",
-                "type": "N"
+                "type": "Niskoporowate"
             }
         ]
     },
@@ -41,15 +41,15 @@ export const quiz_anwen = [
         "answers": [
             {
                 "answer": "nie",
-                "type": "W"
+                "type": "Wysokoporowate"
             },
             {
                 "answer": "trochę błyszczą",
-                "type": "S"
+                "type": "Średnioporowate"
             },
             {
                 "answer": "zdecydowanie błyszczą",
-                "type": "N"
+                "type": "Niskoporowate"
             }
         ]
     },
@@ -59,15 +59,15 @@ export const quiz_anwen = [
         "answers": [
             {
                 "answer": "zostanie w tym samym miejscu",
-                "type": "W"
+                "type": "Wysokoporowate"
             },
             {
                 "answer": "powoli wróci na swoją stronę",
-                "type": "S"
+                "type": "Średnioporowate"
             },
             {
                 "answer": "szybko wróci na swoją stronę",
-                "type": "N"
+                "type": "Niskoporowate"
             }
         ]
     },
@@ -77,15 +77,15 @@ export const quiz_anwen = [
         "answers": [
             {
                 "answer": "Loki albo fale po warkoczu są na nich widoczne długi czas",
-                "type": "W"
+                "type": "Wysokoporowate"
             },
             {
                 "answer": "loki albo fale utrzymują się jakiś czas",
-                "type": "S"
+                "type": "Średnioporowate"
             },
             {
                 "answer": "loki lub fale nie robią się wcale lub bardzo szybko się rozprostowują",
-                "type": "N"
+                "type": "Niskoporowate"
             }
         ]
     },
@@ -95,15 +95,15 @@ export const quiz_anwen = [
         "answers": [
             {
                 "answer": "Nabierają objętości",
-                "type": "W"
+                "type": "Wysokoporowate"
             },
             {
                 "answer": "Objętość się nie zmienia",
-                "type": "S"
+                "type": "Średnioporowate"
             },
             {
                 "answer": "tracą objętość",
-                "type": "N"
+                "type": "Niskoporowate"
             }
         ]
     },
@@ -113,15 +113,15 @@ export const quiz_anwen = [
         "answers": [
             {
                 "answer": "gładkie i miękkie",
-                "type": "N"
+                "type": "Niskoporowate"
             },
             {
                 "answer": "w miarę gładkie",
-                "type": "S"
+                "type": "Średnioporowate"
             },
             {
                 "answer": "sztywne i szorstkie",
-                "type": "W"
+                "type": "Wysokoporowate"
             }
         ]
     },
@@ -131,15 +131,15 @@ export const quiz_anwen = [
         "answers": [
             {
                 "answer": "tak, bardzo",
-                "type": "W"
+                "type": "Wysokoporowate"
             },
             {
                 "answer": "czasami",
-                "type": "S"
+                "type": "Średnioporowate"
             },
             {
                 "answer": "nie",
-                "type": "N"
+                "type": "Niskoporowate"
             }
         ]
     },
@@ -149,15 +149,15 @@ export const quiz_anwen = [
         "answers": [
             {
                 "answer": "tak, praktycznie zawsze są napuszone",
-                "type": "W"
+                "type": "Wysokoporowate"
             },
             {
                 "answer": "czasami się puszą",
-                "type": "S"
+                "type": "Średnioporowate"
             },
             {
                 "answer": "nigdy się nie puszą",
-                "type": "N"
+                "type": "Niskoporowate"
             }
         ]
     },
@@ -167,15 +167,15 @@ export const quiz_anwen = [
         "answers": [
             {
                 "answer": "tak, muszę często podcinać rozdwojone końce",
-                "type": "W"
+                "type": "Wysokoporowate"
             },
             {
                 "answer": "średnio, wystarczy że podetnę włosy raz na kilka miesięcy",
-                "type": "S"
+                "type": "Średnioporowate"
             },
             {
                 "answer": "nie, praktycznie nigdy nie widzę u siebie rozdwojonych końcówek",
-                "type": "N"
+                "type": "Niskoporowate"
             }
         ]
     },
@@ -185,15 +185,15 @@ export const quiz_anwen = [
         "answers": [
             {
                 "answer": "tak, regularnie",
-                "type": "W"
+                "type": "Wysokoporowate"
             },
             {
                 "answer": "sporadycznie",
-                "type": "S"
+                "type": "Średnioporowate"
             },
             {
                 "answer": "nie",
-                "type": "N"
+                "type": "Niskoporowate"
             }
         ]
     }  
@@ -202,172 +202,184 @@ export const quiz_anwen = [
 export const quiz_cosibella = [
     {
         "question": "Twoje włosy są:",
+        "id": 11,
         "answers": [
             {
                 "answer": "gładkie, lśniące i błyszczące, ale brakuje im objętości.",
-                "type": "N"
+                "type": "Niskoporowate"
             },
             {
                 "answer": "puszą się, są lekko falowane i matowe.",
-                "type": "S"
+                "type": "Średnioporowate"
             },
             {
                 "answer": "kręcą się lub są zniszczone, suche i łatwo się łamią.",
-                "type": "W"
+                "type": "Wysokoporowate"
             }
         ]
     },
     {
         "question": "Czy łatwo obciążyć Twoje włosy?",
+        "id": 12,
         "answers": [
             {
                 "answer": "Zdecydowanie tak, wiele produktów je obciąża",
-                "type": "N"
+                "type": "Niskoporowate"
             },
             {
                 "answer": "Zależy od produktów, ale zdarza się.",
-                "type": "S"
+                "type": "Średnioporowate"
             },
             {
                 "answer": "Nie, mogę je odżywiać bez końca.",
-                "type": "W"
+                "type": "Wysokoporowate"
             }
         ]
     },
     {
         "question": "Czy Twoje włosy się kręcą?",
+        "id": 13,
         "answers": [
             {
                 "answer": "Zdecydowanie nie, są proste jak drut",
-                "type": "N"
+                "type": "Niskoporowate"
             },
             {
                 "answer": "Bywa, że się falują/zawijają.",
-                "type": "S"
+                "type": "Średnioporowate"
             },
             {
                 "answer": "Tak, mam kręcone włosy.",
-                "type": "W"
+                "type": "Wysokoporowate"
             }
         ]
     },
     {
         "question": "Twoje włosy:",
+        "id": 14,
         "answers": [
             {
                 "answer": "Łatwo się elektryzują, są oklapnięte.",
-                "type": "N"
+                "type": "Niskoporowate"
             },
             {
                 "answer": "Często się puszą, czasami w dotyku są matowe.",
-                "type": "S"
+                "type": "Średnioporowate"
             },
             {
                 "answer": "Są bardzo suche, zdecydowanie brakuje im nawilżenia.",
-                "type": "W"
+                "type": "Wysokoporowate"
             }
         ]
     },
     {
         "question": "Czy łatwo stylizuje się Twoje włosy?",
+        "id": 15,
         "answers": [
             {
                 "answer": "Zdecydowanie nie, często po godzinie wracają do poprzedniego stanu.",
-                "type": "N"
+                "type": "Niskoporowate"
             },
             {
                 "answer": "Tak, ale zdarza się, że po jakimś czasie wracają do poprzedniego stanu.",
-                "type": "S"
+                "type": "Średnioporowate"
             },
             {
                 "answer": "Zdecydowanie tak, jedno pociągnięcie prostownicą i są proste.",
-                "type": "W"
+                "type": "Wysokoporowate"
             }
         ]
     },
     {
         "question": "Po rozczesaniu włosów Twoje włosy są:",
+        "id": 16,
         "answers": [
             {
                 "answer": "Gładkie, lśniące, mogą się elektryzować.",
-                "type": "N"
+                "type": "Niskoporowate"
             },
             {
                 "answer": "Mogą się trochę puszyć, ale w dotyku są gładkie.",
-                "type": "S"
+                "type": "Średnioporowate"
             },
             {
                 "answer": "Bardzo spuszone.",
-                "type": "W"
+                "type": "Wysokoporowate"
             }
         ]
     },
     {
         "question": "Czy Twoje włosy są suche i zniszczone?",
+        "id": 17,
         "answers": [
             {
                 "answer": "Zdecydowanie nie.",
-                "type": "N"
+                "type": "Niskoporowate"
             },
             {
                 "answer": "W niewielkim stopniu.",
-                "type": "S"
+                "type": "Średnioporowate"
             },
             {
                 "answer": "Są bardzo suche i zniszczone.",
-                "type": "W"
+                "type": "Wysokoporowate"
             }
         ]
     },
     {
         "question": "Czy Twoje włosy były rozjaśniane/farbowane?",
+        "id": 18,
         "answers": [
             {
                 "answer": "Nie",
-                "type": "N"
+                "type": "Niskoporowate"
             },
             {
                 "answer": "Bardzo dawno temu",
-                "type": "S"
+                "type": "Średnioporowate"
             },
             {
                 "answer": "tak",
-                "type": "W"
+                "type": "Wysokoporowate"
             }
         ]
     },
     {
         "question": "Gdy wychodzisz na dwór podczas deszczu:",
+        "id": 19,
         "answers": [
             {
                 "answer": "Moje włosy są oklapnięte.",
-                "type": "N"
+                "type": "Niskoporowate"
             },
             {
                 "answer": "Moje włosy zaczynają się lekko kręcić.",
-                "type": "S"
+                "type": "Średnioporowate"
             },
             {
                 "answer": "Moje włosy bardzo się kręcą i są spuszone.",
-                "type": "W"
+                "type": "Wysokoporowate"
             }
         ]
     },
     {
         "question": "Czy Twoje włosy łatwo się plączą?",
+        "id": 20,
         "answers": [
             {
                 "answer": "Bardzo rzadko.",
-                "type": "N"
+                "type": "Niskoporowate"
             },
             {
                 "answer": "Zdarza się.",
-                "type": "S"
+                "type": "Średnioporowate"
             },
             {
                 "answer": "Bardzo często.",
-                "type": "W"
+                "type": "Wysokoporowate"
             }
         ]
     },
 ]
+
+export const quiz_all = [...quiz_anwen, ...quiz_cosibella];

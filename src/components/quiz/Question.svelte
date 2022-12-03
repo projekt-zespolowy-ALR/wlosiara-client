@@ -1,10 +1,12 @@
 <script lang="ts">
 	import { AnswerStore } from "../../stores/answerStore";
 	import type { Question } from "../products/interfaces";
+	import { quiz_all } from "./quiz-answers";
     // import { createEventDispatcher } from "svelte";
     // const dispatch = createEventDispatcher();
 
     export let question: Question;
+    const questionsLength = quiz_all.length;
 
     const handleGiveAnswer = (questionId: number, index: number) => {
         // dispatch("give-answer", index)
@@ -15,9 +17,14 @@
             }
             newStore[questionId] = {
                 questionId,
-                answer: index
+                answer: index,
+                type: question.answers[index].type
             }
-            newStore.currentQuestion.questionId = questionId+1;
+
+            if (questionId < questionsLength) {
+                newStore.currentQuestion.questionId = questionId+1;
+            }
+            
 
             return newStore;
         })

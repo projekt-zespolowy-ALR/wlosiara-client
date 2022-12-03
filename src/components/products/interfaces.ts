@@ -19,5 +19,6 @@ export interface Answer {
 
 export interface AnswerToQuestion {
 	questionId: number,
-	answer: number
+	answer: number,
+	type: string
 }
