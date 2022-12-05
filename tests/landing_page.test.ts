@@ -5,8 +5,8 @@ import {describe, expect, test} from "vitest";
 expect.extend(matchers);
 
 describe("Landing page", () => {
-	test("Welcome message", () => {
+	test("Quiz message", () => {
 		render(LandingPage);
-		expect(screen.getByText("Content")).toBeInTheDocument();
+		expect(screen.getByText("Jakie są twoje włosy?")).toBeInTheDocument();
 	});
 });

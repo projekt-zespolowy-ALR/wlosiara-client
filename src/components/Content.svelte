@@ -1,11 +1,9 @@
 <script type="ts">
 	import QuizPage from "./quiz/QuizPage.svelte";
-
 </script>
 
 <div class="content">
-	<QuizPage/>
-
+	<QuizPage />
 </div>
 
 <style>

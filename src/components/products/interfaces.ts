@@ -8,7 +8,7 @@ export interface Product {
 
 export interface Question {
 	question: string;
-	id: number,
+	id: number;
 	answers: Array<Answer>;
 }
 
@@ -18,7 +18,7 @@ export interface Answer {
 }
 
 export interface AnswerToQuestion {
-	questionId: number,
-	answer: number,
-	type: string
+	questionId: number;
+	answer: number;
+	type: string;
 }
