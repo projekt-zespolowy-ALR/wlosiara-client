@@ -1,6 +1,10 @@
-<script type="ts"></script>
+<script type="ts">
+	import QuizPage from "./quiz/QuizPage.svelte";
+</script>
 
-<div class="content">Content</div>
+<div class="content">
+	<QuizPage />
+</div>
 
 <style>
 	.content {
