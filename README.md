@@ -50,13 +50,13 @@ The code is formatted using [Prettier](https://prettier.io).
 To check if your code is formatted correctly, run:
 
 ```bash
-npm run prettier-check
+npm run prettier:check
 ```
 
 To automatically format your code, run:
 
 ```bash
-npm run prettier-fix
+npm run prettier:fix
 ```
 
 ### Check linting
@@ -65,13 +65,13 @@ The code is linted using [ESLint](https://eslint.org).
 To check if your code is linted correctly, run:
 
 ```bash
-npm run eslint-check
+npm run eslint:check
 ```
 
 To automatically fix linting errors (if possible), run:
 
 ```bash
-npm run eslint-fix
+npm run eslint:fix
 ```
 
 ### Check syntax and types
@@ -79,7 +79,7 @@ npm run eslint-fix
 You should check if your code even "compiles". To do so, run:
 
 ```bash
-npm run svelte-check
+npm run svelte:check
 ```
 
 Despite the script name, it also checks for [TypeScript](https://www.typescriptlang.org) errors ([SvelteKit](https://kit.svelte.dev) does it under the hood).
@@ -90,7 +90,7 @@ The code is tested using [Vitest](https://vitest.dev).
 To run the tests, run:
 
 ```bash
-npm run vitest-check
+npm run vitest:check
 ```
 
 Code coverage is provided by [c8](https://github.com/bcoe/c8).
