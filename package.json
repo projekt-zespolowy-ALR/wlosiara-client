@@ -13,6 +13,14 @@
 		"eslint-check": "eslint --max-warnings 0 .",
 		"vitest-check": "vitest run --coverage"
 	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/projekt-zespolowy-ALR/wlosiara-client.git"
+	},
+	"bugs": {
+		"url": "https://github.com/projekt-zespolowy-ALR/wlosiara-client/issues"
+	},
+	"homepage": "https://github.com/projekt-zespolowy-ALR/wlosiara-client#readme",
 	"devDependencies": {
 		"@sveltejs/adapter-node": "^1.0.0-next.99",
 		"@sveltejs/kit": "next",
