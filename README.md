@@ -94,4 +94,4 @@ npm run vitest:check
 ```
 
 Code coverage is provided by [c8](https://github.com/bcoe/c8).
-After running the tests, you can see the coverage report by opening `coverage/index.html` in your browser.
+After running the tests, you can see the coverage report by opening `coverage_report/index.html` in your browser.
