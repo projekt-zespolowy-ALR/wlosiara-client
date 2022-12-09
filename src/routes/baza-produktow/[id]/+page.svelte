@@ -1,10 +1,10 @@
 <script type="ts">
 	import {page} from "$app/stores";
-	import {ProductStore} from "../../../stores/productStore";
-	import ProductListItem from "../../../components/products/ProductListItem.svelte";
-	import Footer from "../../../components/Footer.svelte";
-	import Header from "../../../components/header/Header.svelte";
-	import type {Product} from "src/components/products/interfaces";
+	import {ProductStore} from "$lib/features/products/productStore";
+	import ProductListItem from "$lib/features/products/ProductListItem.svelte";
+	import Footer from "$lib/ui/footer/Footer.svelte";
+	import Header from "$lib/ui/header/Header.svelte";
+	import type {Product} from "$lib/features/products/interfaces";
 
 	const urlSegments = $page.url.pathname.split("/");
 

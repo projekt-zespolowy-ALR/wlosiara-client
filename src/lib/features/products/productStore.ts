@@ -1,4 +1,4 @@
-import type {Product} from "src/components/products/interfaces";
+import type {Product} from "./interfaces";
 import {writable, type Writable} from "svelte/store";
 
 export const ProductStore: Writable<Product[]> = writable([

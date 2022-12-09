@@ -1,5 +1,5 @@
 <script type="ts">
-	import {ProductStore} from "../../stores/productStore";
+	import {ProductStore} from "./productStore";
 	import FilterMenu from "./FilterMenu.svelte";
 	import ProductListItem from "./ProductListItem.svelte";
 </script>
