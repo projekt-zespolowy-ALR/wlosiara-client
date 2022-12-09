@@ -1,18 +1,32 @@
 {
 	"name": "wlosiara-client",
-	"version": "0.0.1",
+	"version": "0.0.0",
 	"private": true,
 	"scripts": {
-		"dev": "vite dev",
-		"build": "vite build",
-		"preview": "vite preview",
-		"svelte-check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --fail-on-warnings --fail-on-hints",
-		"prettier-fix": "prettier --write .",
-		"prettier-check": "prettier --check .",
-		"eslint-fix": "eslint --fix .",
-		"eslint-check": "eslint --max-warnings 0 .",
-		"vitest-check": "vitest run --coverage"
+		"start": "NODE_ENV=production node ./build/index.js",
+		"build": "svelte-kit sync && vite build",
+		"preview": "svelte-kit sync && vite preview",
+		"dev": "svelte-kit sync && vite dev",
+		"prettier:fix": "prettier --write .",
+		"prettier:check": "prettier --check .",
+		"eslint:fix": "svelte-kit sync && eslint --fix .",
+		"eslint:check": "svelte-kit sync && eslint --max-warnings 0 .",
+		"typescript:check": "svelte-kit sync && tsc --noEmit",
+		"npm-audit:check": "npm audit --audit-level=low",
+		"svelte:check": "svelte-kit sync && svelte-check --fail-on-warnings --fail-on-hints",
+		"build:check": "svelte-kit sync && svelte-check --fail-on-warnings --fail-on-hints --tsconfig ./tsconfig.json",
+		"formatting:check": "prettier --check .",
+		"formatting:fix": "prettier --write .",
+		"vitest:check": "svelte-kit sync && vitest run --passWithNoTests --coverage"
 	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/projekt-zespolowy-ALR/wlosiara-client.git"
+	},
+	"bugs": {
+		"url": "https://github.com/projekt-zespolowy-ALR/wlosiara-client/issues"
+	},
+	"homepage": "https://github.com/projekt-zespolowy-ALR/wlosiara-client#readme",
 	"devDependencies": {
 		"@sveltejs/adapter-node": "^1.0.0-next.99",
 		"@sveltejs/kit": "next",
@@ -26,7 +40,9 @@
 		"eslint": "^8.16.0",
 		"eslint-config-prettier": "^8.3.0",
 		"eslint-plugin-jest-dom": "^4.0.2",
-		"eslint-plugin-svelte3": "^4.0.0",
+		"eslint-plugin-svelte": "^2.14.0",
+		"espree": "^9.4.1",
+		"globals": "^13.18.0",
 		"jsdom": "^20.0.1",
 		"prettier": "^2.6.2",
 		"prettier-plugin-svelte": "^2.7.0",
