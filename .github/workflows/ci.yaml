@@ -29,20 +29,8 @@ jobs:
       - name: Run eslint
         run: |
           npm run eslint:check
-  svelte-check:
-    name: Svelte check
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-      - name: Install dependencies
-        run: |
-          npm ci
-      - name: Run svelte:check
-        run: |
-          npm run svelte:check
   vitest-check:
-    name: Vitest check
+    name: Vite check
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -50,6 +38,50 @@ jobs:
       - name: Install dependencies
         run: |
           npm ci
-      - name: Run vitest
+      - name: Run Vite
         run: |
           npm run vitest:check
+      - name: Upload coverage report
+        uses: actions/upload-artifact@v3
+        with:
+          name: coverage_report
+          path: coverage_report
+  npm-audit-check:
+    name: NPM audit check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Run npm audit
+        run: |
+          npm run npm-audit:check
+  build-check:
+    name: Build check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Install dependencies
+        run: |
+          npm ci
+      - name: Run build
+        run: |
+          npm run build:check
+  build:
+    name: Build
+    needs: [eslint-check, vitest-check, build-check]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Install dependencies
+        run: |
+          npm ci
+      - name: Build
+        run: |
+          npm run build
+      - name: Upload build
+        uses: actions/upload-artifact@v3
+        with:
+          name: build
+          path: build

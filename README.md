@@ -79,10 +79,8 @@ npm run eslint:fix
 You should check if your code even "compiles". To do so, run:
 
 ```bash
-npm run svelte:check
+npm run build:check
 ```
-
-Despite the script name, it also checks for [TypeScript](https://www.typescriptlang.org) errors ([SvelteKit](https://kit.svelte.dev) does it under the hood).
 
 ### Run tests
 
