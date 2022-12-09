@@ -1,18 +1,25 @@
 <script type="ts">
-	import {AnswerStore} from "../../stores/answerStore";
-	import Question from "./Question.svelte";
-	import {quiz_all} from "./quiz-answers.js";
+	import QuestionPrompt from "./QuestionPrompt.svelte";
+	let currentQuestionId = 0;
+	import {quiz_all} from "./quiz-answers";
 	import QuizResults from "./QuizResults.svelte";
-	$: questionId = $AnswerStore.currentQuestion.questionId;
-	$: question = quiz_all[questionId];
-	const questionsLength = quiz_all.length;
+	import type {Question, QuestionId, AnswerToQuestion} from "./interfaces.d";
+
+	let userAnswers: Map<QuestionId, AnswerToQuestion> = new Map();
+
+	$: question = quiz_all[currentQuestionId] as Question;
+
+	const answer = (event: CustomEvent<AnswerToQuestion>) => {
+		const {detail: userAnswer} = event;
+		userAnswers.set(currentQuestionId, userAnswer);
+		++currentQuestionId;
+	};
 </script>
 
 <div>
-	{#if questionId < questionsLength}
-		<Question {question} />
-	{/if}
-	{#if questionId >= questionsLength}
-		<QuizResults />
+	{#if currentQuestionId < quiz_all.length}
+		<QuestionPrompt {question} on:answer={answer} />
+	{:else}
+		<QuizResults {userAnswers} />
 	{/if}
 </div>
