@@ -1,5 +1,5 @@
-<script type="ts">
-	import QuizPage from "./quiz/QuizPage.svelte";
+<script lang="ts">
+	import QuizPage from "$lib/features/quiz/QuizPage.svelte";
 </script>
 
 <div class="content">

@@ -1,7 +1,7 @@
-<script type="ts">
-	import ProductList from "../../components/products/ProductList.svelte";
-	import Footer from "../../components/Footer.svelte";
-	import Header from "../../components/header/Header.svelte";
+<script lang="ts">
+	import ProductList from "$lib/features/products/ProductList.svelte";
+	import Footer from "$lib/ui/footer/Footer.svelte";
+	import Header from "$lib/ui/header/Header.svelte";
 </script>
 
 <div class="wrapper">

@@ -1,7 +1,7 @@
-import type {Product} from "src/components/products/interfaces";
+import type {Product} from "./interfaces.d.js";
 import {writable, type Writable} from "svelte/store";
 
-export const ProductStore: Writable<Product[]> = writable([
+const productStore: Writable<Product[]> = writable([
 	{
 		id: "0",
 		name: "Krem",
@@ -38,3 +38,5 @@ export const ProductStore: Writable<Product[]> = writable([
 		image_url: "images/krem.png",
 	},
 ]);
+
+export {productStore};

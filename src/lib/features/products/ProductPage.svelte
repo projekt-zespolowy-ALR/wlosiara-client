@@ -1,5 +1,5 @@
-<script type="ts">
-	import type {Product} from "./interfaces";
+<script lang="ts">
+	import type {Product} from "./interfaces.d.js";
 
 	export let product: Product;
 	// const ingredientList = product.ingredients.reduce((curr, acc) => {

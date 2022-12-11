@@ -1,5 +1,5 @@
-<script type="ts">
-	import {ProductStore} from "../../stores/productStore";
+<script lang="ts">
+	import {productStore} from "./productStore.js";
 	import FilterMenu from "./FilterMenu.svelte";
 	import ProductListItem from "./ProductListItem.svelte";
 </script>
@@ -8,7 +8,7 @@
 	<h3>Baza produktów</h3>
 	<FilterMenu />
 	<ul>
-		{#each $ProductStore as product (product.id)}
+		{#each $productStore as product (product.id)}
 			<ProductListItem {product} />
 		{/each}
 	</ul>
