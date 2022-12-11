@@ -1,4 +1,4 @@
-<script type="ts"></script>
+<script lang="ts"></script>
 
 <div class="main-content">Main</div>
 

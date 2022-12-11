@@ -3,7 +3,7 @@
 	const dispatch = createEventDispatcher();
 
 	export let question: Question;
-	import type {Question, AnswerToQuestion} from "./interfaces.d";
+	import type {Question, AnswerToQuestion} from "./interfaces.d.js";
 
 	const handleGiveAnswer = (userAnswer: AnswerToQuestion) => {
 		dispatch("answer", userAnswer);

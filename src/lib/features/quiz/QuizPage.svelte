@@ -1,9 +1,9 @@
-<script type="ts">
+<script lang="ts">
 	import QuestionPrompt from "./QuestionPrompt.svelte";
 	let currentQuestionId = 0;
-	import {quiz_all} from "./quiz-answers";
+	import {quiz_all} from "./quiz-answers.js";
 	import QuizResults from "./QuizResults.svelte";
-	import type {Question, QuestionId, AnswerToQuestion} from "./interfaces.d";
+	import type {Question, QuestionId, AnswerToQuestion} from "./interfaces.d.js";
 
 	let userAnswers: Map<QuestionId, AnswerToQuestion> = new Map();
 

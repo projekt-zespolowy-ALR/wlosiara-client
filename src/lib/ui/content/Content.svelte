@@ -1,4 +1,4 @@
-<script type="ts">
+<script lang="ts">
 	import QuizPage from "$lib/features/quiz/QuizPage.svelte";
 </script>
 

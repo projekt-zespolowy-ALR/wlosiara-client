@@ -1,4 +1,4 @@
-import type {Question} from "./interfaces";
+import type {Question} from "./interfaces.d.js";
 
 export const quiz_anwen: Question[] = [
 	{

@@ -1,10 +1,10 @@
-<script type="ts">
+<script lang="ts">
 	import {page} from "$app/stores";
-	import {ProductStore} from "$lib/features/products/productStore";
+	import {productStore} from "$lib/features/products/productStore.js";
 	import ProductListItem from "$lib/features/products/ProductListItem.svelte";
 	import Footer from "$lib/ui/footer/Footer.svelte";
 	import Header from "$lib/ui/header/Header.svelte";
-	import type {Product} from "$lib/features/products/interfaces";
+	import type {Product} from "$lib/features/products/interfaces.d.js";
 
 	const urlSegments = $page.url.pathname.split("/");
 
@@ -17,7 +17,7 @@
 		image_url: "",
 	};
 	const product: Product =
-		$ProductStore.find((product: Product) => product.id == id) || exampleProduct;
+		$productStore.find((product: Product) => product.id == id) || exampleProduct;
 </script>
 
 <div class="wrapper">

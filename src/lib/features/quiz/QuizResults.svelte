@@ -1,5 +1,5 @@
-<script type="ts">
-	import type {QuestionId, AnswerToQuestion, HairType} from "./interfaces.d";
+<script lang="ts">
+	import type {QuestionId, AnswerToQuestion, HairType} from "./interfaces.d.js";
 
 	export let userAnswers: Map<QuestionId, AnswerToQuestion>;
 
