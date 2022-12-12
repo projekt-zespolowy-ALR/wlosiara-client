@@ -12,7 +12,7 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		background-color: white;
+		background-color: var(--gray-8);
 	}
 	.logo {
 		height: 50px;
