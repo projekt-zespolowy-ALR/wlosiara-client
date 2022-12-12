@@ -20,17 +20,6 @@
 		$productStore.find((product: Product) => product.id == id) || exampleProduct;
 </script>
 
-<div class="wrapper">
-	<Header />
-	<ProductListItem {product} />
-	<Footer />
-</div>
-
-<style>
-	.wrapper {
-		height: 95vh;
-		margin: 0;
-		font-family: "Poppins", sans-serif;
-		background-color: #f9f9f9;
-	}
-</style>
+<Header />
+<ProductListItem {product} />
+<Footer />
