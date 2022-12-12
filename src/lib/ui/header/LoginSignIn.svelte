@@ -9,12 +9,12 @@
 <style>
 	a {
 		text-decoration: none;
-		color: black;
+		color: var(--gray-0);
 		font-size: 12px;
 	}
 
 	i {
-		color: #6233c6;
+		color: var(--primary-color-3);
 		font-size: 16px;
 	}
 </style>

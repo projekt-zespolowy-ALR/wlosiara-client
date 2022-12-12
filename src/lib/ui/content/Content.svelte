@@ -8,6 +8,6 @@
 
 <style>
 	.content {
-		background-color: #f9f9f9;
+		background-color: var(--gray-7);
 	}
 </style>
