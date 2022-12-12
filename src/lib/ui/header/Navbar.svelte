@@ -26,7 +26,7 @@
 		width: 100%;
 		padding: 10px 0;
 		margin-bottom: 0;
-		background-color: white;
+		background-color: var(--gray-8);
 		border-bottom-left-radius: 3%;
 		border-bottom-right-radius: 3%;
 		box-shadow: 3px 3px 5px lightgray;
@@ -38,7 +38,7 @@
 	}
 
 	i {
-		color: #6233c6;
+		color: var(--primary-color-3);
 		font-size: 16px;
 	}
 </style>
