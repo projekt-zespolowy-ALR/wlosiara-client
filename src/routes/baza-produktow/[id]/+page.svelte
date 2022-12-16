@@ -20,7 +20,7 @@
 		price: 0,
 		subcategory: "",
 		capacity: "",
-		produktuctUrl: ""
+		produktuctUrl: "",
 	};
 	const product: Product =
 		$productStore.find((product: Product) => product.id == id) || exampleProduct;
