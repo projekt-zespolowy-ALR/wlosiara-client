@@ -3,7 +3,7 @@
 <li class="login-sign-in">
 	<i class="fa-solid fa-user" />
 	<a href="/login">Logowanie </a>|
-	<a href="/sign-in"> Rejestracja</a>
+	<a href="/register"> Rejestracja</a>
 </li>
 
 <style>
