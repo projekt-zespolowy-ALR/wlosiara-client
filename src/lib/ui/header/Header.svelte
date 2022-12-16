@@ -3,7 +3,11 @@
 </script>
 
 <div class="header">
-	<img src="images/logo.jpg" alt="włosiara.pl" class="logo" />
+	<img
+		src="https://imagizer.imageshack.com/img922/4453/xLqK5G.png"
+		alt="włosiara.pl"
+		class="logo"
+	/>
 	<Navbar />
 </div>
 

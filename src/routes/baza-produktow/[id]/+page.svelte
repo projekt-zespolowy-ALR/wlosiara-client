@@ -1,10 +1,10 @@
 <script lang="ts">
 	import {page} from "$app/stores";
 	import {productStore} from "$lib/features/products/productStore.js";
-	import ProductListItem from "$lib/features/products/ProductListItem.svelte";
 	import Footer from "$lib/ui/footer/Footer.svelte";
 	import Header from "$lib/ui/header/Header.svelte";
 	import type {Product} from "$lib/features/products/interfaces.d.js";
+	import ProductPage from "$lib/features/products/ProductPage.svelte";
 
 	const urlSegments = $page.url.pathname.split("/");
 
@@ -21,5 +21,5 @@
 </script>
 
 <Header />
-<ProductListItem {product} />
+<ProductPage {product} />
 <Footer />
