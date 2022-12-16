@@ -14,7 +14,13 @@
 		name: "No name",
 		category: "No category",
 		description: "No description",
-		image_url: "",
+		imageUrl: "",
+		brand: "",
+		ingredients: "",
+		price: 0,
+		subcategory: "",
+		capacity: "",
+		produktuctUrl: ""
 	};
 	const product: Product =
 		$productStore.find((product: Product) => product.id == id) || exampleProduct;
