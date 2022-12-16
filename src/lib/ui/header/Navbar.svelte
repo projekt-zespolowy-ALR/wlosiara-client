@@ -4,16 +4,16 @@
 
 <ul class="navbar">
 	<li>
-		<a href="/a">
+		<a href="/baza-produktow">
 			<i class="fa-solid fa-house" />
 			Strona główna</a
 		>
 	</li>
-	<li><a href="/b">Dopasuj pielęgnację</a></li>
-	<li><a href="/c">Quiz</a></li>
+	<li><a href="/quiz">Dopasuj pielęgnację</a></li>
+	<li><a href="/quiz">Quiz</a></li>
 	<li><a href="/baza-produktow">Baza produktów</a></li>
-	<li><a href="/e">Aktualności</a></li>
-	<li><a href="/f">Baza wiedzy</a></li>
+	<li><a href="/baza-produktow">Aktualności</a></li>
+	<li><a href="/baza-produktow">Baza wiedzy</a></li>
 	<LoginSignIn />
 </ul>
 
