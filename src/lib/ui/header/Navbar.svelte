@@ -12,8 +12,8 @@
 	<li><a href="/quiz">Dopasuj pielęgnację</a></li>
 	<li><a href="/quiz">Quiz</a></li>
 	<li><a href="/baza-produktow">Baza produktów</a></li>
-	<li><a href="/baza-produktow">Aktualności</a></li>
-	<li><a href="/baza-produktow">Baza wiedzy</a></li>
+	<li><a href="/baza-wiedzy">Aktualności</a></li>
+	<li><a href="/baza-wiedzy">Baza wiedzy</a></li>
 	<LoginSignIn />
 </ul>
 
