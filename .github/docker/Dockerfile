@@ -1,13 +1,12 @@
 FROM node:19-alpine as builder
 
+RUN adduser -D wlosiara && \
+	mkdir -p /home/wlosiara/app && \
+	chown -R wlosiara:wlosiara /home/wlosiara/app
 
-RUN adduser -D node && \
-	mkdir -p /home/node/app && \
-	chown -R node:node /home/node/app
+USER wlosiara
 
-USER node
-
-WORKDIR /home/node/app
+WORKDIR /home/wlosiara/app
 
 COPY package.json package-lock.json ./
 
@@ -19,13 +18,13 @@ RUN npm run build
 
 FROM node:19-alpine
 
-RUN adduser -D node && \
-	mkdir -p /home/node/app && \
-	chown -R node:node /home/node/app
+RUN adduser -D wlosiara && \
+	mkdir -p /home/wlosiara/app && \
+	chown -R wlosiara:wlosiara /home/wlosiara/app
 
-USER node
+USER wlosiara
 
-WORKDIR /home/node/app
+WORKDIR /home/wlosiara/app
 
 COPY package.json package-lock.json ./
 
