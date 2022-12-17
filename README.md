@@ -74,6 +74,15 @@ To automatically fix linting errors (if possible), run:
 npm run eslint:fix
 ```
 
+### Check Dockerfile linting
+
+The Dockerfile is linted using [dockerlinter](https://www.npmjs.com/package/dockerlinter).
+To check if your Dockerfile is linted correctly, run:
+
+```bash
+npm run dockerlinter:check
+```
+
 ### Check syntax and types
 
 You should check if your code even "compiles". To do so, run:
