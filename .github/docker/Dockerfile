@@ -25,7 +25,7 @@ RUN adduser -D node && \
 
 USER node
 
-WORKDIR /home/node/app
+# WORKDIR /home/node/app
 
 COPY package.json package-lock.json ./
 
