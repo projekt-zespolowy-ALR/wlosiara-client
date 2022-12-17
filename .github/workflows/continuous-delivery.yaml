@@ -106,12 +106,12 @@ jobs:
         with:
           username: ${{secrets.DOCKER_HUB_USERNAME}}
           password: ${{secrets.DOCKER_HUB_ACCESS_TOKEN}}
-    - name: Publish to Docker Hub with given tag
-      run: |
-        docker build -f ./.github/docker/Dockerfile -t ${{secrets.DOCKER_IMAGE_NAME}}:${{github.event.release.tag_name}} .
-        docker push ${{secrets.DOCKER_IMAGE_NAME}}:${{github.event.release.tag_name}}
-    - name: Publish to Docker Hub as latest
-      if: ${{github.event.release.target_commitish == 'prod'}}
-      run: |
-        docker tag ${{secrets.DOCKER_IMAGE_NAME}}:${{github.event.release.tag_name}} ${{secrets.DOCKER_IMAGE_NAME}}:latest
-        docker push ${{secrets.DOCKER_IMAGE_NAME}}:latest
+      - name: Publish to Docker Hub with given tag
+        run: |
+          docker build -f ./.github/docker/Dockerfile -t ${{secrets.DOCKER_IMAGE_NAME}}:${{github.event.release.tag_name}} .
+          docker push ${{secrets.DOCKER_IMAGE_NAME}}:${{github.event.release.tag_name}}
+      - name: Publish to Docker Hub as latest
+        if: ${{github.event.release.target_commitish == 'prod'}}
+        run: |
+          docker tag ${{secrets.DOCKER_IMAGE_NAME}}:${{github.event.release.tag_name}} ${{secrets.DOCKER_IMAGE_NAME}}:latest
+          docker push ${{secrets.DOCKER_IMAGE_NAME}}:latest
