@@ -125,8 +125,3 @@ jobs:
         run: |
           docker build -f ./.github/docker/Dockerfile -t ${{secrets.DOCKER_IMAGE_NAME}}:${{github.event.release.tag_name}} .
           docker push ${{secrets.DOCKER_IMAGE_NAME}}:${{github.event.release.tag_name}}
-      - name: Publish to Docker Hub as latest
-        if: ${{github.event.release.target_commitish == 'main'}}
-        run: |
-          docker tag ${{secrets.DOCKER_IMAGE_NAME}}:${{github.event.release.tag_name}} ${{secrets.DOCKER_IMAGE_NAME}}:latest
-          docker push ${{secrets.DOCKER_IMAGE_NAME}}:latest
