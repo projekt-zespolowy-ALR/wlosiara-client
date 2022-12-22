@@ -1,7 +1,15 @@
 <script lang="ts">
+	import {onMount} from "svelte";
 	import type {BlogEntry} from "./interfaces.d.js";
 
 	export let post: BlogEntry;
+
+	onMount(async () => {
+		const div = document.getElementById("content");
+		if (div) {
+			div.innerHTML = post.text;
+		}
+	});
 </script>
 
 <div class="page">
@@ -10,7 +18,7 @@
 		<img src={post.imageUrl} alt="" srcset="" />
 		<h3>{post.title}</h3>
 		<p>{post.author}</p>
-		<p>{post.text}</p>
+		<div id="content" />
 	</div>
 </div>
 
@@ -21,11 +29,15 @@
 		margin: 40px;
 		background-color: white;
 		padding: 25px;
+		text-align: justify;
 	}
 	.post {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+		padding: 15px;
+		max-width: 1200px;
+		margin: 0px auto;
 	}
 	img {
 		height: 400px;
@@ -35,5 +47,9 @@
 	.back {
 		color: var(--primary-color-3);
 		font-size: 30px;
+	}
+
+	#content {
+		margin: 30px;
 	}
 </style>
