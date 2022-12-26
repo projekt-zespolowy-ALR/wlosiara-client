@@ -5,6 +5,7 @@
 
 <div class="product-list-page">
 	<h3>Baza wiedzy</h3>
+	<a href="/baza-wiedzy/add"><button>Dodaj post</button></a>
 	<ul>
 		{#each $postStore as post (post.id)}
 			<PostListItem {post} />
