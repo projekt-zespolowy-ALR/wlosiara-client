@@ -4,10 +4,16 @@
 
 	const initialValues = {title: "", author: "", imageUrl: "", text: "", id: "-1"};
 
-	const onSubmit = (values: BlogEntry, {setSubmitting}) => {
+	// const onSubmit = (values: BlogEntry, {setSubmitting}) => {
+	// 	setTimeout(() => {
+	// 		alert(JSON.stringify(values, null, 2));
+	// 		setSubmitting(false);
+	// 	}, 400);
+	// };
+	const onSubmit = (values: BlogEntry) => {
 		setTimeout(() => {
 			alert(JSON.stringify(values, null, 2));
-			setSubmitting(false);
+			// setSubmitting(false);
 		}, 400);
 	};
 </script>
