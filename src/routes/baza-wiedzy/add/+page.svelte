@@ -5,5 +5,5 @@
 </script>
 
 <Header />
-<PostForm/>
+<PostForm />
 <Footer />
