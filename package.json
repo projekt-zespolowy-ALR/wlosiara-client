@@ -17,8 +17,7 @@
 		"build:check": "svelte-kit sync && svelte-check --fail-on-warnings --fail-on-hints --tsconfig ./tsconfig.json",
 		"formatting:check": "prettier --check .",
 		"formatting:fix": "prettier --write .",
-		"vitest:check": "svelte-kit sync && vitest run --passWithNoTests --coverage",
-		"dockerlinter:check": "dockerlinter -f ./.github/docker/Dockerfile -e warning"
+		"vitest:check": "svelte-kit sync && vitest run --passWithNoTests --coverage"
 	},
 	"repository": {
 		"type": "git",
@@ -37,7 +36,6 @@
 		"@typescript-eslint/parser": "^5.46.0",
 		"@vitest/coverage-c8": "^0.26.2",
 		"c8": "^7.12.0",
-		"dockerlinter": "^1.2.2",
 		"eslint": "^8.30.0",
 		"eslint-config-prettier": "^8.3.0",
 		"eslint-plugin-svelte": "^2.14.1",
@@ -50,7 +48,9 @@
 		"svelte": "^3.55.0",
 		"svelte-check": "^3.0.1",
 		"svelte-preprocess": "^5.0.0",
+		"sveltik": "^0.1.16",
 		"typescript": "^4.7.4",
+		"uuid": "^9.0.0",
 		"vite": "^3.2.1",
 		"vitest": "^0.25.7"
 	},
