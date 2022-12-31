@@ -17,7 +17,7 @@
 		console.log(values);
 
 		const newPost = {
-			...values
+			...values,
 		};
 
 		postStore.update((currentPosts) => {

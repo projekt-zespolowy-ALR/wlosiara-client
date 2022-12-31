@@ -1,9 +1,38 @@
-<script></script>
+<script>
+	import {onMount} from "svelte";
+	import auth from "../../../authService.js";
+	import {isAuthenticated, user} from "../../../authStore";
+
+	let auth0Client;
+
+	onMount(async () => {
+		auth0Client = await auth.createClient();
+
+		isAuthenticated.set(await auth0Client.isAuthenticated());
+		user.set(await auth0Client.getUser());
+	});
+
+	function login() {
+		auth.loginWithPopup(auth0Client);
+	}
+
+	async function logout() {
+		auth.logout(auth0Client);
+		isAuthenticated.set(await auth0Client.isAuthenticated());
+	}
+</script>
 
 <li class="login-sign-in">
 	<i class="fa-solid fa-user" />
-	<a href="/login">Logowanie </a>|
-	<a href="/register"> Rejestracja</a>
+	{#if $isAuthenticated}
+		<li class="nav-item">
+			<a class="nav-link" href="/#" on:click={logout}>Log Out</a>
+		</li>
+	{:else}
+		<li class="nav-item">
+			<a class="nav-link" href="/#" on:click={login}>Log In</a>
+		</li>
+	{/if}
 </li>
 
 <style>
