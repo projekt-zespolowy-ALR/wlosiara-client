@@ -1,11 +1,14 @@
 <script lang="ts">
 	import {postStore} from "./postStore.js";
 	import PostListItem from "./PostListItem.svelte";
+	import {isAuthenticated, user} from "../../../authStore";
 </script>
 
 <div class="product-list-page">
 	<h3>Baza wiedzy</h3>
-	<a href="/baza-wiedzy/add"><button>Dodaj post</button></a>
+	{#if $isAuthenticated}
+		<a href="/baza-wiedzy/add"><button>Dodaj post</button></a>
+	{/if}
 	<ul>
 		{#each $postStore as post (post.id)}
 			<PostListItem {post} />

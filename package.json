@@ -54,5 +54,8 @@
 		"vite": "^3.2.1",
 		"vitest": "^0.25.7"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"@auth0/auth0-spa-js": "^2.0.1"
+	}
 }
