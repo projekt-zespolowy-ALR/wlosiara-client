@@ -9,7 +9,7 @@
 		author: "",
 		imageUrl: "",
 		text: "",
-		id: "-1",
+		id: uuidv4(),
 		comments: [],
 	};
 
@@ -17,8 +17,7 @@
 		console.log(values);
 
 		const newPost = {
-			...values,
-			id: uuidv4(),
+			...values
 		};
 
 		postStore.update((currentPosts) => {
