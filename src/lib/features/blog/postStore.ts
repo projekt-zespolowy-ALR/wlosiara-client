@@ -1,6 +1,7 @@
 import {writable, type Writable} from "svelte/store";
 import {examplePostText} from "./examplePostText.js";
 import {BlogEntry} from "./interfaces.js";
+import {postText} from "./postText.js";
 
 const postStore: Writable<BlogEntry[]> = writable([
 	{
@@ -32,9 +33,9 @@ const postStore: Writable<BlogEntry[]> = writable([
 	},
 	{
 		id: "3",
-		title: "Jak dbać o włosy? pt.3",
+		title: "5 porad jak dbać o włosy wysokoporowate",
 		author: "Anna Nowak",
-		text: "Nie wiem.",
+		text: postText,
 		imageUrl:
 			"https://content.latest-hairstyles.com/wp-content/uploads/ombre-hair-colors-for-women.jpg",
 		comments: [],
