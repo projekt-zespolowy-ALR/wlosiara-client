@@ -1,20 +1,21 @@
 <script lang="ts">
-	import { onMount } from "svelte";
+	import {onMount} from "svelte";
 	import {productStore} from "./productStore.js";
 	import FilterMenu from "./FilterMenu.svelte";
 	import ProductListItem from "./ProductListItem.svelte";
 
 	onMount(async () => {
 		fetch("https://api.wlosiara.pl/v1/products")
-		.then(response => response.json())
-		.then(data => {
+			.then((response) => response.json())
+			.then((data) => {
 				console.log(data);
-			// apiData.set(data);
-		}).catch(error => {
-			console.log(error);
-			return [];
-		});
-		});
+				// apiData.set(data);
+			})
+			.catch((error) => {
+				console.log(error);
+				return [];
+			});
+	});
 </script>
 
 <div class="product-list-page">
