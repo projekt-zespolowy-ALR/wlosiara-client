@@ -11,7 +11,6 @@
 		<div class="short-text">
 			<p>{product.name}</p>
 			<p>{product.category}</p>
-			<p>{product.subcategory}</p>
 			<p>{product.brand}</p>
 			<p>{product.price}</p>
 			<p>{product.capacity}</p>
