@@ -22,8 +22,49 @@
 		capacity: "",
 		produktuctUrl: "",
 	};
-	const product: Product =
-		$productStore.find((product: Product) => product.id == id) || exampleProduct;
+	const productOrNull: Product | null =
+		$productStore.find((product: Product) => product.id == id) || null;
+	let product: Product;
+	if (productOrNull) {
+		product = productOrNull;
+	} else {
+		var myHeaders = new Headers();
+		myHeaders.append("Authorization", "Bearer 4dm1nT0k3n");
+		myHeaders.append("Content-Type", "application/json");
+
+		const requestOptions: RequestInit = {
+			method: "GET",
+			headers: myHeaders,
+			body: null,
+			redirect: "follow",
+		};
+
+		fetch("https://api.wlosiara.pl/v1/detailed-products/" + id, requestOptions)
+			.then((response) => response.json())
+			.then((result) => {
+				console.log(result);
+				if (result.data) {
+					const prod = result.data;
+					const productFetch: Product = {
+						id: prod.id,
+						name: prod.name,
+						brand: "brand",
+						ingredients: "ingredients",
+						price: prod.price,
+						description: "description",
+						imageUrl: prod.imageUrl,
+						category: prod.categories.name,
+						subcategory: "subcategory",
+						capacity: prod.volume,
+						produktuctUrl: prod.referenceUrl,
+					};
+					product = productFetch;
+				} else {
+					product = exampleProduct;
+				}
+			})
+			.catch((error) => console.log("error", error));
+	}
 </script>
 
 <Header />
