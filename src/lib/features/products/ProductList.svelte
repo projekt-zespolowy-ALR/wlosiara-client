@@ -21,22 +21,36 @@
 		fetch("https://api.wlosiara.pl/v1/detailed-products", requestOptions)
 			.then((response) => response.json())
 			.then((result) => {
-				console.log(result);
 				if (result.data) {
 					const products = result.data.map((prod: any) => {
+						const dataSource = prod.inDataSources;
+
+						let price;
+						let referenceUrl;
+						let imageUrl;
+						if (dataSource && dataSource[0]) {
+							price = Number.parseFloat(dataSource[0].price);
+							referenceUrl = dataSource[0].referenceUrl;
+							imageUrl = dataSource[0].imageUrl;
+						} else {
+							price = 0;
+							referenceUrl = "";
+							imageUrl = "";
+						}
+
 						const product: Product = {
 							id: prod.id,
 							name: prod.name,
 							brand: "brand",
 							ingredients: "ingredients",
-							price: prod.price,
+							price: price,
 							description: "description",
-							imageUrl: prod.imageUrl,
-							category: prod.categories.name,
-							subcategory: "subcategory",
+							imageUrl: imageUrl,
+							category: prod.categories[0]?.name,
 							capacity: prod.volume,
-							produktuctUrl: prod.referenceUrl,
+							produktuctUrl: referenceUrl,
 						};
+
 						return product;
 					});
 					if (products.length > 0) {

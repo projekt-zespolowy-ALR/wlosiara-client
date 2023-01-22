@@ -15,7 +15,6 @@ export interface Product {
 	description: string;
 	imageUrl: string;
 	category: string;
-	subcategory: string;
 	capacity: string;
 	produktuctUrl: string;
 }
