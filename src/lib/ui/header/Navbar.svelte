@@ -4,7 +4,7 @@
 
 <ul class="navbar">
 	<li>
-		<a href="/baza-produktow">
+		<a href="/">
 			<i class="fa-solid fa-house" />
 			Strona główna</a
 		>
