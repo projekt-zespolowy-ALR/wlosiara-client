@@ -1,9 +1,9 @@
 <script lang="ts">
-	import QuizPage from "$lib/features/quiz/QuizPage.svelte";
+	import Main from "../main/Main.svelte";
 </script>
 
 <div class="content">
-	<QuizPage />
+	<Main />
 </div>
 
 <style>
