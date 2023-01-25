@@ -17,6 +17,10 @@
 	a {
 		text-decoration: none;
 		color: black;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
 	}
 	li {
 		box-shadow: 3px 3px 5px lightgray;
@@ -24,11 +28,13 @@
 		margin: 20px;
 		background-color: white;
 		padding: 10px 20px;
+		width: 250px;
 	}
 	img {
 		height: 200px;
 		border-top-left-radius: 5%;
 		border-top-right-radius: 5%;
+		margin-bottom: 10px;
 	}
 	li .item-info {
 		padding: 0 10px;
