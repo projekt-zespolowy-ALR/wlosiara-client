@@ -1,11 +1,10 @@
-import { fireEvent, render, screen } from "@testing-library/svelte";
+import {fireEvent, render, screen} from "@testing-library/svelte";
 import ProductsListPage from "../src/routes/baza-produktow/+page.svelte";
 import {describe, expect, test} from "vitest";
 async function waitABit(time: number) {
 	return new Promise((resolve) => setTimeout(resolve, time));
 }
 describe("Product page", () => {
-
 	test("products list page exists", () => {
 		render(ProductsListPage);
 		expect(() => {
@@ -19,7 +18,7 @@ describe("Product page", () => {
 		await waitABit(3000);
 		const products: NodeListOf<Element> | NodeList | null = document.querySelectorAll(".item-info");
 		expect(() => {
-				expect(products).not.toBeNull();
+			expect(products).not.toBeNull();
 		}).not.toThrow();
 	});
 	test("filters component is visible", async () => {
@@ -37,9 +36,7 @@ describe("Product page", () => {
 		await waitABit(2500);
 
 		expect(() => {
-			fireEvent.click(
-				screen.getAllByText("Moj pierwszy produkt")[0]
-			);
+			fireEvent.click(screen.getAllByText("Moj pierwszy produkt")[0]);
 		}).not.toThrow();
 	}, 10000);
 });

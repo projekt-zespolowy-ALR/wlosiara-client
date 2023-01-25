@@ -17,6 +17,7 @@
 		"build:check": "svelte-kit sync && svelte-check --fail-on-warnings --fail-on-hints --tsconfig ./tsconfig.json",
 		"formatting:check": "prettier --check .",
 		"formatting:fix": "prettier --write .",
+		"playwright:check": "svelte-kit sync && vite build && playwright test --pass-with-no-tests '.+\\.e2e\\.test\\.[ts|js|cjs|mjs]'",
 		"vitest:check": "svelte-kit sync && vitest run --passWithNoTests --coverage",
 		"hadolint:check": "hadolint --failure-threshold=none Dockerfile"
 	},
@@ -29,6 +30,7 @@
 	},
 	"homepage": "https://github.com/projekt-zespolowy-ALR/wlosiara-client#readme",
 	"devDependencies": {
+		"@playwright/test": "^1.28.0",
 		"@sveltejs/adapter-node": "^1.0.0-next.99",
 		"@sveltejs/kit": "next",
 		"@sveltejs/vite-plugin-svelte": "^1.1.0",
@@ -43,6 +45,7 @@
 		"espree": "^9.4.1",
 		"globals": "^13.18.0",
 		"jsdom": "^20.0.3",
+		"playwright": "^1.28.0",
 		"prettier": "^2.8.1",
 		"prettier-plugin-svelte": "^2.7.0",
 		"sass": "^1.57.0",
