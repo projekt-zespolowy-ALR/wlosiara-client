@@ -3,6 +3,9 @@
 
 <div class="page">
 	<h3>Regulamin serwisu włosiara.pl</h3>
+	<p>
+		nie
+	</p>
 </div>
 
 <style>

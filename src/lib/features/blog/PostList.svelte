@@ -24,6 +24,7 @@
 </div>
 
 <style>
+
 	.product-list-page {
 		background-color: #f9f9f9;
 		min-height: 80vh;
@@ -49,6 +50,7 @@
 		height: 290px;
 		padding: 10px 20px;
 	}
+
 	li {
 		box-shadow: 3px 3px 5px lightgray;
 		border-radius: 5%;
@@ -81,4 +83,5 @@
 		border-color: var(--gray-3);
 		transition: 0.3s;
 	}
+
 </style>

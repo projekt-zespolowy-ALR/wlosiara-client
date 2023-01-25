@@ -3,6 +3,9 @@
 
 <div class="page">
 	<h3>Jak to działa?</h3>
+	<p>
+		Wypełnij quiz i dowiedz się jaka jest Twoja porowatość włosów! Dobranie dalszej pielęgnacji będzie znacznie prostsze.
+	</p>
 </div>
 
 <style>

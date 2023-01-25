@@ -3,6 +3,14 @@
 
 <div class="page">
 	<h3>O nas</h3>
+	<p>
+		Serwis Wlosiara.pl został stworzony przez trójkę dzielnych studentów Informatyki Praktycznej na Uniwersytecie Gdańskim:
+		- Rafał Majewski
+		- Ludwika Malinowska
+		- Angelika Prass
+
+		w ramach projektu zaliczeniowego.
+	</p>
 </div>
 
 <style>
