@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6ddf5ad4-1730-4d07-9705-8be3b31feb3f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/features/quiz/QuestionPrompt.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/features/quiz/QuestionPrompt.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/features/quiz/QuizPage.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/features/quiz/QuizPage.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/features/quiz/QuizResults.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/features/quiz/QuizResults.svelte" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,21 +31,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "prettierjs.PrettierConfiguration.Package": "D:\\Lucy\\Lusia\\UG\\Semestr-5\\ProjektZespolowy\\wlosiara-client\\node_modules\\prettier",
-    "ts.external.directory.path": "/home/angelika/Documents/studia/ProjektZespolowy/wlosiara-client/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;D:\\Lucy\\Lusia\\UG\\Semestr-5\\ProjektZespolowy\\wlosiara-client\\node_modules\\prettier&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/home/angelika/Documents/studia/ProjektZespolowy/wlosiara-client/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Vitest.Product page">
     <configuration name="Landing page" type="JavaScriptTestRunnerVitest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
@@ -124,6 +127,7 @@
       <workItem from="1672502216715" duration="2898000" />
       <workItem from="1673296286521" duration="108000" />
       <workItem from="1674604395581" duration="2493000" />
+      <workItem from="1674639294468" duration="472000" />
     </task>
     <servers />
   </component>

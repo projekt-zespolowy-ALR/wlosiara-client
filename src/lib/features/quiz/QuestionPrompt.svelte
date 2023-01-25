@@ -20,7 +20,38 @@
 </div>
 
 <style>
+	.question {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		background-color: var(--gray-8);
+		border: 1px solid var(--gray-6);
+		border-radius: 25px;
+		padding: 10px 10px 30px 10px;
+		width: 70%;
+		height: 400px;
+	}
+
 	.question p {
+		font-size: 20px;
+		margin-bottom: 40px;
+	}
+
+	.question button {
 		cursor: pointer;
+		line-height: 30px;
+		width: 70%;
+		margin-top: 10px;
+		border-radius: 10px;
+		border: 1px solid var(--gray-6);
+		background-color: var(--gray-8);
+		padding: 5px;
+	}
+
+	.question button:hover {
+		background-color: var(--primary-color-3);
+		color: var(--gray-8);
+		transition: 0.3s;
 	}
 </style>

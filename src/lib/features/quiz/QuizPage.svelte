@@ -16,10 +16,19 @@
 	};
 </script>
 
-<div>
+<div class="quiz-page">
 	{#if currentQuestionId < quiz_all.length}
 		<QuestionPrompt {question} on:answer={answer} />
 	{:else}
 		<QuizResults {userAnswers} />
 	{/if}
 </div>
+
+<style>
+	.quiz-page {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+	}
+</style>
