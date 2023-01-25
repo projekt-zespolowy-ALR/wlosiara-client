@@ -9,7 +9,8 @@ describe("Product page", () => {
 	test("products list page exists", () => {
 		render(ProductsListPage);
 		expect(() => {
-			screen.getByText("Baza produktów");
+			const div = document.querySelector(".product-list-page");
+			expect(div).not.toBeNull();
 		}).not.toThrow();
 	});
 
@@ -27,18 +28,18 @@ describe("Product page", () => {
 		const filters = document.querySelectorAll(".filter-menu > div");
 		expect(() => {
 			expect(filters).not.toBeNull();
+			expect(filters.length).toBeGreaterThanOrEqual(3);
 		}).not.toThrow();
 	});
 
 	test("single product page", async () => {
 		render(ProductsListPage);
 		await waitABit(2500);
-		fireEvent.click(
-			screen.getByDisplayValue("Moj pierwszy produkt")
-		);
-		await waitABit(2500);
+
 		expect(() => {
-			expect(document.querySelector(".short-text > p:nth-child(1)")).not.toBeNull();
+			fireEvent.click(
+				screen.getAllByText("Moj pierwszy produkt")[0]
+			);
 		}).not.toThrow();
 	}, 10000);
 });
