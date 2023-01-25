@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from "@testing-library/svelte";
+import {fireEvent, render, screen} from "@testing-library/svelte";
 import QuizPage from "../src/routes/+page.svelte";
 import {describe, expect, test} from "vitest";
 
