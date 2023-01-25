@@ -9,7 +9,7 @@
 			Strona główna</a
 		>
 	</li>
-	<li><a href="/quiz">Dopasuj pielęgnację</a></li>
+<!--	<li><a href="/quiz">Dopasuj pielęgnację</a></li>-->
 	<li><a href="/quiz">Quiz</a></li>
 	<li><a href="/baza-produktow">Baza produktów</a></li>
 	<li><a href="/baza-wiedzy">Aktualności</a></li>
