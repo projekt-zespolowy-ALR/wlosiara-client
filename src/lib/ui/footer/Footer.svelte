@@ -2,11 +2,11 @@
 
 <footer>
 	<div class="footer-links">
-		<a href="/">FAQ</a>
-		<a href="/">Jak to działa?</a>
-		<a href="/">O nas</a>
-		<a href="/">Kontakt</a>
-		<a href="/">Regulamin</a>
+		<a href="/faq">FAQ</a>
+		<a href="/jak-to-dziala">Jak to działa?</a>
+		<a href="/about">O nas</a>
+		<a href="/kontakt">Kontakt</a>
+		<a href="/regulamin">Regulamin</a>
 	</div>
 
 	<p class="copyright">Copyright 2022. Wszystkie prawa zastrzeżone.</p>
