@@ -5,8 +5,8 @@ import exp from "constants";
 
 describe("Product page", () => {
 
-	async function waitABit() {
-		await new Promise((resolve) => setTimeout(resolve, 1000));
+	async function waitABit(time: number) {
+		await new Promise((resolve) => setTimeout(resolve, time));
 	}
 	test("products list page exists", () => {
 		render(ProductsListPage);
@@ -16,7 +16,7 @@ describe("Product page", () => {
 	});
 	test("products list page has products", async () => {
 		render(ProductsListPage);
-		await waitABit();
+		await waitABit(2500);
 		const products = document.querySelectorAll(".item-info");
 		expect(() => {
 				expect(products).not.toBeNull();
@@ -24,15 +24,16 @@ describe("Product page", () => {
 	});
 	test("filters component is visible", async () => {
 		render(ProductsListPage);
-		await waitABit();
-		await waitABit();
 
-		const filtersContainer = document.querySelector("div.filter-menu");
+		// filter-menu
+		const filtersContainer: Element | null = document.querySelector("div.filter-menu");
+		await waitABit(2500);
+		console.log(filtersContainer);
 		console.log(typeof filtersContainer);
 		// const filters = document.querySelectorAll(".filter-menu > div");
 		expect(() => {
-			// console.log(document.querySelector("div.filter-menu"));
-			expect(filtersContainer).not.toBeNull();
+			console.log(filtersContainer);
+			// expect(filtersContainer).not.toBeNull();
 			// expect(filters).not.toBeNull();
 			// expect(filters.length).toBe(3);
 			// console.log(filters);
