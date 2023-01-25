@@ -29,6 +29,26 @@
 	).type;
 </script>
 
-<div>
-	<p>Twój typ włosów to: {maxType}</p>
+<div class="answer">
+	<p>Twój typ włosów to: <span>{maxType}</span></p>
 </div>
+
+<style>
+	.answer {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		background-color: var(--gray-8);
+		border: 1px solid var(--gray-6);
+		border-radius: 25px;
+		padding: 10px 10px 30px 10px;
+		width: 70%;
+		height: 400px;
+	}
+
+	.answer span {
+		font-weight: bold;
+		color: var(--primary-color-3);
+	}
+</style>
