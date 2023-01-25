@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6ddf5ad4-1730-4d07-9705-8be3b31feb3f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/ui/header/Navbar.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/ui/header/Navbar.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/product_page.unit.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/test/product_page.unit.test.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
