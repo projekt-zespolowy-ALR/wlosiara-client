@@ -6,7 +6,9 @@
 
 <li>
 	<a href="/baza-produktow/{product.id}">
-		<img src={product.imageUrl} alt={product.name} />
+		<div class="img">
+			<img src={product.inDataSources[0].imageUrl} alt={product.name} />
+		</div>
 		<div class="item-info">
 			<p>{product.name}</p>
 		</div>
@@ -17,6 +19,8 @@
 	a {
 		text-decoration: none;
 		color: black;
+		display: flex;
+		flex-direction: column;
 	}
 	li {
 		box-shadow: 3px 3px 5px lightgray;
@@ -25,10 +29,16 @@
 		background-color: white;
 		padding: 10px 20px;
 	}
-	img {
+	.img {
 		height: 200px;
 		border-top-left-radius: 5%;
 		border-top-right-radius: 5%;
+	}
+
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
 	}
 	li .item-info {
 		padding: 0 10px;

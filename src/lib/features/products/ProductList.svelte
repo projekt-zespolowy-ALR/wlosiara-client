@@ -3,7 +3,14 @@
 	import {productStore} from "./productStore.js";
 	import {Product} from "./interfaces.d.js";
 	import ProductListItem from "./ProductListItem.svelte";
-	let productList: Product[] = $productStore;
+	// let productList: DetailedProduct[] = $productStore;
+	let filt: (product: Product) => boolean = () => true;
+	$: productList = $productStore.filter(filt);
+
+	$: {
+		productList = $productStore;
+		console.log("$productStore", $productStore);
+	}
 
 	onMount(async () => {
 		var myHeaders = new Headers();
@@ -18,40 +25,7 @@
 		fetch("https://api.wlosiara.pl/v1/detailed-products", requestOptions)
 			.then((response) => response.json())
 			.then((result) => {
-				if (result.data) {
-					const products: Product[] = result.data.map((prod: any) => {
-						const dataSource = prod.inDataSources;
-						let price;
-						let referenceUrl;
-						let imageUrl;
-						if (dataSource && dataSource[0]) {
-							price = Number.parseFloat(dataSource[0].price);
-							referenceUrl = dataSource[0].referenceUrl;
-							imageUrl = dataSource[0].imageUrl;
-						} else {
-							price = 0;
-							referenceUrl = "";
-							imageUrl = "";
-						}
-						const product: Product = {
-							id: prod.id,
-							name: prod.name,
-							brand: "brand",
-							ingredients: "ingredients",
-							price: price,
-							description: "description",
-							imageUrl: imageUrl,
-							category: prod.categories[0]?.name,
-							capacity: prod.volume,
-							produktuctUrl: referenceUrl,
-						};
-						return product;
-					});
-					if (products.length > 0) {
-						productList = products;
-						productStore.set(products);
-					}
-				}
+				$productStore = result.data;
 			})
 			.catch((error) => console.log("error", error));
 	});
@@ -59,11 +33,12 @@
 	let inputEl: HTMLInputElement;
 	const handleInputChange = (e: any) => {
 		const inputValue = inputEl.value.toLowerCase();
-		let newProducts = $productStore.filter((product: Product) =>
-			product.name.toLowerCase().includes(inputValue)
-		);
+		filt = (product: Product) => product.name.toLowerCase().includes(inputValue);
+		// let newProducts = $productStore.filter((product: Product) =>
+		// 	product.name.toLowerCase().includes(inputValue)
+		// );
 
-		productList = newProducts;
+		// productList = newProducts;
 	};
 </script>
 

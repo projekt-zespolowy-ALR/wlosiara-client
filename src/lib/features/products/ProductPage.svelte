@@ -1,23 +1,26 @@
 <script lang="ts">
-	import type {Product} from "./interfaces.d.js";
-
-	export let product: Product;
+	export let product: DetailedProduct;
 </script>
 
 <div class="page">
 	<a class="back" href="/baza-produktow"><i class="fa-sharp fa-solid fa-backward-step" /></a>
 	<div class="product">
-		<img src={product.imageUrl} alt="" srcset="" />
+		<img src={product.inDataSources[0].imageUrl} alt="" srcset="" />
 		<div class="short-text">
 			<p>{product.name}</p>
-			<p>{product.category}</p>
-			<p>{product.brand}</p>
-			<p>{product.price}</p>
-			<p>{product.capacity}</p>
+			<p>{product.categories.map((category) => category.name).join(", ")}</p>
+			<p>{product.brand.name}</p>
+			<p>{product.inDataSources[0].price} zł</p>
+			{#if product.volume}
+				<p>{product.volume} l</p>
+			{/if}
+			{#if product.mass}
+				<p>{1000 * product.mass} g</p>
+			{/if}
 		</div>
 		<div class="wide-text">
-			<p>{product.description}</p>
-			<p>{product.ingredients}</p>
+			<p>{product.inDataSources[0].description}</p>
+			<p>{product.ingredients.map((ingredient) => ingredient.name).join(", ")}</p>
 		</div>
 	</div>
 </div>

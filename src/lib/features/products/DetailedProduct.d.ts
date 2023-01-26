@@ -67,5 +67,9 @@ type DetailedProduct = {
 		 * @example null
 		 */
 		readonly price: number | null;
+
+		readonly description: string | null;
 	}[];
 };
+
+export default DetailedProduct;
