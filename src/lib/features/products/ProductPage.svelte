@@ -19,8 +19,12 @@
 			{/if}
 		</div>
 		<div class="wide-text">
-			<p>{product.inDataSources[0].description}</p>
-			<p>{product.ingredients.map((ingredient) => ingredient.name).join(", ")}</p>
+			{#if product.inDataSources[0].description}
+				<p>{product.inDataSources[0].description}</p>
+			{/if}
+			{#if product.ingredients}
+				<p>{product.ingredients.map((ingredient) => ingredient.name).join(", ")}</p>
+			{/if}
 		</div>
 	</div>
 </div>
