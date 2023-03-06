@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Navbar from "./Navbar.svelte";
-	import {isAuthenticated, user} from "../../../authStore.js";
+	import {isAuthenticated, user} from "../../features/auth/authStore.js";
 </script>
 
 <div class="header">

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import {postStore} from "./postStore.js";
 	import PostListItem from "./PostListItem.svelte";
-	import {isAuthenticated} from "../../../authStore.js";
+	import {isAuthenticated} from "../auth/authStore.js";
 </script>
 
 <div class="product-list-page">
