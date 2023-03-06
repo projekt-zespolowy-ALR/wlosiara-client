@@ -1,4 +1,5 @@
 <script lang="ts">
+	import SubpageH1 from "$lib/ui/subpage_h1/SubpageH1.svelte";
 	import {onMount} from "svelte";
 	import {productStore} from "./productStore.js";
 	import {Product} from "./interfaces.d.js";
@@ -43,7 +44,7 @@
 </script>
 
 <div class="product-list-page">
-	<h3>Baza produktów</h3>
+	<SubpageH1>Baza produktów</SubpageH1>
 	<!-- <FilterMenu /> -->
 
 	<div class="filter-menu">
@@ -92,7 +93,7 @@
 		flex-direction: row;
 		flex-wrap: wrap;
 	}
-	h3 {
+	SubpageH1 {
 		margin-left: 50px;
 	}
 	.filter-menu {

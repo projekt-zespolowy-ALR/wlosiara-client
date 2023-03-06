@@ -1,8 +1,9 @@
 <script lang="ts">
+	import SubpageH1 from "$lib/ui/subpage_h1/SubpageH1.svelte";
 </script>
 
 <div class="page">
-	<h3>Kontakt</h3>
+	<SubpageH1>Kontakt</SubpageH1>
 </div>
 
 <style>

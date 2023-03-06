@@ -16,7 +16,7 @@
 	<a class="back" href="/baza-wiedzy"><i class="fa-sharp fa-solid fa-backward-step" /></a>
 	<div class="post">
 		<img src={post.imageUrl} alt="" srcset="" />
-		<h3>{post.title}</h3>
+		<SubpageH1>{post.title}</SubpageH1>
 		<p>{post.author}</p>
 		<div id="content" />
 	</div>

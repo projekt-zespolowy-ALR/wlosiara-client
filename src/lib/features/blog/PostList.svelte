@@ -5,7 +5,7 @@
 </script>
 
 <div class="product-list-page">
-	<h3>Baza wiedzy</h3>
+	<SubpageH1>Baza wiedzy</SubpageH1>
 	<ul>
 		{#each $postStore as post (post.id)}
 			<PostListItem {post} />
@@ -24,7 +24,6 @@
 </div>
 
 <style>
-
 	.product-list-page {
 		background-color: #f9f9f9;
 		min-height: 80vh;
@@ -35,7 +34,7 @@
 		flex-direction: row;
 		flex-wrap: wrap;
 	}
-	h3 {
+	SubpageH1 {
 		margin-left: 50px;
 	}
 
@@ -83,5 +82,4 @@
 		border-color: var(--gray-3);
 		transition: 0.3s;
 	}
-
 </style>

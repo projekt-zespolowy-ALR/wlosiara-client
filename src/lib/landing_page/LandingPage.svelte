@@ -1,11 +1,7 @@
-<div class="landing-page">
-	<h3>Witaj w serwisie włosiara.pl!</h3>
-</div>
+<script lang="ts">
+	import SubpageH1 from "$lib/ui/subpage_h1/SubpageH1.svelte";
+</script>
 
-<style lang="scss">
-	/* .landing-page {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-	} */
-</style>
+<div class="landing-page">
+	<SubpageH1>Witaj w serwisie włosiara.pl!</SubpageH1>
+</div>
