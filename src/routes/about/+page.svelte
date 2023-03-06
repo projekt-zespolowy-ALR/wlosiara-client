@@ -4,6 +4,6 @@
 	import About from "$lib/ui/footer/About.svelte";
 </script>
 
-<Header />
+
 <About />
-<Footer />
+

@@ -1,5 +1,18 @@
+<script lang="ts">
+	import Footer from "$lib/ui/footer/Footer.svelte";
+	import Header from "$lib/ui/header/Header.svelte";
+</script>
+
+
+
+
+
 <div class="svelte-app-root">
-	<slot />
+	<Header />
+	<main>
+		<slot />
+	</main>
+	<Footer />
 </div>
 
 <style lang="scss" global>

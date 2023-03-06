@@ -4,6 +4,6 @@
 	import Regulations from "$lib/ui/footer/Regulations.svelte";
 </script>
 
-<Header />
+
 <Regulations />
-<Footer />
+

@@ -4,6 +4,6 @@
 	import RegisterPage from "$lib/features/login/RegisterPage.svelte";
 </script>
 
-<Header />
+
 <RegisterPage />
-<Footer />
+

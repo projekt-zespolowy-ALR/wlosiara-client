@@ -68,6 +68,6 @@
 	});
 </script>
 
-<Header />
+
 <ProductPage {product} />
-<Footer />
+

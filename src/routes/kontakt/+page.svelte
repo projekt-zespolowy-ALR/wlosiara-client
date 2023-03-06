@@ -4,6 +4,6 @@
 	import Contact from "$lib/ui/footer/Contact.svelte";
 </script>
 
-<Header />
+
 <Contact />
-<Footer />
+

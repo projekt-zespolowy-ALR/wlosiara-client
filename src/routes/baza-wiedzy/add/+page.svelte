@@ -4,6 +4,6 @@
 	import PostForm from "$lib/features/blog/PostForm.svelte";
 </script>
 
-<Header />
+
 <PostForm />
-<Footer />
+

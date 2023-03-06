@@ -4,6 +4,6 @@
 	import QuizPage from "$lib/features/quiz/QuizPage.svelte";
 </script>
 
-<Header />
+
 <QuizPage />
-<Footer />
+

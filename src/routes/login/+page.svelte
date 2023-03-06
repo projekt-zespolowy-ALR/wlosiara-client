@@ -4,6 +4,6 @@
 	import LoginPage from "$lib/features/login/LoginPage.svelte";
 </script>
 
-<Header />
+
 <LoginPage />
-<Footer />
+

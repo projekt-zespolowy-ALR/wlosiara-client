@@ -25,7 +25,7 @@ describe("Quiz page", () => {
 			fireEvent.click(screen.getAllByRole("button")[0]);
 		}
 		expect(() => {
-			const result: String | null | undefined = document.querySelector("p")?.textContent;
+			const result: string | null | undefined = document.querySelector("p")?.textContent;
 			expect(result).not.toBeNull();
 		}).not.toThrow();
 	});

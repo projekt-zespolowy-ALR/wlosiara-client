@@ -20,6 +20,6 @@
 	const post: BlogEntry = $postStore.find((post: BlogEntry) => post.id == id) || examplePost;
 </script>
 
-<Header />
+
 <PostPage {post} />
-<Footer />
+

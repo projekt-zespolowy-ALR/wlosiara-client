@@ -32,7 +32,7 @@ test.describe("/", () => {
 			page.waitForEvent("popup"),
 			await page.locator(".nav-link").click(),
 		]);
-		let fail: boolean = false;
+		let fail = false;
 		if (!pageTwo) {
 			fail = true;
 			throw new Error("No popup");

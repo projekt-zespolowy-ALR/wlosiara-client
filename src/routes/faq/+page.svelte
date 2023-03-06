@@ -4,6 +4,6 @@
 	import FAQ from "$lib/ui/footer/FAQ.svelte";
 </script>
 
-<Header />
+
 <FAQ />
-<Footer />
+
