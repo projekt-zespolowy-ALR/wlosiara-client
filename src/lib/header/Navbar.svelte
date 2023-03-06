@@ -1,5 +1,6 @@
 <script lang="ts">
 	import LoginSignIn from "./LoginSignIn.svelte";
+	import {isAuthenticated, user} from "../features/auth/authStore";
 </script>
 
 <ul class="navbar">
@@ -14,6 +15,13 @@
 	<li><a href="/baza-produktow">Baza produktów</a></li>
 	<li><a href="/baza-wiedzy">Aktualności</a></li>
 	<li><a href="/baza-wiedzy">Baza wiedzy</a></li>
+	<li>
+		<div class="navbar-nav mr-auto user-details">
+			{#if $isAuthenticated && $user}
+				<span class="text-white">&nbsp;&nbsp;{$user.name} ({$user.email})</span>
+			{:else}<span>&nbsp;</span>{/if}
+		</div>
+	</li>
 	<LoginSignIn />
 </ul>
 
