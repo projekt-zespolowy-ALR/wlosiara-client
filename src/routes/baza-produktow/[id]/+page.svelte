@@ -2,7 +2,7 @@
 	import {page} from "$app/stores";
 	import {productStore} from "$lib/features/products/productStore.js";
 	import Footer from "$lib/ui/footer/Footer.svelte";
-	import Header from "$lib/ui/header/Header.svelte";
+	import Header from "$lib/header/Header.svelte";
 	import type {Product} from "$lib/features/products/interfaces.d.js";
 	import ProductPage from "$lib/features/products/ProductPage.svelte";
 	import {onMount} from "svelte";
@@ -68,6 +68,4 @@
 	});
 </script>
 
-
 <ProductPage {product} />
-

@@ -2,7 +2,7 @@
 	import {page} from "$app/stores";
 	import {postStore} from "$lib/features/blog/postStore.js";
 	import Footer from "$lib/ui/footer/Footer.svelte";
-	import Header from "$lib/ui/header/Header.svelte";
+	import Header from "$lib/header/Header.svelte";
 	import type {BlogEntry} from "$lib/features/blog/interfaces.d.js";
 	import PostPage from "$lib/features/blog/PostPage.svelte";
 
@@ -20,6 +20,4 @@
 	const post: BlogEntry = $postStore.find((post: BlogEntry) => post.id == id) || examplePost;
 </script>
 
-
 <PostPage {post} />
-

@@ -1,9 +1,9 @@
 <script lang="ts">
 	import Navbar from "./Navbar.svelte";
-	import {isAuthenticated, user} from "../../features/auth/authStore.js";
+	import {isAuthenticated, user} from "../features/auth/authStore";
 </script>
 
-<div class="header">
+<header class="header">
 	<img
 		src="https://imagizer.imageshack.com/img922/4453/xLqK5G.png"
 		alt="włosiara.pl"
@@ -15,7 +15,7 @@
 		{:else}<span>&nbsp;</span>{/if}
 	</div>
 	<Navbar />
-</div>
+</header>
 
 <style>
 	.header {
