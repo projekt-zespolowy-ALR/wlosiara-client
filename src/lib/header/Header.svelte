@@ -19,6 +19,7 @@
 		display: flex;
 		flex-direction: column;
 		background-color: var(--gray-8);
+		gap: 20px;
 	}
 	.header__logo {
 		height: 50px;
