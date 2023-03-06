@@ -18,10 +18,13 @@
 	.header {
 		display: flex;
 		flex-direction: column;
-		align-items: center;
 		background-color: var(--gray-8);
 	}
 	.header__logo {
 		height: 50px;
+	}
+	.header__logo-container {
+		display: flex;
+		justify-content: center;
 	}
 </style>
