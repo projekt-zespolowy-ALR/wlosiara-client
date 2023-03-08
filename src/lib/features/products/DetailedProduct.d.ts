@@ -1,3 +1,5 @@
+import type ProductCategory from "./ProductCategory.js";
+
 type DetailedProduct = {
 	/**
 	 * The product's id in UUID format.
@@ -35,11 +37,7 @@ type DetailedProduct = {
 	/**
 	 * The product's categories.
 	 */
-	readonly categories: readonly {
-		id: string;
-		slug: string;
-		name: string;
-	}[];
+	readonly categories: readonly ProductCategory[];
 
 	/**
 	 * Information about the product's availability in the data sources.
