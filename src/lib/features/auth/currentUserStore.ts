@@ -23,4 +23,6 @@ function createCurrentUserStore() {
 	};
 }
 
-export default createCurrentUserStore();
+const currentUserStore = createCurrentUserStore();
+
+export default currentUserStore;
