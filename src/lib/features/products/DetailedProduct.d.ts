@@ -1,3 +1,4 @@
+import type DataSource from "$lib/features/data_sources/DataSource.js";
 import type ProductCategory from "./ProductCategory.js";
 
 type DetailedProduct = {
@@ -43,12 +44,7 @@ type DetailedProduct = {
 	 * Information about the product's availability in the data sources.
 	 */
 	readonly inDataSources: readonly {
-		readonly dataSource: {
-			readonly id: string;
-			readonly name: string;
-			readonly slug: string;
-			readonly url: string;
-		};
+		readonly dataSource: DataSource;
 		/**
 		 * The URL of the product's page in the data source.
 		 * @example "https://www.hebe.pl/claresa-zel-do-laminacji-brwi-8-g-000000000000407817.html"
