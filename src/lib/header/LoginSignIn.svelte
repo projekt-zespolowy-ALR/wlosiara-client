@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import currentUserStore from "$lib/features/auth/currentUserStore.js";
 </script>
 
