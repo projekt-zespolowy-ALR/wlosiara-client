@@ -1,6 +1,6 @@
 <script lang="ts">
 	import LoginSignIn from "./LoginSignIn.svelte";
-	import {isAuthenticated, user} from "../features/auth/authStore";
+	import currentUserStore from "$lib/features/auth/currentUserStore.js";
 </script>
 
 <nav class="navbar">
@@ -18,8 +18,8 @@
 		<li><a href="/baza-wiedzy">Baza wiedzy</a></li>
 		<li>
 			<div class="navbar-nav mr-auto user-details">
-				{#if $isAuthenticated && $user}
-					<span class="text-white">&nbsp;&nbsp;{$user.name} ({$user.email})</span>
+				{#if $currentUserStore}
+					<span class="text-white">&nbsp;&nbsp;{$currentUserStore.username}</span>
 				{:else}<span>&nbsp;</span>{/if}
 			</div>
 		</li>
