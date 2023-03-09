@@ -13,14 +13,14 @@
 		// user.set(await auth0Client.getUser());
 	});
 
-	function login() {
+	const login = () => {
 		// auth.loginWithPopup(auth0Client);
-	}
+	};
 
-	async function logout() {
+	const logout = async () => {
 		// auth.logout(auth0Client);
 		// isAuthenticated.set(await auth0Client.isAuthenticated());
-	}
+	};
 </script>
 
 <li class="login-sign-in">
