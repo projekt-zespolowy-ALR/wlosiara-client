@@ -1,37 +1,16 @@
 <script>
-	import {onMount} from "svelte";
-	// import auth from "../../features/auth/authService.js";
-	// import {isAuthenticated, user} from "../../features/auth/authStore.js";
-
-	const isAuthenticated = false;
-
-	// let auth0Client;
-
-	onMount(async () => {
-		// auth0Client = await auth.createClient();
-		// isAuthenticated.set(await auth0Client.isAuthenticated());
-		// user.set(await auth0Client.getUser());
-	});
-
-	const login = () => {
-		// auth.loginWithPopup(auth0Client);
-	};
-
-	const logout = async () => {
-		// auth.logout(auth0Client);
-		// isAuthenticated.set(await auth0Client.isAuthenticated());
-	};
+	import currentUserStore from "$lib/features/auth/currentUserStore.js";
 </script>
 
 <li class="login-sign-in">
 	<i class="fa-solid fa-user" />
-	{#if isAuthenticated}
+	{#if $currentUserStore}
 		<li class="nav-item">
-			<a class="nav-link" href="/#" on:click={logout}>Log Out</a>
+			<a class="nav-link" href="/#" on:click={currentUserStore.logout}>Log Out</a>
 		</li>
 	{:else}
 		<li class="nav-item">
-			<a class="nav-link" href="/#" on:click={login}>Log In</a>
+			<a class="nav-link" href="/#" on:click={currentUserStore.login}>Log In</a>
 		</li>
 	{/if}
 </li>
