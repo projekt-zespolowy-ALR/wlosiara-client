@@ -36,6 +36,8 @@ type Product = Readonly<{
 	 * The product's categories.
 	 */
 	categories: readonly string[];
+
+	brandId: string;
 }>;
 
 export default Product;
