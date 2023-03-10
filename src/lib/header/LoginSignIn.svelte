@@ -6,17 +6,17 @@
 	<i class="fa-solid fa-user" />
 	{#if $currentUserStore}
 		<li class="nav-item">
-			<a class="nav-link" href="/#" on:click={currentUserStore.logout}>Log Out</a>
+			<button class="nav-link" on:click={currentUserStore.logout}>Log Out</button>
 		</li>
 	{:else}
 		<li class="nav-item">
-			<a class="nav-link" href="/#" on:click={currentUserStore.login}>Log In</a>
+			<button class="nav-link" on:click={currentUserStore.login}>Log In</button>
 		</li>
 	{/if}
 </li>
 
 <style>
-	a {
+	button {
 		text-decoration: none;
 		color: var(--gray-0);
 		font-size: 12px;
