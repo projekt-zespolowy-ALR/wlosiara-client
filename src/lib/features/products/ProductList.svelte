@@ -23,11 +23,7 @@
 	<div class="filter-menu">
 		<div class="inline">
 			<span>Szukaj </span>
-			<input
-				placeholder="Szukaj produktu..."
-				bind:this={inputEl}
-				on:change={(e) => handleInputChange(e)}
-			/>
+			<input placeholder="Szukaj produktu..." bind:this={inputEl} on:change={handleInputChange} />
 		</div>
 		<div class="inline">
 			<span>Sortuj </span>
