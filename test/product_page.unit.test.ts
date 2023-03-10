@@ -36,7 +36,7 @@ describe("Product page", () => {
 		await waitABit(2500);
 
 		expect(() => {
-			fireEvent.click(screen.getAllByText("Moj pierwszy produkt")[0]);
+			fireEvent.click(screen.getByText("Moj pierwszy produkt"));
 		}).not.toThrow();
 	}, 10000);
 });
