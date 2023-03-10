@@ -32,7 +32,7 @@ test.describe("/", () => {
 			page.waitForEvent("popup"),
 			await page.locator(".nav-link").click(),
 		]);
-		let fail: boolean = false;
+		let fail = false;
 		if (!pageTwo) {
 			fail = true;
 			throw new Error("No popup");
@@ -44,25 +44,24 @@ test.describe("/", () => {
 		server.httpServer.close();
 	});
 
-  test("product details are shown", async () => {
-    const server = await preview();
-    const browser = await chromium.launch();
-    const page = await browser.newPage();
-    if (!server.resolvedUrls.local[0]) {
-      throw new Error("No local URL");
-    }
-    await page.goto(server.resolvedUrls.local[0]);
-    await page.getByText("baza produktów").click();
+	test("product details are shown", async () => {
+		const server = await preview();
+		const browser = await chromium.launch();
+		const page = await browser.newPage();
+		if (!server.resolvedUrls.local[0]) {
+			throw new Error("No local URL");
+		}
+		await page.goto(server.resolvedUrls.local[0]);
+		await page.getByText("baza produktów").click();
 		const products = await page.locator(".product-list-page > ul > li > a");
 		const linksCount = await products.count();
 		const randomProduct = Math.floor(Math.random() * linksCount);
 		await products.nth(randomProduct).click();
 
-
 		await expect(page.locator(".product")).toBeVisible();
 		await browser.close();
 		server.httpServer.close();
-  });
+	});
 
 	test("blog page", async () => {
 		const server = await preview();
@@ -77,7 +76,6 @@ test.describe("/", () => {
 		const linksCount = await posts.count();
 		const randomPost = Math.floor(Math.random() * linksCount);
 		await posts.nth(randomPost).click();
-
 
 		await expect(page.locator(".post")).toBeVisible();
 		await browser.close();

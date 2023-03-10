@@ -1,10 +1,12 @@
 <script lang="ts">
+	import SubpageH1 from "$lib/ui/subpage_h1/SubpageH1.svelte";
 </script>
 
 <div class="page">
-	<h3>Jak to działa?</h3>
+	<SubpageH1>Jak to działa?</SubpageH1>
 	<p>
-		Wypełnij quiz i dowiedz się jaka jest Twoja porowatość włosów! Dobranie dalszej pielęgnacji będzie znacznie prostsze.
+		Wypełnij quiz i dowiedz się jaka jest Twoja porowatość włosów! Dobranie dalszej pielęgnacji
+		będzie znacznie prostsze.
 	</p>
 </div>
 

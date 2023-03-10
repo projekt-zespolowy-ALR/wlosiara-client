@@ -1,17 +1,21 @@
 <script lang="ts">
-	import type {Product} from "./interfaces.d.js";
+	import type PopulatedProduct from "./PopulatedProduct.js";
 
-	export let product: Product;
+	export let product: PopulatedProduct;
 </script>
 
 <li>
 	<a href="/baza-produktow/{product.id}">
-		<div class="img">
-			<img src={product.inDataSources[0].imageUrl} alt={product.name} />
-		</div>
-		<div class="item-info">
-			<p>{product.name}</p>
-		</div>
+		{#if product.inDataSources[0]}
+			<div class="img">
+				<img src={product.inDataSources[0].imageUrl} alt={product.name} />
+			</div>
+			<div class="item-info">
+				<p>{product.name}</p>
+			</div>
+		{:else}
+			<p>Brak danych</p>
+		{/if}
 	</a>
 </li>
 

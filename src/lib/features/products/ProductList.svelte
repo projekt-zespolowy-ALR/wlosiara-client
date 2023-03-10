@@ -1,59 +1,29 @@
 <script lang="ts">
-	import {onMount} from "svelte";
-	import {productStore} from "./productStore.js";
-	import {Product} from "./interfaces.d.js";
+	import SubpageH1 from "$lib/ui/subpage_h1/SubpageH1.svelte";
+
+	import type PopulatedProduct from "./PopulatedProduct.js";
 	import ProductListItem from "./ProductListItem.svelte";
-	// let productList: DetailedProduct[] = $productStore;
-	let filt: (product: Product) => boolean = () => true;
-	$: productList = $productStore.filter(filt);
 
-	$: {
-		productList = $productStore;
-		console.log("$productStore", $productStore);
-	}
+	let filt: (product: PopulatedProduct) => boolean = () => true;
 
-	onMount(async () => {
-		var myHeaders = new Headers();
-		myHeaders.append("Authorization", "Bearer 4dm1nT0k3n");
-		myHeaders.append("Content-Type", "application/json");
-		const requestOptions: RequestInit = {
-			method: "GET",
-			headers: myHeaders,
-			body: null,
-			redirect: "follow",
-		};
-		fetch("https://api.wlosiara.pl/v1/detailed-products", requestOptions)
-			.then((response) => response.json())
-			.then((result) => {
-				$productStore = result.data;
-			})
-			.catch((error) => console.log("error", error));
-	});
+	export let products: readonly PopulatedProduct[];
 
 	let inputEl: HTMLInputElement;
-	const handleInputChange = (e: any) => {
+	const handleInputChange = () => {
 		const inputValue = inputEl.value.toLowerCase();
-		filt = (product: Product) => product.name.toLowerCase().includes(inputValue);
-		// let newProducts = $productStore.filter((product: Product) =>
-		// 	product.name.toLowerCase().includes(inputValue)
-		// );
-
-		// productList = newProducts;
+		filt = (product: PopulatedProduct) =>
+			product.name ? product.name.toLowerCase().includes(inputValue) : false;
 	};
 </script>
 
 <div class="product-list-page">
-	<h3>Baza produktów</h3>
+	<SubpageH1>Baza produktów</SubpageH1>
 	<!-- <FilterMenu /> -->
 
 	<div class="filter-menu">
 		<div class="inline">
 			<span>Szukaj </span>
-			<input
-				placeholder="Szukaj produktu..."
-				bind:this={inputEl}
-				on:change={(e) => handleInputChange(e)}
-			/>
+			<input placeholder="Szukaj produktu..." bind:this={inputEl} on:change={handleInputChange} />
 		</div>
 		<div class="inline">
 			<span>Sortuj </span>
@@ -75,7 +45,7 @@
 		<!-- {#each $productStore as product (product.id)}
 			<ProductListItem {product} />
 		{/each} -->
-		{#each productList as product (product.id)}
+		{#each products.filter(filt) as product (product.id)}
 			<ProductListItem {product} />
 		{/each}
 	</ul>
@@ -91,9 +61,6 @@
 		display: flex;
 		flex-direction: row;
 		flex-wrap: wrap;
-	}
-	h3 {
-		margin-left: 50px;
 	}
 	.filter-menu {
 		display: flex;

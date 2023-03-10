@@ -1,35 +1,35 @@
 <script lang="ts">
-	import {v4 as uuidv4} from "uuid";
-	import {Sveltik, Field, ErrorMessage, SveltikBag} from "sveltik";
-	import {BlogEntry} from "./interfaces.d.js";
-	import {postStore} from "./postStore.js";
+	// import {v4 as uuidv4} from "uuid";
+	// import {Sveltik, Field, ErrorMessage, SveltikBag} from "sveltik";
+	// import {BlogEntry} from "./interfaces.d.js";
+	// import {postStore} from "./postStore.js";
 
-	const initialValues: BlogEntry = {
-		title: "",
-		author: "",
-		imageUrl: "",
-		text: "",
-		id: uuidv4(),
-		comments: [],
-	};
+	// const initialValues: BlogEntry = {
+	// 	title: "",
+	// 	author: "",
+	// 	imageUrl: "",
+	// 	text: "",
+	// 	id: uuidv4(),
+	// 	comments: [],
+	// };
 
-	const onSubmit = (values: BlogEntry, {setSubmitting}: SveltikBag) => {
-		console.log(values);
+	// const onSubmit = (values: BlogEntry, {setSubmitting}: SveltikBag) => {
+	// 	console.log(values);
 
-		const newPost = {
-			...values,
-		};
+	// 	const newPost = {
+	// 		...values,
+	// 	};
 
-		postStore.update((currentPosts) => {
-			return [newPost, ...currentPosts];
-		});
+	// 	postStore.update((currentPosts) => {
+	// 		return [newPost, ...currentPosts];
+	// 	});
 
-		setSubmitting(false);
-	};
+	// 	setSubmitting(false);
+	// };
 </script>
 
 <div class="page">
-	<Sveltik {initialValues} {onSubmit} let:isSubmitting let:props>
+	<!-- <Sveltik {initialValues} {onSubmit} let:isSubmitting let:props>
 		<form on:submit|preventDefault={props.handleSubmit}>
 			<Field name="title">
 				<div class="formElement">
@@ -85,7 +85,7 @@
 
 			<button type="submit" disabled={isSubmitting}>Submit</button>
 		</form>
-	</Sveltik>
+	</Sveltik> -->
 </div>
 
 <style>
@@ -99,7 +99,7 @@
 		border-radius: 5px;
 		padding: 20px;
 	}
-	form {
+	/* form {
 		display: flex;
 		flex-direction: column;
 		padding: 10px;
@@ -116,5 +116,5 @@
 		resize: none;
 		height: 300px;
 		width: 100%;
-	}
+	} */
 </style>

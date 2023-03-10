@@ -1,32 +1,38 @@
 <script lang="ts">
-	export let product: DetailedProduct;
+	import type PopulatedProduct from "./PopulatedProduct.js";
+
+	export let product: PopulatedProduct;
 </script>
 
 <div class="page">
 	<a class="back" href="/baza-produktow"><i class="fa-sharp fa-solid fa-backward-step" /></a>
-	<div class="product">
-		<img src={product.inDataSources[0].imageUrl} alt="" srcset="" />
-		<div class="short-text">
-			<p>{product.name}</p>
-			<p>{product.categories.map((category) => category.name).join(", ")}</p>
-			<p>{product.brand.name}</p>
-			<p>{product.inDataSources[0].price} zł</p>
-			{#if product.volume}
-				<p>{product.volume} l</p>
-			{/if}
-			{#if product.mass}
-				<p>{1000 * product.mass} g</p>
-			{/if}
+	{#if product.inDataSources[0]}
+		<div class="product">
+			<img src={product.inDataSources[0].imageUrl} alt="" srcset="" />
+			<div class="short-text">
+				<p>{product.name}</p>
+				<p>{product.categories.map((category) => category.name).join(", ")}</p>
+				<p>{product.brand.name}</p>
+				<p>{product.inDataSources[0].price} zł</p>
+				{#if product.volume}
+					<p>{product.volume} l</p>
+				{/if}
+				{#if product.mass}
+					<p>{1000 * product.mass} g</p>
+				{/if}
+			</div>
+			<div class="wide-text">
+				{#if product.inDataSources[0].description}
+					<p>{product.inDataSources[0].description}</p>
+				{/if}
+				{#if product.ingredients}
+					<p>{product.ingredients.map((ingredient) => ingredient.name).join(", ")}</p>
+				{/if}
+			</div>
 		</div>
-		<div class="wide-text">
-			{#if product.inDataSources[0].description}
-				<p>{product.inDataSources[0].description}</p>
-			{/if}
-			{#if product.ingredients}
-				<p>{product.ingredients.map((ingredient) => ingredient.name).join(", ")}</p>
-			{/if}
-		</div>
-	</div>
+	{:else}
+		<p>Brak danych</p>
+	{/if}
 </div>
 
 <style>

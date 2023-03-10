@@ -1,24 +1,17 @@
 <script lang="ts">
-	import {onMount} from "svelte";
-	import type {BlogEntry} from "./interfaces.d.js";
+	import type PopulatedBlogEntry from "./PopulatedBlogEntry.js";
+	import SubpageH1 from "$lib/ui/subpage_h1/SubpageH1.svelte";
 
-	export let post: BlogEntry;
-
-	onMount(async () => {
-		const div = document.getElementById("content");
-		if (div) {
-			div.innerHTML = post.text;
-		}
-	});
+	export let blogEntry: PopulatedBlogEntry;
 </script>
 
 <div class="page">
 	<a class="back" href="/baza-wiedzy"><i class="fa-sharp fa-solid fa-backward-step" /></a>
 	<div class="post">
-		<img src={post.imageUrl} alt="" srcset="" />
-		<h3>{post.title}</h3>
-		<p>{post.author}</p>
-		<div id="content" />
+		<img src={blogEntry.imageUrl} alt="" srcset="" />
+		<SubpageH1>{blogEntry.title}</SubpageH1>
+		<p>{blogEntry.author.username}</p>
+		<div id="content">{blogEntry.text}</div>
 	</div>
 </div>
 

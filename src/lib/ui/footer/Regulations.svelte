@@ -1,11 +1,10 @@
 <script lang="ts">
+	import SubpageH1 from "$lib/ui/subpage_h1/SubpageH1.svelte";
 </script>
 
 <div class="page">
-	<h3>Regulamin serwisu włosiara.pl</h3>
-	<p>
-		nie
-	</p>
+	<SubpageH1>Regulamin serwisu włosiara.pl</SubpageH1>
+	<p>nie</p>
 </div>
 
 <style>

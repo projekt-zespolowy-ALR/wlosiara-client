@@ -1,9 +1,11 @@
 <script lang="ts">
 	import ProductList from "$lib/features/products/ProductList.svelte";
-	import Footer from "$lib/ui/footer/Footer.svelte";
-	import Header from "$lib/ui/header/Header.svelte";
+
+	import type {PageServerData} from "./$types.js";
+
+	export let data: PageServerData;
+
+	const {products} = data;
 </script>
 
-<Header />
-<ProductList />
-<Footer />
+<ProductList {products} />

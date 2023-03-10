@@ -11,8 +11,7 @@ describe("Quiz page", () => {
 	});
 	test("Elements are clickable", () => {
 		render(QuizPage);
-		//@ts-ignore
-		fireEvent.click(screen.getAllByRole("button")[0]);
+		fireEvent.click(screen.getAllByRole("button")[0] as HTMLButtonElement);
 		expect(() => {
 			const question = document.querySelector(".question");
 			expect(question).not.toBeNull();
@@ -21,11 +20,10 @@ describe("Quiz page", () => {
 	test("Results are shown", () => {
 		render(QuizPage);
 		for (let i = 0; i < 21; i++) {
-			//@ts-ignore
-			fireEvent.click(screen.getAllByRole("button")[0]);
+			fireEvent.click(screen.getAllByRole("button")[0] as HTMLButtonElement);
 		}
 		expect(() => {
-			const result: String | null | undefined = document.querySelector("p")?.textContent;
+			const result: string | null | undefined = document.querySelector("p")?.textContent;
 			expect(result).not.toBeNull();
 		}).not.toThrow();
 	});
