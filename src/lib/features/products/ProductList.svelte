@@ -49,7 +49,7 @@
 		<!-- {#each $productStore as product (product.id)}
 			<ProductListItem {product} />
 		{/each} -->
-		{#each products as product (product.id)}
+		{#each products.filter(filt) as product (product.id)}
 			<ProductListItem {product} />
 		{/each}
 	</ul>
