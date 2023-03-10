@@ -25,8 +25,16 @@ function populateBlogEntry(blogEntry: BlogEntry): PopulatedBlogEntry {
 	};
 }
 
-export const load: PageServerLoad = async () => {
-	const populatedBlogEntries = mockedBlogEntries.map(populateBlogEntry);
+export const load: PageServerLoad = async ({url}) => {
+	const search = url.searchParams.get("search");
+	const filteredBlogEntries =
+		search === null
+			? mockedBlogEntries
+			: mockedBlogEntries.filter(
+					(blogEntry) =>
+						blogEntry.title !== null && blogEntry.title.toLowerCase().includes(search.toLowerCase())
+			  );
+	const populatedBlogEntries = filteredBlogEntries.map(populateBlogEntry);
 	return {
 		blogEntries: populatedBlogEntries,
 	};
