@@ -1,7 +1,7 @@
 <script lang="ts">
-	import type {Product} from "./interfaces.d.js";
+	import type PopulatedProduct from "./PopulatedProduct.js";
 
-	export let product: Product;
+	export let product: PopulatedProduct;
 </script>
 
 <li>

@@ -1,40 +1,18 @@
 <script lang="ts">
 	import SubpageH1 from "$lib/ui/subpage_h1/SubpageH1.svelte";
 	import {onMount} from "svelte";
-	import {productStore} from "./productStore.js";
-	import {Product} from "./interfaces.d.js";
+
+	import type PopulatedProduct from "./PopulatedProduct.js";
 	import ProductListItem from "./ProductListItem.svelte";
 	// let productList: PopulatedProduct[] = $productStore;
-	let filt: (product: Product) => boolean = () => true;
-	$: productList = $productStore.filter(filt);
+	let filt: (product: PopulatedProduct) => boolean = () => true;
 
-	$: {
-		productList = $productStore;
-		console.log("$productStore", $productStore);
-	}
-
-	onMount(async () => {
-		var myHeaders = new Headers();
-		myHeaders.append("Authorization", "Bearer 4dm1nT0k3n");
-		myHeaders.append("Content-Type", "application/json");
-		const requestOptions: RequestInit = {
-			method: "GET",
-			headers: myHeaders,
-			body: null,
-			redirect: "follow",
-		};
-		fetch("https://api.wlosiara.pl/v1/detailed-products", requestOptions)
-			.then((response) => response.json())
-			.then((result) => {
-				$productStore = result.data;
-			})
-			.catch((error) => console.log("error", error));
-	});
+	export let products: readonly PopulatedProduct[];
 
 	let inputEl: HTMLInputElement;
 	const handleInputChange = (e: any) => {
 		const inputValue = inputEl.value.toLowerCase();
-		filt = (product: Product) => product.name.toLowerCase().includes(inputValue);
+		filt = (product: PopulatedProduct) => product.name.toLowerCase().includes(inputValue);
 		// let newProducts = $productStore.filter((product: Product) =>
 		// 	product.name.toLowerCase().includes(inputValue)
 		// );
@@ -76,7 +54,7 @@
 		<!-- {#each $productStore as product (product.id)}
 			<ProductListItem {product} />
 		{/each} -->
-		{#each productList as product (product.id)}
+		{#each products as product (product.id)}
 			<ProductListItem {product} />
 		{/each}
 	</ul>
