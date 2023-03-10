@@ -14,7 +14,7 @@ describe("Logging in", () => {
 	test("Login button is clickable", () => {
 		render(MainPage);
 		expect(() => {
-			fireEvent.click(screen.getAllByText("Log In")[0]);
+			fireEvent.click(screen.getByText("Log In"));
 		}).not.toThrow();
 	});
 });
