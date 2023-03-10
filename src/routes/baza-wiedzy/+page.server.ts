@@ -1,5 +1,5 @@
-import type BlogEntry from "$lib/features/blog/BlogEntry.js";
-import type PopulatedBlogEntry from "$lib/features/blog/PopulatedBlogEntry.js";
+import type BlogEntry from "$lib/features/blog/types/BlogEntry.js";
+import type PopulatedBlogEntry from "$lib/features/blog/types/PopulatedBlogEntry.js";
 import mockedBlogEntries from "$lib/server/features/blog/mockedBlogEntries.js";
 import mockedUsers from "$lib/server/features/users/mockedUsers.js";
 

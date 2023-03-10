@@ -1,4 +1,4 @@
-import type BlogEntry from "$lib/features/blog/BlogEntry.js";
+import type BlogEntry from "$lib/features/blog/types/BlogEntry.js";
 
 const mockedBlogEntries: readonly BlogEntry[] = [
 	{

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import PostListItem from "./PostListItem.svelte";
 	import currentUserStore from "$lib/features/auth/currentUserStore.js";
-	import type PopulatedBlogEntry from "./PopulatedBlogEntry.js";
+	import type PopulatedBlogEntry from "./types/PopulatedBlogEntry.js";
 	import SubpageH1 from "$lib/ui/subpage_h1/SubpageH1.svelte";
 
 	export let blogEntries: readonly PopulatedBlogEntry[];

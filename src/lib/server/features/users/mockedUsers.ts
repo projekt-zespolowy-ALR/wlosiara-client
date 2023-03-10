@@ -1,4 +1,4 @@
-import type User from "$lib/features/users/User.js";
+import type User from "$lib/features/users/types/User.js";
 
 const mockedUsers: readonly User[] = [
 	{

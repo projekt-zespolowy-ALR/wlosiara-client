@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type PopulatedBlogEntry from "./PopulatedBlogEntry.js";
+	import type PopulatedBlogEntry from "./types/PopulatedBlogEntry.js";
 
 	export let blogEntry: PopulatedBlogEntry;
 </script>
