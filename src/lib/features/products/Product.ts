@@ -35,7 +35,7 @@ type Product = Readonly<{
 	/**
 	 * The product's categories.
 	 */
-	categories: readonly string[];
+	categoryIds: readonly string[];
 
 	brandId: string;
 }>;
