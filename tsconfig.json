@@ -50,7 +50,7 @@
 		"noEmitHelpers": false,
 		"noEmitOnError": false,
 		"preserveConstEnums": true,
-		"preserveValueImports": false,
+		"preserveValueImports": true,
 		"maxNodeModuleJsDepth": 0,
 		"isolatedModules": true,
 		"noImplicitUseStrict": false,
