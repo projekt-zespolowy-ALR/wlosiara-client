@@ -10,7 +10,9 @@
 		</li>
 	{:else}
 		<li class="nav-item">
-			<button class="nav-link" on:click={currentUserStore.login}>Log In</button>
+			<button class="nav-link" on:click={() => currentUserStore.login({email: "", password: ""})}
+				>Log In</button
+			>
 		</li>
 	{/if}
 </li>
