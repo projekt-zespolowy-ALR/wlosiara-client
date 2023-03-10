@@ -1,6 +1,6 @@
 <script lang="ts">
 	import PostListItem from "./PostListItem.svelte";
-	import {isAuthenticated} from "../auth/authStore.js";
+	import currentUserStore from "$lib/features/auth/currentUserStore.js";
 	import PopulatedBlogEntry from "./PopulatedBlogEntry.js";
 
 	export let blogEntries: readonly PopulatedBlogEntry[];
@@ -12,7 +12,7 @@
 		{#each blogEntries as blogEntry}
 			<PostListItem {blogEntry} />
 		{/each}
-		{#if $isAuthenticated}
+		{#if $currentUserStore}
 			<li class="add">
 				<a href="/baza-wiedzy/add">
 					<button>
