@@ -10,7 +10,7 @@
 		"allowSyntheticDefaultImports": false,
 		"target": "ES2022",
 		"outDir": "./dist",
-		"baseUrl": "./",
+		"baseUrl": "./src/",
 		"incremental": true,
 		"skipLibCheck": true,
 		"noImplicitAny": true,
