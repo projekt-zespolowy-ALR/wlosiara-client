@@ -1,7 +1,7 @@
 import type DataSource from "$lib/features/data_sources/DataSource.js";
 import type ProductCategory from "./ProductCategory.js";
 
-type DetailedProduct = {
+type PopulatedProduct = {
 	/**
 	 * The product's id in UUID format.
 	 * @example "a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11"
@@ -66,4 +66,4 @@ type DetailedProduct = {
 	}[];
 };
 
-export default DetailedProduct;
+export default PopulatedProduct;

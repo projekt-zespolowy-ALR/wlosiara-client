@@ -1,5 +1,5 @@
 <script lang="ts">
-	export let product: DetailedProduct;
+	export let product: PopulatedProduct;
 </script>
 
 <div class="page">

@@ -1,7 +1,7 @@
 import {writable, type Writable} from "svelte/store";
-import DetailedProduct from "./DetailedProduct.d.js";
+import PopulatedProduct from "./PopulatedProduct";
 
-const productStore: Writable<DetailedProduct[]> = writable([
+const productStore: Writable<PopulatedProduct[]> = writable([
 	// {
 	// 	id: "0",
 	// 	name: "Tołpa green",

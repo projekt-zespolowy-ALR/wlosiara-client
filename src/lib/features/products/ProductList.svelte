@@ -4,7 +4,7 @@
 	import {productStore} from "./productStore.js";
 	import {Product} from "./interfaces.d.js";
 	import ProductListItem from "./ProductListItem.svelte";
-	// let productList: DetailedProduct[] = $productStore;
+	// let productList: PopulatedProduct[] = $productStore;
 	let filt: (product: Product) => boolean = () => true;
 	$: productList = $productStore.filter(filt);
 
