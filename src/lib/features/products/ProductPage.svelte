@@ -1,4 +1,6 @@
 <script lang="ts">
+	import type PopulatedProduct from "./PopulatedProduct.js";
+
 	export let product: PopulatedProduct;
 </script>
 
