@@ -1,6 +1,5 @@
 <script lang="ts">
 	import SubpageH1 from "$lib/ui/subpage_h1/SubpageH1.svelte";
-	import {onMount} from "svelte";
 
 	import type PopulatedProduct from "./PopulatedProduct.js";
 	import ProductListItem from "./ProductListItem.svelte";
