@@ -3,21 +3,16 @@
 
 	import type PopulatedProduct from "./PopulatedProduct.js";
 	import ProductListItem from "./ProductListItem.svelte";
-	// let productList: PopulatedProduct[] = $productStore;
+
 	let filt: (product: PopulatedProduct) => boolean = () => true;
 
 	export let products: readonly PopulatedProduct[];
 
 	let inputEl: HTMLInputElement;
-	const handleInputChange = (e: any) => {
+	const handleInputChange = () => {
 		const inputValue = inputEl.value.toLowerCase();
 		filt = (product: PopulatedProduct) =>
 			product.name ? product.name.toLowerCase().includes(inputValue) : false;
-		// let newProducts = $productStore.filter((product: Product) =>
-		// 	product.name.toLowerCase().includes(inputValue)
-		// );
-
-		// productList = newProducts;
 	};
 </script>
 
