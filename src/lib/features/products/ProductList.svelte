@@ -11,7 +11,8 @@
 	let inputEl: HTMLInputElement;
 	const handleInputChange = (e: any) => {
 		const inputValue = inputEl.value.toLowerCase();
-		filt = (product: PopulatedProduct) => product.name.toLowerCase().includes(inputValue);
+		filt = (product: PopulatedProduct) =>
+			product.name ? product.name.toLowerCase().includes(inputValue) : false;
 		// let newProducts = $productStore.filter((product: Product) =>
 		// 	product.name.toLowerCase().includes(inputValue)
 		// );
