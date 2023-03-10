@@ -2,6 +2,7 @@
 	import PostListItem from "./PostListItem.svelte";
 	import currentUserStore from "$lib/features/auth/currentUserStore.js";
 	import PopulatedBlogEntry from "./PopulatedBlogEntry.js";
+	import SubpageH1 from "$lib/ui/subpage_h1/SubpageH1.svelte";
 
 	export let blogEntries: readonly PopulatedBlogEntry[];
 </script>
@@ -35,9 +36,6 @@
 		display: flex;
 		flex-direction: row;
 		flex-wrap: wrap;
-	}
-	SubpageH1 {
-		margin-left: 50px;
 	}
 
 	li a {
