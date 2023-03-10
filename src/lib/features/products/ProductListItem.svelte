@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type PopulatedProduct from "./PopulatedProduct.js";
+	import type PopulatedProduct from "./types/PopulatedProduct.js";
 
 	export let product: PopulatedProduct;
 </script>

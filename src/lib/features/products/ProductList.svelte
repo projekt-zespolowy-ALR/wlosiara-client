@@ -1,7 +1,7 @@
 <script lang="ts">
 	import SubpageH1 from "$lib/ui/subpage_h1/SubpageH1.svelte";
 
-	import type PopulatedProduct from "./PopulatedProduct.js";
+	import type PopulatedProduct from "./types/PopulatedProduct.js";
 	import ProductListItem from "./ProductListItem.svelte";
 
 	let filt: (product: PopulatedProduct) => boolean = () => true;

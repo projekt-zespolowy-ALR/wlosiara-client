@@ -1,4 +1,4 @@
-import type Brand from "$lib/features/brands/Brand.js";
+import type Brand from "$lib/features/brands/types/Brand.js";
 import type Ingredient from "./Ingredient.js";
 import type PopulatedProductInDataSource from "./PopulatedProductInDataSource.js";
 import type Product from "./Product.js";

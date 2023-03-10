@@ -1,5 +1,5 @@
-import type BlogEntry from "$lib/features/blog/BlogEntry.js";
-import type PopulatedBlogEntry from "$lib/features/blog/PopulatedBlogEntry.js";
+import type BlogEntry from "$lib/features/blog/types/BlogEntry.js";
+import type PopulatedBlogEntry from "$lib/features/blog/types/PopulatedBlogEntry.js";
 import mockedBlogEntries from "$lib/server/features/blog/mockedBlogEntries.js";
 import mockedUsers from "$lib/server/features/users/mockedUsers.js";
 
@@ -25,8 +25,16 @@ function populateBlogEntry(blogEntry: BlogEntry): PopulatedBlogEntry {
 	};
 }
 
-export const load: PageServerLoad = async () => {
-	const populatedBlogEntries = mockedBlogEntries.map(populateBlogEntry);
+export const load: PageServerLoad = async ({url}) => {
+	const search = url.searchParams.get("search");
+	const filteredBlogEntries =
+		search === null
+			? mockedBlogEntries
+			: mockedBlogEntries.filter(
+					(blogEntry) =>
+						blogEntry.title !== null && blogEntry.title.toLowerCase().includes(search.toLowerCase())
+			  );
+	const populatedBlogEntries = filteredBlogEntries.map(populateBlogEntry);
 	return {
 		blogEntries: populatedBlogEntries,
 	};

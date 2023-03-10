@@ -1,16 +1,37 @@
 <script lang="ts">
 	import PostListItem from "./PostListItem.svelte";
 	import currentUserStore from "$lib/features/auth/currentUserStore.js";
-	import type PopulatedBlogEntry from "./PopulatedBlogEntry.js";
+	import type PopulatedBlogEntry from "./types/PopulatedBlogEntry.js";
 	import SubpageH1 from "$lib/ui/subpage_h1/SubpageH1.svelte";
 
 	export let blogEntries: readonly PopulatedBlogEntry[];
+
+	import {page} from "$app/stores";
+
+	import {goto} from "$app/navigation";
+
+	const handleSearchInputChange = (e: Event) => {
+		const search = (e.target as HTMLInputElement).value;
+		const url = new URL($page.url);
+		if (search) {
+			url.searchParams.set("search", search);
+		} else {
+			url.searchParams.delete("search");
+		}
+		goto(url, {keepFocus: true});
+	};
 </script>
 
 <div class="product-list-page">
 	<SubpageH1>Baza wiedzy</SubpageH1>
+	<input
+		type="text"
+		placeholder="Szukaj"
+		value={$page.url.searchParams.get("search") || ""}
+		on:input={handleSearchInputChange}
+	/>
 	<ul>
-		{#each blogEntries as blogEntry}
+		{#each blogEntries as blogEntry (blogEntry.id)}
 			<PostListItem {blogEntry} />
 		{/each}
 		{#if $currentUserStore}

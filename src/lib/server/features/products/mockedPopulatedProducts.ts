@@ -1,4 +1,4 @@
-import type PopulatedProduct from "$lib/features/products/PopulatedProduct.js";
+import type PopulatedProduct from "$lib/features/products/types/PopulatedProduct.js";
 
 const mockedPopulatedProducts: readonly PopulatedProduct[] = [];
 

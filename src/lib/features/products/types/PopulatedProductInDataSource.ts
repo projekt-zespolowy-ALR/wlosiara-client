@@ -1,4 +1,4 @@
-import type DataSource from "$lib/features/data_sources/DataSource.js";
+import type DataSource from "$lib/features/data_sources/types/DataSource.js";
 import type Product from "./Product.js";
 
 type ProductInDataSource = Readonly<{

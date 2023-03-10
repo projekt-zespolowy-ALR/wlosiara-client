@@ -1,7 +1,7 @@
 <script lang="ts">
-	import type {QuestionId, AnswerToQuestion, HairType} from "./interfaces.d.js";
-
-	export let userAnswers: Map<QuestionId, AnswerToQuestion>;
+	import type AnswerToQuestion from "./types/AnswerToQuestion.js";
+	import type HairType from "./types/HairType.js";
+	export let userAnswers: Map<number, AnswerToQuestion>;
 
 	const types: Map<HairType, number> = new Map<HairType, number>([
 		["Wysokoporowate", 0],
