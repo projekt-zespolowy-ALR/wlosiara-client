@@ -4,8 +4,6 @@
 	import type {PageServerData} from "./$types.js";
 
 	export let data: PageServerData;
-
-	const {products} = data;
 </script>
 
-<ProductList {products} />
+<ProductList products={data.products} />
