@@ -1,14 +1,16 @@
 <script lang="ts">
-	import {postStore} from "./postStore.js";
 	import PostListItem from "./PostListItem.svelte";
 	import {isAuthenticated} from "../auth/authStore.js";
+	import PopulatedBlogEntry from "./PopulatedBlogEntry.js";
+
+	export let blogEntries: readonly PopulatedBlogEntry[];
 </script>
 
 <div class="product-list-page">
 	<SubpageH1>Baza wiedzy</SubpageH1>
 	<ul>
-		{#each $postStore as post (post.id)}
-			<PostListItem {post} />
+		{#each blogEntries as blogEntry}
+			<PostListItem {blogEntry} />
 		{/each}
 		{#if $isAuthenticated}
 			<li class="add">
