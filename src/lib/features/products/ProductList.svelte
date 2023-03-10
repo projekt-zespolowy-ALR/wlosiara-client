@@ -93,9 +93,6 @@
 		flex-direction: row;
 		flex-wrap: wrap;
 	}
-	SubpageH1 {
-		margin-left: 50px;
-	}
 	.filter-menu {
 		display: flex;
 		flex-direction: column;
