@@ -1,11 +1,9 @@
 import type User from "$lib/features/users/User.js";
+import type BlogEntry from "$lib/features/blog/BlogEntry.js";
 
-type BlogEntry = Readonly<{
-	id: string;
-	title: string;
-	author: User;
-	text: string;
-	imageUrl: string;
-}>;
+type PopulatedBlogEntry = Omit<BlogEntry, "authorId"> &
+	Readonly<{
+		author: User;
+	}>;
 
-export default BlogEntry;
+export default PopulatedBlogEntry;
