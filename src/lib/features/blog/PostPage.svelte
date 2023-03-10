@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type PopulatedBlogEntry from "./PopulatedBlogEntry.js";
+	import SubpageH1 from "$lib/ui/subpage_h1/SubpageH1.svelte";
 
 	export let blogEntry: PopulatedBlogEntry;
 </script>
