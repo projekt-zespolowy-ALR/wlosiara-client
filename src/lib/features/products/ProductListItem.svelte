@@ -6,12 +6,16 @@
 
 <li>
 	<a href="/baza-produktow/{product.id}">
-		<div class="img">
-			<img src={product.inDataSources[0].imageUrl} alt={product.name} />
-		</div>
-		<div class="item-info">
-			<p>{product.name}</p>
-		</div>
+		{#if product.inDataSources[0]}
+			<div class="img">
+				<img src={product.inDataSources[0].imageUrl} alt={product.name} />
+			</div>
+			<div class="item-info">
+				<p>{product.name}</p>
+			</div>
+		{:else}
+			<p>Brak danych</p>
+		{/if}
 	</a>
 </li>
 
