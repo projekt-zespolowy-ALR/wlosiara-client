@@ -2,8 +2,10 @@
 	import {createEventDispatcher} from "svelte";
 	const dispatch = createEventDispatcher();
 
+	import type Question from "./types/Question.js";
+	import type AnswerToQuestion from "./types/AnswerToQuestion.js";
+
 	export let question: Question;
-	import type {Question, AnswerToQuestion} from "./interfaces.d.js";
 
 	const handleGiveAnswer = (userAnswer: AnswerToQuestion) => {
 		dispatch("answer", userAnswer);

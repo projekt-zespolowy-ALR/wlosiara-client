@@ -3,9 +3,10 @@
 	let currentQuestionId = 0;
 	import {quiz_all} from "./quiz-answers.js";
 	import QuizResults from "./QuizResults.svelte";
-	import type {Question, QuestionId, AnswerToQuestion} from "./interfaces.d.js";
+	import type AnswerToQuestion from "./types/AnswerToQuestion.js";
+	import type Question from "./types/Question.js";
 
-	let userAnswers: Map<QuestionId, AnswerToQuestion> = new Map();
+	let userAnswers: Map<number, AnswerToQuestion> = new Map();
 
 	$: question = quiz_all[currentQuestionId] as Question;
 
