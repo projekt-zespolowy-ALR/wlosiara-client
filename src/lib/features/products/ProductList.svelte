@@ -10,7 +10,6 @@
 
 	export let products: readonly PopulatedProduct[];
 
-	let inputEl: HTMLInputElement;
 	const handleInputChange = (e: Event) => {
 		const search = (e.target as HTMLInputElement).value;
 		const url = new URL($page.url);
@@ -33,7 +32,6 @@
 			<input
 				placeholder="Szukaj produktu..."
 				value={$page.url.searchParams.get("search") || ""}
-				bind:this={inputEl}
 				on:input={handleInputChange}
 			/>
 		</div>
