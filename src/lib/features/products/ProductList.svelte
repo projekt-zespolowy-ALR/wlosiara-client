@@ -3,16 +3,22 @@
 
 	import type PopulatedProduct from "./types/PopulatedProduct.js";
 	import ProductListItem from "./ProductListItem.svelte";
+	import {page} from "$app/stores";
+	import {goto} from "$app/navigation";
 
 	let filt: (product: PopulatedProduct) => boolean = () => true;
 
 	export let products: readonly PopulatedProduct[];
 
-	let inputEl: HTMLInputElement;
-	const handleInputChange = () => {
-		const inputValue = inputEl.value.toLowerCase();
-		filt = (product: PopulatedProduct) =>
-			product.name ? product.name.toLowerCase().includes(inputValue) : false;
+	const handleInputChange = (e: Event) => {
+		const search = (e.target as HTMLInputElement).value;
+		const url = new URL($page.url);
+		if (search) {
+			url.searchParams.set("search", search);
+		} else {
+			url.searchParams.delete("search");
+		}
+		goto(url, {keepFocus: true});
 	};
 </script>
 
@@ -23,7 +29,11 @@
 	<div class="filter-menu">
 		<div class="inline">
 			<span>Szukaj </span>
-			<input placeholder="Szukaj produktu..." bind:this={inputEl} on:change={handleInputChange} />
+			<input
+				placeholder="Szukaj produktu..."
+				value={$page.url.searchParams.get("search") || ""}
+				on:input={handleInputChange}
+			/>
 		</div>
 		<div class="inline">
 			<span>Sortuj </span>
