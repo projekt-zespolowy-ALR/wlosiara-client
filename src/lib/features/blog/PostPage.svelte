@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type PopulatedBlogEntry from "./types/PopulatedBlogEntry.js";
 	import SubpageH1 from "$lib/ui/subpage_h1/SubpageH1.svelte";
+	import Markdown from "@magidoc/plugin-svelte-marked";
 
 	export let blogEntry: PopulatedBlogEntry;
 </script>
@@ -11,7 +12,9 @@
 		<img src={blogEntry.imageUrl} alt="" srcset="" />
 		<SubpageH1>{blogEntry.title}</SubpageH1>
 		<p>{blogEntry.author.username}</p>
-		<div id="content">{blogEntry.text}</div>
+		<div id="content">
+			<Markdown source={blogEntry.text} />
+		</div>
 	</div>
 </div>
 

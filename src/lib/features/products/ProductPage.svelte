@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type PopulatedProduct from "./types/PopulatedProduct.js";
+	import Markdown from "@magidoc/plugin-svelte-marked";
 
 	export let product: PopulatedProduct;
 </script>
@@ -23,7 +24,7 @@
 			</div>
 			<div class="wide-text">
 				{#if product.inDataSources[0].description}
-					<p>{product.inDataSources[0].description}</p>
+					<Markdown source={product.inDataSources[0].description} />
 				{/if}
 				{#if product.ingredients}
 					<p>{product.ingredients.map((ingredient) => ingredient.name).join(", ")}</p>
