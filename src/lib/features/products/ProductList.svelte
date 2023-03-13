@@ -5,10 +5,16 @@
 	import ProductListItem from "./ProductListItem.svelte";
 	import {page} from "$app/stores";
 	import {goto} from "$app/navigation";
+	import type ProductCategory from "$lib/features/products/types/ProductCategory.js";
 
 	let filt: (product: PopulatedProduct) => boolean = () => true;
 
 	export let products: readonly PopulatedProduct[];
+	let categories: ProductCategory[] = products
+		? [...new Set(products.flatMap((product) => product.categories))]
+		: [];
+	let selectedCategory: ProductCategory | null = null;
+	let visibleProducts: PopulatedProduct[] = products ? products : [];
 
 	const handleInputChange = (e: Event) => {
 		const search = (e.target as HTMLInputElement).value;
@@ -19,6 +25,15 @@
 			url.searchParams.delete("search");
 		}
 		goto(url, {keepFocus: true});
+	};
+	const handleSelectCategoryChange = (e: Event) => {
+		if (selectedCategory) {
+			visibleProducts = products.filter((product) =>
+				product.categories.includes(selectedCategory!)
+			);
+		} else {
+			visibleProducts = products;
+		}
 	};
 </script>
 
@@ -44,9 +59,11 @@
 		</div>
 		<div class="inline">
 			<span>Filtruj</span>
-			<select>
-				<option value="keyword">keyword</option>
-				<option value="keyword">keyword2</option>
+			<select bind:value={selectedCategory} on:change={handleSelectCategoryChange}>
+				<option value={null}>---</option>
+				{#each categories as category (category.id)}
+					<option value={category}>{category.name}</option>
+				{/each}
 			</select>
 		</div>
 	</div>
@@ -55,7 +72,8 @@
 		<!-- {#each $productStore as product (product.id)}
 			<ProductListItem {product} />
 		{/each} -->
-		{#each products.filter(filt) as product (product.id)}
+		<!--{#each products.filter(filt) as product (product.id)}-->
+		{#each visibleProducts.filter(filt) as product (product.id)}
 			<ProductListItem {product} />
 		{/each}
 	</ul>
