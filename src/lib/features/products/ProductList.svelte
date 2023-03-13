@@ -14,7 +14,7 @@
 		? [...new Set(products.flatMap((product) => product.categories))]
 		: [];
 	let selectedCategory: ProductCategory | null = null;
-	let visibleProducts: PopulatedProduct[] = products ? products : [];
+	let visibleProducts: readonly PopulatedProduct[] = products ? products : [];
 
 	const handleInputChange = (e: Event) => {
 		const search = (e.target as HTMLInputElement).value;
