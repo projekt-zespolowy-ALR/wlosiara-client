@@ -26,10 +26,11 @@
 		}
 		goto(url, {keepFocus: true});
 	};
-	const handleSelectCategoryChange = (e: Event) => {
+	const handleSelectCategoryChange = () => {
 		if (selectedCategory) {
 			visibleProducts = products.filter((product) =>
-				product.categories.includes(selectedCategory!)
+				selectedCategory ?
+				product.categories.includes(selectedCategory) : true
 			);
 		} else {
 			visibleProducts = products;
