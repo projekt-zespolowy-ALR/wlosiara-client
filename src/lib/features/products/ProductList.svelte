@@ -29,8 +29,7 @@
 	const handleSelectCategoryChange = () => {
 		if (selectedCategory) {
 			visibleProducts = products.filter((product) =>
-				selectedCategory ?
-				product.categories.includes(selectedCategory) : true
+				selectedCategory ? product.categories.includes(selectedCategory) : true
 			);
 		} else {
 			visibleProducts = products;
