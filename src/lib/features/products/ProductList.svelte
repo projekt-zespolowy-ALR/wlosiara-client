@@ -15,6 +15,7 @@
 		: [];
 	let selectedCategory: ProductCategory | null = null;
 	let visibleProducts: readonly PopulatedProduct[] = products ? products : [];
+	let sortingType = "";
 
 	const handleInputChange = (e: Event) => {
 		const search = (e.target as HTMLInputElement).value;
@@ -35,6 +36,56 @@
 			visibleProducts = products;
 		}
 	};
+
+	const handleSelectSortingType = () => {
+		switch (sortingType) {
+			case "price-ascending":
+				visibleProducts = [...visibleProducts].sort((a: PopulatedProduct, b: PopulatedProduct) => {
+					const aDataSource = a.inDataSources[0];
+					const bDataSource = b.inDataSources[0];
+					if (aDataSource?.price && bDataSource?.price) {
+						return aDataSource.price - bDataSource.price;
+					}
+					return 0;
+				});
+				break;
+			case "price-descending":
+				visibleProducts = [...visibleProducts].sort((a: PopulatedProduct, b: PopulatedProduct) => {
+					const aDataSource = a.inDataSources[0];
+					const bDataSource = b.inDataSources[0];
+					if (aDataSource?.price && bDataSource?.price) {
+						return bDataSource.price - aDataSource.price;
+					}
+					return 0;
+				});
+				break;
+			case "name-ascending":
+				visibleProducts = [...visibleProducts].sort((a: PopulatedProduct, b: PopulatedProduct) => {
+					if (a.name && b.name) {
+						return a.name.localeCompare(b.name);
+					}
+					return 0;
+				});
+
+				break;
+			case "name-descending":
+				visibleProducts = [...visibleProducts].sort((a: PopulatedProduct, b: PopulatedProduct) => {
+					if (a.name && b.name) {
+						return b.name.localeCompare(a.name);
+					}
+					return 0;
+				});
+				break;
+			default:
+				visibleProducts = [...visibleProducts].sort((a: PopulatedProduct, b: PopulatedProduct) => {
+					if (a.name && b.name) {
+						return a.name.localeCompare(b.name);
+					}
+					return 0;
+				});
+				break;
+		}
+	};
 </script>
 
 <div class="product-list-page">
@@ -52,9 +103,11 @@
 		</div>
 		<div class="inline">
 			<span>Sortuj </span>
-			<select name="sort" id="sort">
-				<option value="increasing">cena rosnąco</option>
-				<option value="decreasing">cena malejąco</option>
+			<select name="sort" id="sort" bind:value={sortingType} on:change={handleSelectSortingType}>
+				<option value="name-ascending">nazwa rosnąco</option>
+				<option value="name-descending">nazwa malejąco</option>
+				<option value="price-ascending">cena rosnąco</option>
+				<option value="price-descending">cena malejąco</option>
 			</select>
 		</div>
 		<div class="inline">
