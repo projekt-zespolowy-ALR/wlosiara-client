@@ -43,7 +43,7 @@
 				visibleProducts = visibleProducts.sort((a: PopulatedProduct, b: PopulatedProduct) => {
 					const aDataSource = a.inDataSources[0];
 					const bDataSource = b.inDataSources[0];
-					if (aDataSource.price && bDataSource.price) {
+					if (aDataSource?.price && bDataSource?.price) {
 						return aDataSource.price - bDataSource.price;
 					}
 					return 0;
@@ -53,7 +53,7 @@
 				visibleProducts = visibleProducts.sort((a: PopulatedProduct, b: PopulatedProduct) => {
 					const aDataSource = a.inDataSources[0];
 					const bDataSource = b.inDataSources[0];
-					if (aDataSource.price && bDataSource.price) {
+					if (aDataSource?.price && bDataSource?.price) {
 						return bDataSource.price - aDataSource.price;
 					}
 					return 0;
