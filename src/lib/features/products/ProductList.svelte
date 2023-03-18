@@ -9,12 +9,12 @@
 
 	let filt: (product: PopulatedProduct) => boolean = () => true;
 
-	export let products: PopulatedProduct[];
+	export let products: readonly PopulatedProduct[];
 	let categories: ProductCategory[] = products
 		? [...new Set(products.flatMap((product) => product.categories))]
 		: [];
 	let selectedCategory: ProductCategory | null = null;
-	let visibleProducts: PopulatedProduct[] = products ? products : [];
+	let visibleProducts: readonly PopulatedProduct[] = products ? products : [];
 	let sortingType = "";
 
 	const handleInputChange = (e: Event) => {
@@ -40,7 +40,7 @@
 	const handleSelectSortingType = () => {
 		switch (sortingType) {
 			case "price-ascending":
-				visibleProducts = visibleProducts.sort((a: PopulatedProduct, b: PopulatedProduct) => {
+				visibleProducts = [...visibleProducts].sort((a: PopulatedProduct, b: PopulatedProduct) => {
 					const aDataSource = a.inDataSources[0];
 					const bDataSource = b.inDataSources[0];
 					if (aDataSource?.price && bDataSource?.price) {
@@ -50,7 +50,7 @@
 				});
 				break;
 			case "price-descending":
-				visibleProducts = visibleProducts.sort((a: PopulatedProduct, b: PopulatedProduct) => {
+				visibleProducts = [...visibleProducts].sort((a: PopulatedProduct, b: PopulatedProduct) => {
 					const aDataSource = a.inDataSources[0];
 					const bDataSource = b.inDataSources[0];
 					if (aDataSource?.price && bDataSource?.price) {
@@ -60,7 +60,7 @@
 				});
 				break;
 			case "name-ascending":
-				visibleProducts = visibleProducts.sort((a: PopulatedProduct, b: PopulatedProduct) => {
+				visibleProducts = [...visibleProducts].sort((a: PopulatedProduct, b: PopulatedProduct) => {
 					if (a.name && b.name) {
 						return a.name.localeCompare(b.name);
 					}
@@ -69,7 +69,7 @@
 
 				break;
 			case "name-descending":
-				visibleProducts = visibleProducts.sort((a: PopulatedProduct, b: PopulatedProduct) => {
+				visibleProducts = [...visibleProducts].sort((a: PopulatedProduct, b: PopulatedProduct) => {
 					if (a.name && b.name) {
 						return b.name.localeCompare(a.name);
 					}
@@ -77,7 +77,7 @@
 				});
 				break;
 			default:
-				visibleProducts = visibleProducts.sort((a: PopulatedProduct, b: PopulatedProduct) => {
+				visibleProducts = [...visibleProducts].sort((a: PopulatedProduct, b: PopulatedProduct) => {
 					if (a.name && b.name) {
 						return a.name.localeCompare(b.name);
 					}
