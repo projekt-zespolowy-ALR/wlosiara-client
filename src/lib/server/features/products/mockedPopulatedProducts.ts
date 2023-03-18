@@ -66,6 +66,7 @@ const mockedPopulatedProducts: readonly PopulatedProduct[] = [
 		...tolpaPopulatedProduct,
 		id: "4",
 		name: "Tołpa green 4",
+		categories: [{id: "2", name: "odżywka", slug: "odżywka"}],
 	},
 ];
 
