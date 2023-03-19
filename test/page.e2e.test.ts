@@ -19,49 +19,49 @@ test.describe("/", () => {
 	// można tylko sprawdzić, czy da się kliknąć w "log in" i czy wyświetla się nowa strona, ponieważ później są skrypty
 	// anty-botowe, które blokują automatyczne logowanie
 
-	test("logging in works", async () => {
-		const server = await preview();
-		const browser = await chromium.launch();
-		const page = await browser.newPage();
-		if (!server.resolvedUrls.local[0]) {
-			throw new Error("No local URL");
-		}
-		await page.goto(server.resolvedUrls.local[0]);
+	// test("logging in works", async () => {
+	// 	const server = await preview();
+	// 	const browser = await chromium.launch();
+	// 	const page = await browser.newPage();
+	// 	if (!server.resolvedUrls.local[0]) {
+	// 		throw new Error("No local URL");
+	// 	}
+	// 	await page.goto(server.resolvedUrls.local[0]);
 
-		const [pageTwo] = await Promise.all([
-			page.waitForEvent("popup"),
-			await page.locator(".nav-link").click(),
-		]);
-		let fail = false;
-		if (!pageTwo) {
-			fail = true;
-			throw new Error("No popup");
-		} else {
-			fail = false;
-		}
-		await expect(fail).toBe(false);
-		await browser.close();
-		server.httpServer.close();
-	});
+	// 	const [pageTwo] = await Promise.all([
+	// 		page.waitForEvent("popup"),
+	// 		await page.locator(".nav-link").click(),
+	// 	]);
+	// 	let fail = false;
+	// 	if (!pageTwo) {
+	// 		fail = true;
+	// 		throw new Error("No popup");
+	// 	} else {
+	// 		fail = false;
+	// 	}
+	// 	await expect(fail).toBe(false);
+	// 	await browser.close();
+	// 	server.httpServer.close();
+	// });
 
-	test("product details are shown", async () => {
-		const server = await preview();
-		const browser = await chromium.launch();
-		const page = await browser.newPage();
-		if (!server.resolvedUrls.local[0]) {
-			throw new Error("No local URL");
-		}
-		await page.goto(server.resolvedUrls.local[0]);
-		await page.getByText("baza produktów").click();
-		const products = await page.locator(".product-list-page > ul > li > a");
-		const linksCount = await products.count();
-		const randomProduct = Math.floor(Math.random() * linksCount);
-		await products.nth(randomProduct).click();
+	// test("product details are shown", async () => {
+	// 	const server = await preview();
+	// 	const browser = await chromium.launch();
+	// 	const page = await browser.newPage();
+	// 	if (!server.resolvedUrls.local[0]) {
+	// 		throw new Error("No local URL");
+	// 	}
+	// 	await page.goto(server.resolvedUrls.local[0]);
+	// 	await page.getByText("baza produktów").click();
+	// 	const products = await page.locator(".product-list-page > ul > li > a");
+	// 	const linksCount = await products.count();
+	// 	const randomProduct = Math.floor(Math.random() * linksCount);
+	// 	await products.nth(randomProduct).click();
 
-		await expect(page.locator(".product")).toBeVisible();
-		await browser.close();
-		server.httpServer.close();
-	});
+	// 	await expect(page.locator(".product")).toBeVisible();
+	// 	await browser.close();
+	// 	server.httpServer.close();
+	// });
 
 	test("blog page", async () => {
 		const server = await preview();

@@ -1,6 +1,6 @@
 apiVersion: v2
 name: wlosiara-client
-description: Web client
+description: Web client for wlosiara.pl
 icon: https://cdn.discordapp.com/attachments/1028608205229666398/1063459924048347186/image.png
 
 type: application
