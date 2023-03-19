@@ -1,24 +1,30 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: wlosiara-client-server
+  name: "{{ .Release.Name }}"
   labels:
-    microservice: wlosiara-client-server
+    microservice: "{{ .Release.Name }}"
 spec:
-  replicas: 2
+  replicas: {{.Values.replicaCount}}
   selector:
     matchLabels:
-      microservice: wlosiara-client-server
+      microservice: "{{ .Release.Name }}"
   template:
     metadata:
       labels:
-        microservice: wlosiara-client-server
+        microservice: "{{ .Release.Name }}"
     spec:
       containers:
-        - name: wlosiara-client-server
-          image: "bte1lar/wlosiara-client:{{ .Values.image.tag }}"
+        - name: "{{ .Release.Name }}"
+          image: "{{ .Release.Name }}:{{ .Chart.AppVersion }}"
           imagePullPolicy: Always
           resources:
             limits:
-              cpu: "100m"
-              memory: "100Mi"
+              cpu: "200m"
+              memory: "200Mi"
+          env:
+            - name: PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: "{{ .Release.Name }}"
+                  key: PORT
