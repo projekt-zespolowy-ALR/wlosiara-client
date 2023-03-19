@@ -53,7 +53,7 @@
 		"jsdom": "^20.0.3",
 		"playwright": "^1.28.0",
 		"prettier": "^2.8.1",
-		"prettier-plugin-svelte": "^2.7.0",
+		"prettier-plugin-svelte": "^2.9.0",
 		"release-it": "^15.9.0",
 		"sass": "^1.58.3",
 		"svelte": "^3.55.0",
