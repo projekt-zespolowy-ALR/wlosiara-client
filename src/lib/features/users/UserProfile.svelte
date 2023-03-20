@@ -1,5 +1,4 @@
 <script lang="ts">
-	import type User from "./types/User.js";
 	import currentUserStore from "$lib/features/auth/currentUserStore.js";
 </script>
 
