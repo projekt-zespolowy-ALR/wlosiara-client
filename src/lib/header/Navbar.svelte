@@ -18,11 +18,9 @@
 		<li><a href="/baza-wiedzy">Baza wiedzy</a></li>
 		<li>
 			<div class="navbar-nav mr-auto user-details">
-				<a href="/user">
-					{#if $currentUserStore}
-						<span class="text-white">&nbsp;&nbsp;{$currentUserStore.username}</span>
-					{:else}<span>&nbsp;</span>{/if}
-				</a>
+				{#if $currentUserStore}
+					<span class="text-white">&nbsp;&nbsp;{$currentUserStore.username}</span>
+				{:else}<span>&nbsp;</span>{/if}
 			</div>
 		</li>
 		<LoginSignIn />
