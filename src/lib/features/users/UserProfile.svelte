@@ -2,7 +2,12 @@
 	import currentUserStore from "$lib/features/auth/currentUserStore.js";
 	import ShortFavouriteProducts from "$lib/features/users/fav-products/ShortFavouriteProducts.svelte";
 	import type PopulatedProduct from "../products/types/PopulatedProduct.js";
-	export let favProducts: PopulatedProduct[];
+
+	export let allProducts: readonly PopulatedProduct[];
+	export let favProductIds: string[];
+	const favProducts = allProducts
+		? allProducts.filter((product: PopulatedProduct) => product.id in favProductIds).slice(0, 2)
+		: [];
 </script>
 
 <div class="user-profile-page">

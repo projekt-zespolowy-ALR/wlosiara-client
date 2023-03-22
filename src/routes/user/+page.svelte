@@ -3,9 +3,14 @@
 
 	import type {PageServerData} from "./$types.js";
 	import type PopulatedProduct from "../../lib/features/products/types/PopulatedProduct.js";
+	import currentUserStore from "../../lib/features/auth/currentUserStore.js";
 
 	export let data: PageServerData;
-	const favProducts: PopulatedProduct[] = data ? data.products.slice(0, 3) : [];
+	const allProducts: readonly PopulatedProduct[] = data ? data.products : [];
 </script>
 
-<UserProfile {favProducts} />
+{#if $currentUserStore}
+	<UserProfile {allProducts} favProductIds={$currentUserStore.fav_products} />
+{:else}
+	<UserProfile {allProducts} favProductIds={[]} />
+{/if}

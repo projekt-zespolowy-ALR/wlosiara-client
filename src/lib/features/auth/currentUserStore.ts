@@ -9,6 +9,7 @@ function createCurrentUserStore() {
 		set({
 			id: "mock-user-id",
 			username: "mockuser",
+			fav_products: ["0", "1", "2", "3"],
 		});
 	};
 
