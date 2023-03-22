@@ -4,10 +4,12 @@ const mockedUsers: readonly User[] = [
 	{
 		id: "anna-nowak",
 		username: "annanowak",
+		fav_products: [],
 	},
 	{
 		id: "natalia-pawlowska",
 		username: "natalcia123",
+		fav_products: [],
 	},
 ];
 

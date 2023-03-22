@@ -3,7 +3,11 @@
 	import currentUserStore from "$lib/features/auth/currentUserStore.js";
 	import type PopulatedProduct from "../../products/types/PopulatedProduct.js";
 
-	export let products: PopulatedProduct[];
+	export let allProducts: readonly PopulatedProduct[];
+	export let favProductIds: string[];
+	const favProducts = allProducts
+		? allProducts.filter((product: PopulatedProduct) => product.id in favProductIds)
+		: [];
 </script>
 
 <div class="fav-products-page">
@@ -11,7 +15,7 @@
 		<h3>Ulubione produkty użytkownika {$currentUserStore.username}</h3>
 	{/if}
 	<ul>
-		{#each products as product (product.id)}
+		{#each favProducts as product (product.id)}
 			<ProductListItem {product} />
 		{/each}
 	</ul>
