@@ -36,7 +36,7 @@
 	"homepage": "https://github.com/projekt-zespolowy-ALR/wlosiara-client#readme",
 	"devDependencies": {
 		"@j-ulrich/release-it-regex-bumper": "^4.1.1",
-		"@playwright/test": "^1.28.0",
+		"@playwright/test": "^1.32.0",
 		"@sveltejs/adapter-node": "^1.2.2",
 		"@sveltejs/kit": "^1.11.0",
 		"@sveltejs/vite-plugin-svelte": "^2.0.3",
