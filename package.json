@@ -68,7 +68,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@auth0/auth0-spa-js": "^2.0.1",
+		"@auth0/auth0-spa-js": "^2.0.4",
 		"@magidoc/plugin-svelte-marked": "^3.5.0",
 		"envalid": "^7.3.1"
 	}
