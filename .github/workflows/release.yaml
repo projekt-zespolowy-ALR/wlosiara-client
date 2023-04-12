@@ -118,14 +118,59 @@ jobs:
         id: remember_helm_chart_name
         run: |
           echo "helm_chart_name=$(grep '^name:' ./helm/Chart.yaml | awk '{print $2}')" >> $GITHUB_OUTPUT
-      - name: Add Bitnami Helm repository
+      - name: Build Helm chart dependencies
         run: |
-          helm repo add bitnami https://charts.bitnami.com/bitnami
+          helm dependency build helm/
       - name: Run Helm package
         run: |
-          npm run helm-package
-      - name: Upload Helm package
+          helm package helm/
+      - name: Upload Helm chart
         uses: actions/upload-artifact@v3
         with:
           name: helm_chart
           path: ./${{ steps.remember_helm_chart_name.outputs.helm_chart_name }}-${{ steps.remember_helm_chart_version.outputs.helm_chart_version }}.tgz
+    outputs:
+      helm_chart_name: ${{ steps.remember_helm_chart_name.outputs.helm_chart_name }}
+      helm_chart_version: ${{ steps.remember_helm_chart_version.outputs.helm_chart_version }}
+
+  publish_helm_chart_to_chartmuseum:
+    name: Publish Helm chart to ChartMuseum
+    needs: [helm_package]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Helm chart
+        uses: actions/download-artifact@v3
+        with:
+          name: helm_chart
+      - name: Setup Helm
+        uses: azure/setup-helm@v3
+        with:
+          version: ${{ env.SETUP_HELM_HELM_VERSION }}
+      - name: Add Włosiara.pl ChartMuseum repository
+        run: |
+          helm repo add wlosiara-pl-chartmuseum ${{ secrets.CHARTMUSEUM_URL }}
+      - name: Install push-cm plugin for Helm
+        run: |
+          helm plugin install https://github.com/chartmuseum/helm-push
+      - name: Publish Helm chart to ChartMuseum
+        run: |
+          helm cm-push ${{ needs.helm_package.outputs.helm_chart_name }}-${{ needs.helm_package.outputs.helm_chart_version }}.tgz wlosiara-pl-chartmuseum --username=${{ secrets.CHARTMUSEUM_USERNAME }} --password=${{ secrets.CHARTMUSEUM_PASSWORD }}
+    outputs:
+      chart_version: ${{ needs.helm_package.outputs.helm_chart_version }}
+  deploy_helm_chart_to_kubernetes:
+    name: Deploy Helm chart to Kubernetes
+    needs: [publish_helm_chart_to_chartmuseum]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Helm
+        uses: azure/setup-helm@v3
+        with:
+          version: ${{ env.SETUP_HELM_HELM_VERSION }}
+      - name: Setup .kube/config
+        run: |
+          mkdir -p ~/.kube
+          echo "${{ secrets.KUBECONFIG }}" > ~/.kube/config
+          chmod 600 ~/.kube/config
+      - name: Deploy Helm chart to Kubernetes
+        run: |
+          helm upgrade --install ${{ github.event.repository.name }} ${{ github.event.repository.name }} --version=${{ needs.publish_helm_chart_to_chartmuseum.outputs.chart_version }} --namespace=default --repo=${{ secrets.CHARTMUSEUM_URL }} --username=${{ secrets.CHARTMUSEUM_USERNAME }} --password=${{ secrets.CHARTMUSEUM_PASSWORD }}
