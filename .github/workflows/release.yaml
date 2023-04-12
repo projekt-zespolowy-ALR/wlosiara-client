@@ -159,7 +159,7 @@ jobs:
       chart_version: ${{ needs.helm_package.outputs.helm_chart_version }}
   deploy_helm_chart_to_kubernetes:
     name: Deploy Helm chart to Kubernetes
-    needs: [publish_helm_chart_to_chartmuseum, helm_package]
+    needs: [publish_helm_chart_to_chartmuseum]
     runs-on: ubuntu-latest
     steps:
       - name: Setup Helm
