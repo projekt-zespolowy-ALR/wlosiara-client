@@ -52,7 +52,7 @@
 		"espree": "^9.4.1",
 		"globals": "^13.18.0",
 		"jsdom": "^21.1.1",
-		"playwright": "^1.28.0",
+		"playwright": "^1.32.3",
 		"prettier": "^2.8.7",
 		"prettier-plugin-svelte": "^2.9.0",
 		"release-it": "^15.9.1",
