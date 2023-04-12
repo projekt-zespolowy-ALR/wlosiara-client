@@ -63,7 +63,7 @@
 		"sveltik": "^0.1.16",
 		"typescript": "^5.0.2",
 		"uuid": "^9.0.0",
-		"vite": "^4.1.4",
+		"vite": "^4.2.1",
 		"vitest": "^0.29.7"
 	},
 	"type": "module",
