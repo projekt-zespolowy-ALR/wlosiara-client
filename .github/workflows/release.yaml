@@ -47,8 +47,8 @@ jobs:
     outputs:
       release_version: ${{ steps.remember_release_version.outputs.release_version }}
 
-  publish_to_docker_registry:
-    name: Publish to Docker registry
+  build:
+    name: Build
     needs: [release]
     runs-on: ubuntu-latest
     steps:
@@ -78,34 +78,67 @@ jobs:
       - name: Build
         run: |
           npm run build
-      - name: Login to Docker registry
-        uses: docker/login-action@v1
+      - name: Upload build
+        uses: actions/upload-artifact@v3
         with:
-          registry: ${{secrets.DOCKER_REGISTRY_HOST}}
-          username: ${{secrets.DOCKER_REGISTRY_USERNAME}}
-          password: ${{secrets.DOCKER_REGISTRY_PASSWORD}}
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2
-      - name: Build and push
-        uses: docker/build-push-action@v4
-        with:
-          context: .
-          push: true
-          tags: ${{secrets.DOCKER_REGISTRY_HOST}}/${{github.event.repository.name}}:${{ needs.release.outputs.release_version }}
-  helm_package:
-    name: Helm package
-    needs: [release]
+          name: build
+          path: build
+    outputs:
+      release_version: ${{ needs.release.outputs.release_version }}
+
+  publish_to_docker_registry:
+    name: Publish to Docker registry
+    needs: [build]
     runs-on: ubuntu-latest
     steps:
       - name: Download release
         uses: robinraju/release-downloader@v1.7
         with:
-          tag: ${{ needs.release.outputs.release_version }}
+          tag: ${{ needs.build.outputs.release_version }}
           tarBall: true
       - name: Unpack release
-        run: tar -xzf ./${{github.event.repository.name}}-${{ needs.release.outputs.release_version }}.tar.gz
+        run: tar -xzf ./${{github.event.repository.name}}-${{ needs.build.outputs.release_version }}.tar.gz
       - name: Remove tarball
-        run: rm ./${{github.event.repository.name}}-${{ needs.release.outputs.release_version }}.tar.gz
+        run: rm ./${{github.event.repository.name}}-${{ needs.build.outputs.release_version }}.tar.gz
+      - name: Move the files to the current directory
+        run: |
+          shopt -s dotglob
+          mv ./${{github.event.repository.owner.login}}-${{github.event.repository.name}}-*/* ./
+          shopt -u dotglob
+          rm -rf ./${{github.event.repository.owner.login}}-${{github.event.repository.name}}-*/
+      - name: Download build
+        uses: actions/download-artifact@v3
+        with:
+          name: build
+          path: build
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+      - name: Login to Docker registry
+        uses: docker/login-action@v2
+        with:
+          username: ${{secrets.DOCKER_REGISTRY_USERNAME}}
+          password: ${{secrets.DOCKER_REGISTRY_PASSWORD}}
+          registry: ${{vars.DOCKER_REGISTRY_HOST}}
+      - name: Build and push
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          push: true
+          tags: ${{vars.DOCKER_REGISTRY_HOST}}/${{vars.DOCKER_REGISTRY_REPOSITORY_NAME}}:${{ needs.build.outputs.release_version }}
+  helm_package:
+    name: Helm package
+    needs: [build]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download release
+        uses: robinraju/release-downloader@v1.7
+        with:
+          tag: ${{ needs.build.outputs.release_version }}
+          tarBall: true
+      - name: Unpack release
+        run: tar -xzf ./${{github.event.repository.name}}-${{ needs.build.outputs.release_version }}.tar.gz
+      - name: Remove tarball
+        run: rm ./${{github.event.repository.name}}-${{ needs.build.outputs.release_version }}.tar.gz
       - name: Move the files to the current directory
         run: |
           shopt -s dotglob
@@ -124,13 +157,10 @@ jobs:
         id: remember_helm_chart_name
         run: |
           echo "helm_chart_name=$(grep '^name:' ./helm/Chart.yaml | awk '{print $2}')" >> $GITHUB_OUTPUT
-      - name: Build Helm chart dependencies
-        run: |
-          helm dependency build helm/
       - name: Run Helm package
         run: |
-          helm package helm/
-      - name: Upload Helm chart
+          npm run helm-package
+      - name: Upload Helm package
         uses: actions/upload-artifact@v3
         with:
           name: helm_chart
@@ -154,7 +184,7 @@ jobs:
           version: ${{ env.SETUP_HELM_HELM_VERSION }}
       - name: Add Włosiara.pl ChartMuseum repository
         run: |
-          helm repo add wlosiara-pl-chartmuseum ${{ secrets.CHARTMUSEUM_URL }}
+          helm repo add wlosiara-pl-chartmuseum ${{ vars.CHARTMUSEUM_URL }}
       - name: Install push-cm plugin for Helm
         run: |
           helm plugin install https://github.com/chartmuseum/helm-push
@@ -179,4 +209,4 @@ jobs:
           chmod 600 ~/.kube/config
       - name: Deploy Helm chart to Kubernetes
         run: |
-          helm upgrade --install ${{ github.event.repository.name }} ${{ github.event.repository.name }} --version=${{ needs.publish_helm_chart_to_chartmuseum.outputs.chart_version }} --namespace=default --repo=${{ secrets.CHARTMUSEUM_URL }} --username=${{ secrets.CHARTMUSEUM_USERNAME }} --password=${{ secrets.CHARTMUSEUM_PASSWORD }} --set image.dockerRegistry.host=${{ secrets.DOCKER_REGISTRY_HOST }}
+          helm upgrade --install ${{ github.event.repository.name }} ${{ github.event.repository.name }} --version=${{ needs.publish_helm_chart_to_chartmuseum.outputs.chart_version }} --namespace=default --repo=${{ vars.CHARTMUSEUM_URL }} --username=${{ secrets.CHARTMUSEUM_USERNAME }} --password=${{ secrets.CHARTMUSEUM_PASSWORD }} --set image.dockerRegistry.host=${{ vars.DOCKER_REGISTRY_HOST }}
