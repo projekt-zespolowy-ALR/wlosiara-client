@@ -25,7 +25,7 @@
 				</a>
 			</div>
 		</li>
-		<LoginSignIn />
+		<LoginSignIn currentUser={$currentUserStore} />
 	</ul>
 </nav>
 
