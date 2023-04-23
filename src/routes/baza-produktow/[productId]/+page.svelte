@@ -1,8 +1,9 @@
 <script lang="ts">
-	import ProductPage from "$lib/features/products/ProductPage.svelte";
-	import type PopulatedProduct from "$lib/features/products/types/PopulatedProduct.js";
+    import ProductPage from "$lib/features/products/ProductPage.svelte";
 
-	export let product: PopulatedProduct;
+    import type {PageServerData} from "./$types.js";
+
+    export let data: PageServerData;
 </script>
 
-<ProductPage {product} />
+<ProductPage product={data.product} />

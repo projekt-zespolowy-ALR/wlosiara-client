@@ -1,10 +1,19 @@
 <script lang="ts">
 	import type PopulatedProduct from "./types/PopulatedProduct.js";
+	import {addProductToFav, productLiked} from "./product-functions.js";
+	import currentUserStore from "../auth/currentUserStore.js"
+	import { get } from 'svelte/store';
 
 	export let product: PopulatedProduct;
+
+
 </script>
 
 <li>
+	<div class="heart">
+		<i class="fa-solid fa-heart" class:purple="{productLiked(product.id)}"
+		on:keypress={() => {}} on:click={() => addProductToFav(product.id)}></i>
+	</div>
 	<a href="/baza-produktow/{product.id}">
 		{#if product.inDataSources[0]}
 			<div class="img">
@@ -12,6 +21,7 @@
 			</div>
 			<div class="item-info">
 				<p>{product.name}</p>
+				
 			</div>
 		{:else}
 			<p>Brak danych</p>
@@ -47,5 +57,17 @@
 	li .item-info {
 		padding: 0 10px;
 		text-align: center;
+	}
+	.heart {
+		display: flex;
+		justify-content: end;
+		/* margin-bottom: 10px; */
+	}
+	.heart i{
+		font-size: 16px;
+		color: lightgray;
+	}
+	.heart i:hover, .heart i.purple{
+		color: var(--primary-color-3);
 	}
 </style>

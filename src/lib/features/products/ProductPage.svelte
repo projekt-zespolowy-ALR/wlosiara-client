@@ -1,8 +1,13 @@
 <script lang="ts">
+	import { get } from "svelte/store";
+	import currentUserStore from "../auth/currentUserStore.js";
+	import { addProductToFav, productLiked } from "./product-functions.js";
 	import type PopulatedProduct from "./types/PopulatedProduct.js";
 	import Markdown from "@magidoc/plugin-svelte-marked";
 
 	export let product: PopulatedProduct;
+
+	
 </script>
 
 <div class="page">
@@ -11,6 +16,12 @@
 		<div class="product">
 			<img src={product.inDataSources[0].imageUrl} alt="" srcset="" />
 			<div class="short-text">
+				<div class="heart"> 
+					<i class="fa-solid fa-heart"
+					class:purple="{productLiked(product.id)}"
+					on:keypress={() => {}} on:click={() => addProductToFav(product.id)}>
+					</i>
+				</div>
 				<p>{product.name}</p>
 				<p>{product.categories.map((category) => category.name).join(", ")}</p>
 				<p>{product.brand.name}</p>
@@ -68,5 +79,17 @@
 	.back {
 		color: var(--primary-color-3);
 		font-size: 30px;
+	}
+	.heart {
+		display: flex;
+		/* justify-content: center; */
+		/* margin-bottom: 10px; */
+	}
+	.heart i{
+		font-size: 16px;
+		color: lightgray;
+	}
+	.heart i:hover, .heart i.purple{
+		color: var(--primary-color-3);
 	}
 </style>
