@@ -1,7 +1,8 @@
 <script lang="ts">
-	import currentUserStore from "$lib/features/auth/currentUserStore.js";
+	export let currentUser: User | null;
 	import ShortFavouriteProducts from "$lib/features/users/fav-products/ShortFavouriteProducts.svelte";
 	import type PopulatedProduct from "../products/types/PopulatedProduct.js";
+	import type User from "./types/User.js";
 
 	export let allProducts: readonly PopulatedProduct[];
 	export let favProductIds: string[];
@@ -12,16 +13,16 @@
 
 <div class="user-profile-page">
 	<div class="user-header">
-		{#if $currentUserStore}
-			<h3>{$currentUserStore.username}</h3>
+		{#if currentUser}
+			<h3>{currentUser.username}</h3>
 		{:else}<span>username</span>{/if}
 	</div>
 
 	<ShortFavouriteProducts {favProducts} />
 
 	<div class="user-info">
-		{#if $currentUserStore}
-			<p>{$currentUserStore.id}</p>
+		{#if currentUser}
+			<p>{currentUser.id}</p>
 		{:else}<span>id</span>{/if}
 	</div>
 </div>

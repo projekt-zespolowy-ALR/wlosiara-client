@@ -1,6 +1,6 @@
 <script lang="ts">
 	import PostListItem from "./PostListItem.svelte";
-	import currentUserStore from "$lib/features/auth/currentUserStore.js";
+	export let currentUser: User | null;
 	import type PopulatedBlogEntry from "./types/PopulatedBlogEntry.js";
 	import SubpageH1 from "$lib/ui/subpage_h1/SubpageH1.svelte";
 
@@ -9,6 +9,7 @@
 	import {page} from "$app/stores";
 
 	import {goto} from "$app/navigation";
+	import type User from "../users/types/User.js";
 
 	const handleSearchInputChange = (e: Event) => {
 		const search = (e.target as HTMLInputElement).value;
@@ -34,7 +35,7 @@
 		{#each blogEntries as blogEntry (blogEntry.id)}
 			<PostListItem {blogEntry} />
 		{/each}
-		{#if $currentUserStore}
+		{#if currentUser}
 			<li class="add">
 				<a href="/baza-wiedzy/add">
 					<button>

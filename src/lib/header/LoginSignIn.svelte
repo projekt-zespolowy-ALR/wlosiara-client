@@ -1,18 +1,45 @@
 <script lang="ts">
-	import currentUserStore from "$lib/features/auth/currentUserStore.js";
+	export let currentUser: User | null;
+	import {invalidateAll} from "$app/navigation";
+	import type User from "$lib/features/users/types/User.js";
+
+	const login = async (event: Event) => {
+		event.preventDefault();
+		const formEl = event.target as HTMLFormElement;
+
+		await fetch(formEl.action, {
+			method: "POST",
+			body: "",
+		});
+
+		await invalidateAll();
+	};
+
+	const logout = async (event: Event) => {
+		event.preventDefault();
+		const formEl = event.target as HTMLFormElement;
+		await fetch(formEl.action, {
+			method: "POST",
+			body: "",
+		});
+
+		await invalidateAll();
+	};
 </script>
 
 <li class="login-sign-in">
 	<i class="fa-solid fa-user" />
-	{#if $currentUserStore}
-		<li class="nav-item">
-			<button class="nav-link" on:click={currentUserStore.logout}>Log Out</button>
-		</li>
-	{:else}
-		<li class="nav-item">
-			<button class="nav-link" on:click={() => currentUserStore.login()}>Log In</button>
-		</li>
-	{/if}
+	<span class="nav-item">
+		{#if currentUser !== null}
+			<form action="/logout" method="post" on:submit={logout}>
+				<button class="nav-link" type="submit">Log Out</button>
+			</form>
+		{:else}
+			<form action="/login" method="post" on:submit={login}>
+				<button class="nav-link" type="submit">Log In</button>
+			</form>
+		{/if}
+	</span>
 </li>
 
 <style>

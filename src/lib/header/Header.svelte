@@ -1,5 +1,7 @@
 <script lang="ts">
+	import type User from "$lib/features/users/types/User.js";
 	import Navbar from "./Navbar.svelte";
+	export let currentUser: User | null;
 </script>
 
 <header class="header">
@@ -11,7 +13,7 @@
 		/>
 	</div>
 
-	<Navbar />
+	<Navbar {currentUser} />
 </header>
 
 <style lang="scss">
