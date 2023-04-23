@@ -2,10 +2,12 @@
 	import Footer from "$lib/ui/footer/Footer.svelte";
 	import Header from "$lib/header/Header.svelte";
 	import Main from "$lib/main/Main.svelte";
+	import type {LayoutData} from "./$types.js";
+	export let data: LayoutData;
 </script>
 
 <div class="svelte-app-root">
-	<Header />
+	<Header currentUser={data.currentUser} />
 	<Main>
 		<slot />
 	</Main>

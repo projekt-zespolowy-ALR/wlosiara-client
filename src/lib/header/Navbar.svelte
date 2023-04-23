@@ -1,6 +1,7 @@
 <script lang="ts">
+	import type User from "$lib/features/users/types/User.js";
 	import LoginSignIn from "./LoginSignIn.svelte";
-	import currentUserStore from "$lib/features/auth/currentUserStore.js";
+	export let currentUser: User | null;
 </script>
 
 <nav class="navbar">
@@ -19,13 +20,13 @@
 		<li>
 			<div class="navbar-nav mr-auto user-details">
 				<a href="/user">
-					{#if $currentUserStore}
-						<span class="text-white">&nbsp;&nbsp;{$currentUserStore.username}</span>
+					{#if currentUser}
+						<span class="text-white">&nbsp;&nbsp;{currentUser.username}</span>
 					{:else}<span>&nbsp;</span>{/if}
 				</a>
 			</div>
 		</li>
-		<LoginSignIn currentUser={$currentUserStore} />
+		<LoginSignIn {currentUser} />
 	</ul>
 </nav>
 
