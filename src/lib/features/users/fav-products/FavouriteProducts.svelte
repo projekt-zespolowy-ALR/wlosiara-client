@@ -1,7 +1,8 @@
 <script lang="ts">
 	import ProductListItem from "$lib/features/products/ProductListItem.svelte";
-	import currentUserStore from "$lib/features/auth/currentUserStore.js";
+	export let currentUser: User | null;
 	import type PopulatedProduct from "../../products/types/PopulatedProduct.js";
+	import type User from "../types/User.js";
 
 	export let allProducts: readonly PopulatedProduct[];
 	export let favProductIds: string[];
@@ -11,8 +12,8 @@
 </script>
 
 <div class="fav-products-page">
-	{#if $currentUserStore}
-		<h3>Ulubione produkty użytkownika {$currentUserStore.username}</h3>
+	{#if currentUser}
+		<h3>Ulubione produkty użytkownika {currentUser.username}</h3>
 	{/if}
 	<ul>
 		{#each favProducts as product (product.id)}

@@ -1,8 +1,8 @@
 <script lang="ts">
 	import PostList from "$lib/features/blog/PostList.svelte";
-	import type {PageServerData} from "./$types.js";
+	import type {PageData} from "./$types.js";
 
-	export let data: PageServerData;
+	export let data: PageData;
 </script>
 
-<PostList blogEntries={data.blogEntries} />
+<PostList blogEntries={data.blogEntries} currentUser={data.currentUser} />
