@@ -6,7 +6,9 @@
 	import {page} from "$app/stores";
 	import {goto} from "$app/navigation";
 	import type ProductCategory from "$lib/features/products/types/ProductCategory.js";
+	import type User from "../users/types/User.js";
 
+	export let user: User | null;
 	let filt: (product: PopulatedProduct) => boolean = () => true;
 
 	export let products: readonly PopulatedProduct[];
@@ -127,7 +129,7 @@
 		{/each} -->
 		<!--{#each products.filter(filt) as product (product.id)}-->
 		{#each visibleProducts.filter(filt) as product (product.id)}
-			<ProductListItem {product} />
+			<ProductListItem {product} userId={user === null ? null : user.id} />
 		{/each}
 	</ul>
 </div>

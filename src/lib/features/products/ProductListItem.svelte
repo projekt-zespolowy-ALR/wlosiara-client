@@ -1,19 +1,27 @@
 <script lang="ts">
 	import type PopulatedProduct from "./types/PopulatedProduct.js";
-	import {addProductToFav, productLiked} from "./product-functions.js";
+	// import {addProductToFav, productLiked} from "./product-functions.js";
 
 	export let product: PopulatedProduct;
+
+	export let userId: string | null;
 </script>
 
 <li>
-	<div class="heart">
-		<i
-			class="fa-solid fa-heart"
-			class:purple={productLiked(product.id)}
-			on:keypress={() => {}}
-			on:click={() => addProductToFav(product.id)}
-		/>
-	</div>
+	{#if userId !== null}
+		<div class="heart">
+			<!-- <button type="submit" formaction="?/addProductToFavorites" name="productId" value={product.id}>
+			<i class="fa-solid fa-heart" class:purple={false} />
+		</button> -->
+			<form action="?/addProductToFavorites" method="post">
+				<input type="hidden" name="productId" value={product.id} />
+				<input type="hidden" name="userId" value={userId} />
+				<button type="submit">
+					<i class="fa-solid fa-heart" class:purple={false} />
+				</button>
+			</form>
+		</div>
+	{/if}
 	<a href="/baza-produktow/{product.id}">
 		{#if product.inDataSources[0]}
 			<div class="img">
