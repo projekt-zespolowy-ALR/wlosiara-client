@@ -1,5 +1,5 @@
 {
-	"name": "wlosiara-client",
+	"name": "wlosiara-pl-website-service",
 	"version": "0.2.6",
 	"private": true,
 	"description": "Web client for wlosiara.pl",
@@ -27,14 +27,14 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/projekt-zespolowy-ALR/wlosiara-client.git"
+		"url": "git+https://github.com/projekt-zespolowy-ALR/wlosiara-pl-website-service.git"
 	},
 	"author": "wlosiara.pl",
 	"license": "UNLICENSED",
 	"bugs": {
-		"url": "https://github.com/projekt-zespolowy-ALR/wlosiara-client/issues"
+		"url": "https://github.com/projekt-zespolowy-ALR/wlosiara-pl-website-service/issues"
 	},
-	"homepage": "https://github.com/projekt-zespolowy-ALR/wlosiara-client#readme",
+	"homepage": "https://github.com/projekt-zespolowy-ALR/wlosiara-pl-website-service#readme",
 	"devDependencies": {
 		"@j-ulrich/release-it-regex-bumper": "^4.1.1",
 		"@playwright/test": "^1.28.0",
