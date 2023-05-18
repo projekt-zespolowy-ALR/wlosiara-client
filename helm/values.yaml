@@ -5,3 +5,11 @@ replicaCount: 1
 image:
   dockerRegistry:
     host: null # required
+
+resources:
+  requests:
+    cpu: "50m"
+    memory: "128Mi"
+  limits:
+    cpu: "100m"
+    memory: "256Mi"
