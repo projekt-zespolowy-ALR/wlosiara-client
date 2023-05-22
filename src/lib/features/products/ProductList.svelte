@@ -9,12 +9,12 @@
 
 	let filt: (product: PopulatedProduct) => boolean = () => true;
 
-	export let products: readonly PopulatedProduct[];
+	export let products: PopulatedProduct[];
 	let categories: ProductCategory[] = products
 		? [...new Set(products.flatMap((product) => product.categories))]
 		: [];
 	let selectedCategory: ProductCategory | null = null;
-	let visibleProducts: readonly PopulatedProduct[] = products ? products : [];
+	let visibleProducts: PopulatedProduct[] = products ? products : [];
 	let sortingType = "";
 
 	const handleInputChange = (e: Event) => {

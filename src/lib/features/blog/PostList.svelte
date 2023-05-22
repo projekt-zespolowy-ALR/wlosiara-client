@@ -4,7 +4,7 @@
 	import type PopulatedBlogEntry from "./types/PopulatedBlogEntry.js";
 	import SubpageH1 from "$lib/ui/subpage_h1/SubpageH1.svelte";
 
-	export let blogEntries: readonly PopulatedBlogEntry[];
+	export let blogEntries: DeepReadonly<PopulatedBlogEntry[]>;
 
 	import {page} from "$app/stores";
 

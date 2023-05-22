@@ -1,4 +1,4 @@
-type ProductInDataSource = Readonly<{
+type ProductInDataSource = {
 	productId: string;
 	dataSourceId: string;
 	/**
@@ -19,6 +19,6 @@ type ProductInDataSource = Readonly<{
 	price: number | null;
 
 	description: string | null;
-}>;
+};
 
 export default ProductInDataSource;

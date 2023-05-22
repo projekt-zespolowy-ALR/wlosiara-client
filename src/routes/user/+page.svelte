@@ -5,7 +5,7 @@
 	import type {PageData} from "./$types.js";
 
 	export let data: PageData;
-	const allProducts: readonly PopulatedProduct[] = data ? data.products : [];
+	const allProducts: PopulatedProduct[] = data ? data.products : [];
 </script>
 
 {#if data.currentUser}

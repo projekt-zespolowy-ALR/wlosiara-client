@@ -6,7 +6,7 @@
 	export let currentUser: User | null;
 
 	export let data: PageServerData;
-	const allProducts: readonly PopulatedProduct[] = data ? data.products : [];
+	const allProducts: PopulatedProduct[] = data ? data.products : [];
 </script>
 
 {#if currentUser}

@@ -45,7 +45,7 @@ const tolpaPopulatedProduct = {
 	inDataSources: [tolpaInDataSource],
 };
 
-const mockedPopulatedProducts: readonly PopulatedProduct[] = [
+const mockedPopulatedProducts: PopulatedProduct[] = [
 	tolpaPopulatedProduct,
 	{
 		...tolpaPopulatedProduct,

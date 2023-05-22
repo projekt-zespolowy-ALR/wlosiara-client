@@ -4,7 +4,7 @@
 	import type PopulatedProduct from "../products/types/PopulatedProduct.js";
 	import type User from "./types/User.js";
 
-	export let allProducts: readonly PopulatedProduct[];
+	export let allProducts: PopulatedProduct[];
 	export let favProductIds: string[];
 	const favProducts = allProducts
 		? allProducts.filter((product: PopulatedProduct) => product.id in favProductIds).slice(0, 2)

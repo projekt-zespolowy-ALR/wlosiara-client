@@ -1,6 +1,6 @@
 import type User from "$lib/features/users/types/User.js";
 
-const mockedUsers: readonly User[] = [
+const mockedUsers: User[] = [
 	{
 		id: "anna-nowak",
 		username: "annanowak",

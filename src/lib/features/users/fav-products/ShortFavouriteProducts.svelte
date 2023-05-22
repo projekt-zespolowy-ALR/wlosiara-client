@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type PopulatedProduct from "../../products/types/PopulatedProduct.js";
 
-	export let favProducts: readonly PopulatedProduct[];
+	export let favProducts: PopulatedProduct[];
 </script>
 
 <div class="fav-products-short">

@@ -1,6 +1,6 @@
-type UserCredentials = Readonly<{
+type UserCredentials = {
 	email: string;
 	password: string;
-}>;
+};
 
 export default UserCredentials;
