@@ -6,15 +6,16 @@
 	import {page} from "$app/stores";
 	import {goto} from "$app/navigation";
 	import type ProductCategory from "$lib/features/products/types/ProductCategory.js";
+	import type {DeepReadonly} from "ts-essentials";
 
-	let filt: (product: PopulatedProduct) => boolean = () => true;
+	let filt: (product: DeepReadonly<PopulatedProduct>) => boolean = () => true;
 
-	export let products: readonly PopulatedProduct[];
+	export let products: DeepReadonly<PopulatedProduct[]>;
 	let categories: ProductCategory[] = products
 		? [...new Set(products.flatMap((product) => product.categories))]
 		: [];
 	let selectedCategory: ProductCategory | null = null;
-	let visibleProducts: readonly PopulatedProduct[] = products ? products : [];
+	let visibleProducts: DeepReadonly<PopulatedProduct[]> = products ? products : [];
 	let sortingType = "";
 
 	const handleInputChange = (e: Event) => {
@@ -40,49 +41,59 @@
 	const handleSelectSortingType = () => {
 		switch (sortingType) {
 			case "price-ascending":
-				visibleProducts = [...visibleProducts].sort((a: PopulatedProduct, b: PopulatedProduct) => {
-					const aDataSource = a.inDataSources[0];
-					const bDataSource = b.inDataSources[0];
-					if (aDataSource?.price && bDataSource?.price) {
-						return aDataSource.price - bDataSource.price;
+				visibleProducts = [...visibleProducts].sort(
+					(a: DeepReadonly<PopulatedProduct>, b: DeepReadonly<PopulatedProduct>) => {
+						const aDataSource = a.inDataSources[0];
+						const bDataSource = b.inDataSources[0];
+						if (aDataSource?.price && bDataSource?.price) {
+							return aDataSource.price - bDataSource.price;
+						}
+						return 0;
 					}
-					return 0;
-				});
+				);
 				break;
 			case "price-descending":
-				visibleProducts = [...visibleProducts].sort((a: PopulatedProduct, b: PopulatedProduct) => {
-					const aDataSource = a.inDataSources[0];
-					const bDataSource = b.inDataSources[0];
-					if (aDataSource?.price && bDataSource?.price) {
-						return bDataSource.price - aDataSource.price;
+				visibleProducts = [...visibleProducts].sort(
+					(a: DeepReadonly<PopulatedProduct>, b: DeepReadonly<PopulatedProduct>) => {
+						const aDataSource = a.inDataSources[0];
+						const bDataSource = b.inDataSources[0];
+						if (aDataSource?.price && bDataSource?.price) {
+							return bDataSource.price - aDataSource.price;
+						}
+						return 0;
 					}
-					return 0;
-				});
+				);
 				break;
 			case "name-ascending":
-				visibleProducts = [...visibleProducts].sort((a: PopulatedProduct, b: PopulatedProduct) => {
-					if (a.name && b.name) {
-						return a.name.localeCompare(b.name);
+				visibleProducts = [...visibleProducts].sort(
+					(a: DeepReadonly<PopulatedProduct>, b: DeepReadonly<PopulatedProduct>) => {
+						if (a.name && b.name) {
+							return a.name.localeCompare(b.name);
+						}
+						return 0;
 					}
-					return 0;
-				});
+				);
 
 				break;
 			case "name-descending":
-				visibleProducts = [...visibleProducts].sort((a: PopulatedProduct, b: PopulatedProduct) => {
-					if (a.name && b.name) {
-						return b.name.localeCompare(a.name);
+				visibleProducts = [...visibleProducts].sort(
+					(a: DeepReadonly<PopulatedProduct>, b: DeepReadonly<PopulatedProduct>) => {
+						if (a.name && b.name) {
+							return b.name.localeCompare(a.name);
+						}
+						return 0;
 					}
-					return 0;
-				});
+				);
 				break;
 			default:
-				visibleProducts = [...visibleProducts].sort((a: PopulatedProduct, b: PopulatedProduct) => {
-					if (a.name && b.name) {
-						return a.name.localeCompare(b.name);
+				visibleProducts = [...visibleProducts].sort(
+					(a: DeepReadonly<PopulatedProduct>, b: DeepReadonly<PopulatedProduct>) => {
+						if (a.name && b.name) {
+							return a.name.localeCompare(b.name);
+						}
+						return 0;
 					}
-					return 0;
-				});
+				);
 				break;
 		}
 	};

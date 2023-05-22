@@ -1,6 +1,6 @@
 import type BlogEntry from "$lib/features/blog/types/BlogEntry.js";
 
-const mockedBlogEntries: readonly BlogEntry[] = [
+const mockedBlogEntries: BlogEntry[] = [
 	{
 		id: "0",
 		title: "Jak dbać o włosy niskoporowate?",

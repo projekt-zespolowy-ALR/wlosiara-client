@@ -3,10 +3,11 @@
 	import FavouriteProducts from "$lib/features/users/fav-products/FavouriteProducts.svelte";
 	import type PopulatedProduct from "../../../lib/features/products/types/PopulatedProduct.js";
 	import type User from "$lib/features/users/types/User.js";
+	import type {DeepReadonly} from "ts-essentials";
 	export let currentUser: User | null;
 
 	export let data: PageServerData;
-	const allProducts: readonly PopulatedProduct[] = data ? data.products : [];
+	const allProducts: DeepReadonly<PopulatedProduct[]> = data ? data.products : [];
 </script>
 
 {#if currentUser}

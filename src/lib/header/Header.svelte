@@ -1,7 +1,8 @@
 <script lang="ts">
 	import type User from "$lib/features/users/types/User.js";
+	import type {DeepReadonly} from "ts-essentials";
 	import Navbar from "./Navbar.svelte";
-	export let currentUser: User | null;
+	export let currentUser: DeepReadonly<User> | null;
 </script>
 
 <header class="header">

@@ -4,8 +4,9 @@
 
 	import type Question from "./types/Question.js";
 	import type AnswerToQuestion from "./types/AnswerToQuestion.js";
+	import type {DeepReadonly} from "ts-essentials";
 
-	export let question: Question;
+	export let question: DeepReadonly<Question>;
 
 	const handleGiveAnswer = (userAnswer: AnswerToQuestion) => {
 		dispatch("answer", userAnswer);

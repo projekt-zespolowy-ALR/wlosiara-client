@@ -2,8 +2,9 @@ import type PopulatedProduct from "$lib/features/products/types/PopulatedProduct
 import type Brand from "$lib/features/brands/types/Brand.js";
 import type ProductInDataSource from "$lib/features/products/types/PopulatedProductInDataSource.js";
 import type Product from "$lib/features/products/types/Product.js";
+import type {DeepReadonly} from "ts-essentials";
 
-const tolpaProduct: Product = {
+const tolpaProduct: DeepReadonly<Product> = {
 	id: "0",
 	name: "Tołpa green",
 	mass: 300,
@@ -13,7 +14,7 @@ const tolpaProduct: Product = {
 	brandId: "0",
 };
 
-const tolpaInDataSource: ProductInDataSource = {
+const tolpaInDataSource: DeepReadonly<ProductInDataSource> = {
 	product: tolpaProduct,
 	dataSource: {
 		id: "0",
@@ -29,7 +30,7 @@ const tolpaInDataSource: ProductInDataSource = {
 	description: "wzmacniający szampon do włosów, 300 ml",
 };
 
-const tolpaPopulatedProduct = {
+const tolpaPopulatedProduct: DeepReadonly<PopulatedProduct> = {
 	...tolpaProduct,
 	brand: {name: "Tołpa"} as Brand,
 	ingredients: [
@@ -45,7 +46,7 @@ const tolpaPopulatedProduct = {
 	inDataSources: [tolpaInDataSource],
 };
 
-const mockedPopulatedProducts: readonly PopulatedProduct[] = [
+const mockedPopulatedProducts: DeepReadonly<PopulatedProduct[]> = [
 	tolpaPopulatedProduct,
 	{
 		...tolpaPopulatedProduct,

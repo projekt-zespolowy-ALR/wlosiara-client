@@ -14,5 +14,5 @@ export const load: PageServerLoad = async ({url}) => {
 
 	return {
 		products: filteredProducts,
-	};
+	} as const;
 };

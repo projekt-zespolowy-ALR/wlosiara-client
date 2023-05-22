@@ -1,7 +1,8 @@
 <script lang="ts">
+	import type {DeepReadonly} from "ts-essentials";
 	import type PopulatedProduct from "../../products/types/PopulatedProduct.js";
 
-	export let favProducts: readonly PopulatedProduct[];
+	export let favProducts: DeepReadonly<PopulatedProduct[]>;
 </script>
 
 <div class="fav-products-short">

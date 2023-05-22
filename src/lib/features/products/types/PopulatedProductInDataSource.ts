@@ -1,7 +1,7 @@
 import type DataSource from "$lib/features/data_sources/types/DataSource.js";
 import type Product from "./Product.js";
 
-type ProductInDataSource = Readonly<{
+type ProductInDataSource = {
 	product: Product;
 	dataSource: DataSource;
 	/**
@@ -22,6 +22,6 @@ type ProductInDataSource = Readonly<{
 	price: number | null;
 
 	description: string | null;
-}>;
+};
 
 export default ProductInDataSource;

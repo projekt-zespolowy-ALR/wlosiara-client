@@ -1,4 +1,4 @@
-type Product = Readonly<{
+type Product = {
 	/**
 	 * The product's id in UUID format.
 	 * @example "a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11"
@@ -35,9 +35,9 @@ type Product = Readonly<{
 	/**
 	 * The product's categories.
 	 */
-	categoryIds: readonly string[];
+	categoryIds: string[];
 
 	brandId: string;
-}>;
+};
 
 export default Product;
