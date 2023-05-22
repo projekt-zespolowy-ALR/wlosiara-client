@@ -1,13 +1,14 @@
 <script lang="ts">
 	import ProductListItem from "$lib/features/products/ProductListItem.svelte";
-	export let currentUser: User | null;
+	import type {DeepReadonly} from "ts-essentials";
+	export let currentUser: DeepReadonly<User> | null;
 	import type PopulatedProduct from "../../products/types/PopulatedProduct.js";
 	import type User from "../types/User.js";
 
-	export let allProducts: PopulatedProduct[];
-	export let favProductIds: string[];
+	export let allProducts: DeepReadonly<PopulatedProduct[]>;
+	export let favProductIds: DeepReadonly<string[]>;
 	const favProducts = allProducts
-		? allProducts.filter((product: PopulatedProduct) => product.id in favProductIds)
+		? allProducts.filter((product: DeepReadonly<PopulatedProduct>) => product.id in favProductIds)
 		: [];
 </script>
 

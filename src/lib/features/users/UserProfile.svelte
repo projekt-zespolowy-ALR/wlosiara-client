@@ -1,13 +1,16 @@
 <script lang="ts">
-	export let currentUser: User | null;
+	export let currentUser: DeepReadonly<User> | null;
 	import ShortFavouriteProducts from "$lib/features/users/fav-products/ShortFavouriteProducts.svelte";
+	import type {DeepReadonly} from "ts-essentials";
 	import type PopulatedProduct from "../products/types/PopulatedProduct.js";
 	import type User from "./types/User.js";
 
-	export let allProducts: PopulatedProduct[];
-	export let favProductIds: string[];
+	export let allProducts: DeepReadonly<PopulatedProduct[]>;
+	export let favProductIds: DeepReadonly<string[]>;
 	const favProducts = allProducts
-		? allProducts.filter((product: PopulatedProduct) => product.id in favProductIds).slice(0, 2)
+		? allProducts
+				.filter((product: DeepReadonly<PopulatedProduct>) => product.id in favProductIds)
+				.slice(0, 2)
 		: [];
 </script>
 

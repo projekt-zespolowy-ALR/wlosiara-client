@@ -9,5 +9,5 @@ export const load: PageServerLoad = async ({params}) => {
 	}
 	return {
 		product: targetProduct,
-	};
+	} as const;
 };

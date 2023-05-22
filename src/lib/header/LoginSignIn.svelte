@@ -1,7 +1,8 @@
 <script lang="ts">
-	export let currentUser: User | null;
+	export let currentUser: DeepReadonly<User> | null;
 	import {invalidateAll} from "$app/navigation";
 	import type User from "$lib/features/users/types/User.js";
+	import type {DeepReadonly} from "ts-essentials";
 
 	const login = async (event: Event) => {
 		event.preventDefault();

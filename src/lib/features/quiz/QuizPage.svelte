@@ -1,4 +1,5 @@
 <script lang="ts">
+	import type {DeepReadonly} from "ts-essentials";
 	import QuestionPrompt from "./QuestionPrompt.svelte";
 	let currentQuestionId = 0;
 	import {quiz_all} from "./quiz-answers.js";
@@ -6,7 +7,7 @@
 	import type AnswerToQuestion from "./types/AnswerToQuestion.js";
 	import type Question from "./types/Question.js";
 
-	let userAnswers: Map<number, AnswerToQuestion> = new Map();
+	let userAnswers: Map<number, DeepReadonly<AnswerToQuestion>> = new Map();
 
 	$: question = quiz_all[currentQuestionId] as Question;
 

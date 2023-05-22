@@ -1,6 +1,7 @@
 import type User from "$lib/features/users/types/User.js";
+import type {DeepReadonly} from "ts-essentials";
 
-const mockedUsers: User[] = [
+const mockedUsers: DeepReadonly<User[]> = [
 	{
 		id: "anna-nowak",
 		username: "annanowak",

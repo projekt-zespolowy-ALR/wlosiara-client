@@ -11,5 +11,5 @@ export const load: LayoutServerLoad = async ({cookies}) => {
 	}
 	return {
 		currentUser: user,
-	};
+	} as const;
 };
