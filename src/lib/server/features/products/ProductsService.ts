@@ -91,13 +91,21 @@ export class ProductsService {
 	}
 
 	public async getProductsPage(): Promise<Page<Product>> {
-		const productsPageInApi = await this.productsApiClient.fetchProductsPage();
-		const products = await Promise.all(
-			productsPageInApi.items.map((productInApi) => this.populateProductInApi(productInApi))
-		);
+		// const productsPageInApi = await this.productsApiClient.fetchProductsPage();
+		// const products = await Promise.all(
+		// 	productsPageInApi.items.map((productInApi) => this.populateProductInApi(productInApi))
+		// );
+		// return {
+		// 	...productsPageInApi,
+		// 	items: products,
+		// };
 		return {
-			...productsPageInApi,
-			items: products,
+			items: [],
+			meta: {
+				take: 10,
+				skip: 0,
+				totalItemsCount: 0,
+			},
 		};
 	}
 

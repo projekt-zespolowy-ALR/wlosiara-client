@@ -6,4 +6,4 @@
 	export let data: PageServerData;
 </script>
 
-<ProductList products={data.productsPage.items} />
+<ProductList productsPage={data.productsPage} />

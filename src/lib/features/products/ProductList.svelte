@@ -7,15 +7,18 @@
 	import {goto} from "$app/navigation";
 	import type {ProductCategory} from "$lib/features/products/types/ProductCategory.js";
 	import type {DeepReadonly} from "ts-essentials";
+	import type {Page} from "$lib/server/utils/Page.js";
 
 	let filt: (product: DeepReadonly<Product>) => boolean = () => true;
 
-	export let products: DeepReadonly<Product[]>;
-	let categories: ProductCategory[] = products
-		? [...new Set(products.flatMap((product) => product.categories))]
+	export let productsPage: DeepReadonly<Page<PopulatedProduct>>;
+	let categories: ProductCategory[] = productsPage
+		? [...new Set(productsPage.items.flatMap((product) => product.categories))]
 		: [];
 	let selectedCategory: ProductCategory | null = null;
-	let visibleProducts: DeepReadonly<Product[]> = products ? products : [];
+	let visibleProducts: DeepReadonly<PopulatedProduct[]> = productsPage.items
+		? productsPage.items
+		: [];
 	let sortingType = "";
 
 	const handleInputChange = (e: Event) => {
@@ -30,11 +33,11 @@
 	};
 	const handleSelectCategoryChange = () => {
 		if (selectedCategory) {
-			visibleProducts = products.filter((product) =>
+			visibleProducts = productsPage.items.filter((product) =>
 				selectedCategory ? product.categories.includes(selectedCategory) : true
 			);
 		} else {
-			visibleProducts = products;
+			visibleProducts = productsPage.items;
 		}
 	};
 
