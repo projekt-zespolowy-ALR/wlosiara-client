@@ -1,21 +1,21 @@
 <script lang="ts">
 	import SubpageH1 from "$lib/ui/subpage_h1/SubpageH1.svelte";
 
-	import type PopulatedProduct from "./types/PopulatedProduct.js";
 	import ProductListItem from "./ProductListItem.svelte";
 	import {page} from "$app/stores";
 	import {goto} from "$app/navigation";
-	import type ProductCategory from "$lib/features/products/types/ProductCategory.js";
 	import type {DeepReadonly} from "ts-essentials";
+	import type {ProductCategory} from "../product_categories/types/ProductCategory.js";
+	import type {Product} from "./types/Product.js";
 
-	let filt: (product: DeepReadonly<PopulatedProduct>) => boolean = () => true;
+	let filt: (product: DeepReadonly<Product>) => boolean = () => true;
 
-	export let products: DeepReadonly<PopulatedProduct[]>;
+	export let products: DeepReadonly<Product[]>;
 	let categories: ProductCategory[] = products
 		? [...new Set(products.flatMap((product) => product.categories))]
 		: [];
 	let selectedCategory: ProductCategory | null = null;
-	let visibleProducts: DeepReadonly<PopulatedProduct[]> = products ? products : [];
+	let visibleProducts: DeepReadonly<Product[]> = products ? products : [];
 	let sortingType = "";
 
 	const handleInputChange = (e: Event) => {
@@ -42,7 +42,7 @@
 		switch (sortingType) {
 			case "price-ascending":
 				visibleProducts = [...visibleProducts].sort(
-					(a: DeepReadonly<PopulatedProduct>, b: DeepReadonly<PopulatedProduct>) => {
+					(a: DeepReadonly<Product>, b: DeepReadonly<Product>) => {
 						const aDataSource = a.inDataSources[0];
 						const bDataSource = b.inDataSources[0];
 						if (aDataSource?.price && bDataSource?.price) {
@@ -54,7 +54,7 @@
 				break;
 			case "price-descending":
 				visibleProducts = [...visibleProducts].sort(
-					(a: DeepReadonly<PopulatedProduct>, b: DeepReadonly<PopulatedProduct>) => {
+					(a: DeepReadonly<Product>, b: DeepReadonly<Product>) => {
 						const aDataSource = a.inDataSources[0];
 						const bDataSource = b.inDataSources[0];
 						if (aDataSource?.price && bDataSource?.price) {
@@ -66,7 +66,7 @@
 				break;
 			case "name-ascending":
 				visibleProducts = [...visibleProducts].sort(
-					(a: DeepReadonly<PopulatedProduct>, b: DeepReadonly<PopulatedProduct>) => {
+					(a: DeepReadonly<Product>, b: DeepReadonly<Product>) => {
 						if (a.name && b.name) {
 							return a.name.localeCompare(b.name);
 						}
@@ -77,7 +77,7 @@
 				break;
 			case "name-descending":
 				visibleProducts = [...visibleProducts].sort(
-					(a: DeepReadonly<PopulatedProduct>, b: DeepReadonly<PopulatedProduct>) => {
+					(a: DeepReadonly<Product>, b: DeepReadonly<Product>) => {
 						if (a.name && b.name) {
 							return b.name.localeCompare(a.name);
 						}
@@ -87,7 +87,7 @@
 				break;
 			default:
 				visibleProducts = [...visibleProducts].sort(
-					(a: DeepReadonly<PopulatedProduct>, b: DeepReadonly<PopulatedProduct>) => {
+					(a: DeepReadonly<Product>, b: DeepReadonly<Product>) => {
 						if (a.name && b.name) {
 							return a.name.localeCompare(b.name);
 						}

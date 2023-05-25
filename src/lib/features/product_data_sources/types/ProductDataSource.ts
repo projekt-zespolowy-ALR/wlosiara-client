@@ -1,8 +1,6 @@
-type DataSource = {
+export type ProductDataSource = {
 	id: string;
 	name: string;
 	slug: string;
 	url: string;
 };
-
-export default DataSource;
