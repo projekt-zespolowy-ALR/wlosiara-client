@@ -8,6 +8,9 @@
 	import type {ProductCategory} from "$lib/features/products/types/ProductCategory.js";
 	import type {DeepReadonly} from "ts-essentials";
 	import type {Page} from "$lib/server/utils/Page.js";
+	import {page as pageStore} from "$app/stores";
+	import type {PagingOptions} from "$lib/server/utils/PagingOptions.js";
+	export let pagingOptions: DeepReadonly<PagingOptions>;
 
 	let filt: (product: DeepReadonly<Product>) => boolean = () => true;
 
@@ -106,6 +109,27 @@
 	<SubpageH1>Baza produktów</SubpageH1>
 	<!-- <FilterMenu /> -->
 
+	<div>
+		<!-- Todo: Style and refactor -->
+		<a
+			href={(() => {
+				const newUrl = new URL($pageStore.url);
+				newUrl.searchParams.set("page-number", (pagingOptions.pageNumber - 1).toString());
+				return newUrl.href;
+			})()}
+		>
+			Poprzednia strona
+		</a>
+		<a
+			href={(() => {
+				const newUrl = new URL($pageStore.url);
+				newUrl.searchParams.set("page-number", (pagingOptions.pageNumber + 1).toString());
+				return newUrl.href;
+			})()}
+		>
+			Następna strona
+		</a>
+	</div>
 	<div class="filter-menu">
 		<div class="inline">
 			<span>Szukaj </span>
