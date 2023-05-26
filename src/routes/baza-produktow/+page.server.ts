@@ -2,12 +2,20 @@ import type {PageServerLoad} from "./$types.js";
 import type {DeepReadonly} from "ts-essentials";
 import type {Page} from "$lib/server/utils/Page.js";
 import type {Product} from "$lib/features/products/types/Product.js";
+import type {PagingOptions} from "$lib/utils/PagingOptions.js";
 
-export const load: PageServerLoad = async () => {
+export const load: PageServerLoad = async ({url}) => {
 	const {productsService} = await import("$lib/server/instances/productsService.js");
-	const productsPage: DeepReadonly<Page<Product>> = await productsService.getProductsPage();
+	const pagingOptions: DeepReadonly<PagingOptions> = {
+		number: Number(url.searchParams.get("page-number") ?? "1"),
+		size: Number(url.searchParams.get("page-size") ?? "12"),
+	};
+	const productsPage: DeepReadonly<Page<Product>> = await productsService.getProductsPage(
+		pagingOptions
+	);
 
 	return {
 		productsPage,
+		pagingOptions,
 	} as const;
 };
