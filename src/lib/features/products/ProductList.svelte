@@ -109,7 +109,7 @@
 	<SubpageH1>Baza produktów</SubpageH1>
 	<!-- <FilterMenu /> -->
 
-	<div>
+	<div class="pagination-buttons">
 		<!-- Todo: Style and refactor -->
 		<a
 			href={(() => {
@@ -118,8 +118,9 @@
 				return newUrl.href;
 			})()}
 		>
-			Poprzednia strona
+			<button><i class="fa-solid fa-caret-left" /></button>
 		</a>
+		<button class="unclickable">{pagingOptions.pageNumber}</button>
 		<a
 			href={(() => {
 				const newUrl = new URL($pageStore.url);
@@ -127,7 +128,7 @@
 				return newUrl.href;
 			})()}
 		>
-			Następna strona
+			<button><i class="fa-solid fa-caret-right" /></button>
 		</a>
 	</div>
 	<div class="filter-menu">
@@ -194,5 +195,38 @@
 	}
 	.inline {
 		display: inline-block;
+	}
+	.pagination-buttons {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+	}
+	.pagination-buttons button {
+		height: 25px;
+		width: 30px;
+		font-size: 14px;
+		background-color: #fff;
+		border: 1px solid white;
+		border-radius: 5px;
+		margin: 5px;
+		line-height: 25px;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+		padding: 10px;
+		font-family: "Poppins", sans-serif;
+		box-shadow: 3px 3px 5px lightgray;
+	}
+	button:not(.unclickable) {
+		cursor: pointer;
+	}
+	a {
+		text-decoration: none;
+	}
+	a button i {
+		color: var(--primary-color-3);
+		font-size: 20px;
 	}
 </style>
