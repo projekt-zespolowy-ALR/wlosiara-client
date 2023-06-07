@@ -1,6 +1,9 @@
+import type DataSource from "$lib/features/data_sources/types/DataSource.js";
+import type Product from "./Product.js";
+
 type ProductInDataSource = {
-	productId: string;
-	dataSourceId: string;
+	product: Product;
+	dataSource: DataSource;
 	/**
 	 * The URL of the product's page in the data source.
 	 * @example "https://www.hebe.pl/claresa-zel-do-laminacji-brwi-8-g-000000000000407817.html"

@@ -1,9 +1,9 @@
 <script lang="ts">
-	import type PopulatedProduct from "./types/PopulatedProduct.js";
+	import type Product from "./types/Product.js";
 	import {addProductToFav, productLiked} from "./product-functions.js";
 	import type {DeepReadonly} from "ts-essentials";
 
-	export let product: DeepReadonly<PopulatedProduct>;
+	export let product: DeepReadonly<Product>;
 </script>
 
 <li>

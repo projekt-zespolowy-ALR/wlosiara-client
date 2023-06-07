@@ -1,3 +1,8 @@
+import type Brand from "$lib/features/brands/types/Brand.js";
+import type Ingredient from "./Ingredient.js";
+import type ProductCategory from "./ProductCategory.js";
+import type ProductInDataSource from "./ProductInDataSource.js";
+
 type Product = {
 	/**
 	 * The product's id in UUID format.
@@ -35,9 +40,13 @@ type Product = {
 	/**
 	 * The product's categories.
 	 */
-	categoryIds: string[];
+	categories: ProductCategory[];
 
-	brandId: string;
+	brand: Brand;
+
+	inDataSources: Omit<ProductInDataSource, "product">[];
+
+	ingredients: Ingredient[] | null;
 };
 
 export default Product;

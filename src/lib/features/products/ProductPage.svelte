@@ -1,10 +1,10 @@
 <script lang="ts">
 	import type {DeepReadonly} from "ts-essentials";
 	import {addProductToFav, productLiked} from "./product-functions.js";
-	import type PopulatedProduct from "./types/PopulatedProduct.js";
+	import type Product from "./types/Product.js";
 	import Markdown from "@magidoc/plugin-svelte-marked";
 
-	export let product: DeepReadonly<PopulatedProduct>;
+	export let product: DeepReadonly<Product>;
 </script>
 
 <div class="page">
