@@ -1,6 +1,6 @@
 import type PopulatedProduct from "$lib/features/products/types/PopulatedProduct.js";
 import type Brand from "$lib/features/brands/types/Brand.js";
-import type ProductInDataSource from "$lib/features/products/types/PopulatedProductInDataSource.js";
+import type ProductInDataSource from "$lib/features/products/types/ProductInDataSource.js";
 import type Product from "$lib/features/products/types/Product.js";
 import type {DeepReadonly} from "ts-essentials";
 
