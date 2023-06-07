@@ -3,10 +3,10 @@
 
 	import PostListItem from "./PostListItem.svelte";
 	export let currentUser: DeepReadonly<User> | null;
-	import type PopulatedBlogEntry from "./types/PopulatedBlogEntry.js";
+	import type BlogEntry from "./types/BlogEntry.js";
 	import SubpageH1 from "$lib/ui/subpage_h1/SubpageH1.svelte";
 
-	export let blogEntries: DeepReadonly<PopulatedBlogEntry[]>;
+	export let blogEntries: DeepReadonly<BlogEntry[]>;
 
 	import {page} from "$app/stores";
 

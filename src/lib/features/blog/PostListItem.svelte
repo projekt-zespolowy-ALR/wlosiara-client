@@ -1,8 +1,8 @@
 <script lang="ts">
 	import type {DeepReadonly} from "ts-essentials";
-	import type PopulatedBlogEntry from "./types/PopulatedBlogEntry.js";
+	import type BlogEntry from "./types/BlogEntry.js";
 
-	export let blogEntry: DeepReadonly<PopulatedBlogEntry>;
+	export let blogEntry: DeepReadonly<BlogEntry>;
 </script>
 
 <li>
