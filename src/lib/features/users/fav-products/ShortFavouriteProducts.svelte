@@ -12,9 +12,9 @@
 			<li>
 				<a href="/user/fav-products">
 					<button>
-						{#if product.inDataSources[0]}
+						{#if product.offers[0]}
 							<div class="img">
-								<img src={product.inDataSources[0].imageUrl} alt={product.name} />
+								<img src={product.offers[0].imageUrl} alt={product.name} />
 							</div>
 						{:else}
 							<p>Brak danych</p>

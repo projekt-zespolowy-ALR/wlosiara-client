@@ -1,7 +1,7 @@
 import type {Brand} from "$lib/features/brands/types/Brand.js";
 import type {Ingredient} from "./Ingredient.js";
 import type {ProductCategory} from "./ProductCategory.js";
-import type {ProductInDataSource} from "./ProductInDataSource.js";
+import type {ProductOffer} from "../../product_offers/types/ProductOffer.js";
 
 export type Product = {
 	/**
@@ -44,7 +44,7 @@ export type Product = {
 
 	brand: Brand;
 
-	inDataSources: Omit<ProductInDataSource, "product">[];
+	offers: Omit<ProductOffer, "product">[];
 
 	ingredients: Ingredient[] | null;
 };

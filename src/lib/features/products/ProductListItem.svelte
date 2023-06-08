@@ -16,9 +16,9 @@
 		/>
 	</div>
 	<a href="/baza-produktow/{product.id}">
-		{#if product.inDataSources[0]}
+		{#if product.offers[0]}
 			<div class="img">
-				<img src={product.inDataSources[0].imageUrl} alt={product.name} />
+				<img src={product.offers[0].imageUrl} alt={product.name} />
 			</div>
 			<div class="item-info">
 				<p>{product.name}</p>

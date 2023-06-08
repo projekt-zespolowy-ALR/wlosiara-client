@@ -9,9 +9,9 @@
 
 <div class="page">
 	<a class="back" href="/baza-produktow"><i class="fa-sharp fa-solid fa-backward-step" /></a>
-	{#if product.inDataSources[0]}
+	{#if product.offers[0]}
 		<div class="product">
-			<img src={product.inDataSources[0].imageUrl} alt="" srcset="" />
+			<img src={product.offers[0].imageUrl} alt="" srcset="" />
 			<div class="short-text">
 				<div class="heart">
 					<i
@@ -24,7 +24,7 @@
 				<p>{product.name}</p>
 				<p>{product.categories.map((category) => category.name).join(", ")}</p>
 				<p>{product.brand.name}</p>
-				<p>{product.inDataSources[0].price} zł</p>
+				<p>{product.offers[0].price} zł</p>
 				{#if product.volume}
 					<p>{product.volume} l</p>
 				{/if}
@@ -33,8 +33,8 @@
 				{/if}
 			</div>
 			<div class="wide-text">
-				{#if product.inDataSources[0].description}
-					<Markdown source={product.inDataSources[0].description} />
+				{#if product.offers[0].description}
+					<Markdown source={product.offers[0].description} />
 				{/if}
 				{#if product.ingredients}
 					<p>{product.ingredients.map((ingredient) => ingredient.name).join(", ")}</p>
