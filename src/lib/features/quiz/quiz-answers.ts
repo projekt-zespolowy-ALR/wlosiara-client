@@ -1,4 +1,4 @@
-import type Question from "./types/Question.js";
+import type {Question} from "./types/Question.js";
 export const quiz_anwen: Question[] = [
 	{
 		text: "Jakie są twoje włosy?",

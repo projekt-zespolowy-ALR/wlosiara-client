@@ -4,8 +4,8 @@
 	let currentQuestionId = 0;
 	import {quiz_all} from "./quiz-answers.js";
 	import QuizResults from "./QuizResults.svelte";
-	import type AnswerToQuestion from "./types/AnswerToQuestion.js";
-	import type Question from "./types/Question.js";
+	import type {AnswerToQuestion} from "./types/AnswerToQuestion.js";
+	import type {Question} from "./types/Question.js";
 
 	let userAnswers: Map<number, DeepReadonly<AnswerToQuestion>> = new Map();
 

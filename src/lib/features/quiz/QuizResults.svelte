@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type {DeepReadonly} from "ts-essentials";
-	import type AnswerToQuestion from "./types/AnswerToQuestion.js";
-	import type HairType from "./types/HairType.js";
+	import type {AnswerToQuestion} from "./types/AnswerToQuestion.js";
+	import type {HairType} from "./types/HairType.js";
 	export let userAnswers: DeepReadonly<Map<number, AnswerToQuestion>>;
 
 	const types: Map<HairType, number> = new Map<HairType, number>([

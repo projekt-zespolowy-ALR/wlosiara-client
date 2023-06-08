@@ -3,7 +3,7 @@
 
 	import PostListItem from "./PostListItem.svelte";
 	export let currentUser: DeepReadonly<User> | null;
-	import type BlogEntry from "./types/BlogEntry.js";
+	import type {BlogEntry} from "./types/BlogEntry.js";
 	import SubpageH1 from "$lib/ui/subpage_h1/SubpageH1.svelte";
 
 	export let blogEntries: DeepReadonly<BlogEntry[]>;
@@ -11,7 +11,7 @@
 	import {page} from "$app/stores";
 
 	import {goto} from "$app/navigation";
-	import type User from "../users/types/User.js";
+	import type {User} from "../users/types/User.js";
 
 	const handleSearchInputChange = (e: Event) => {
 		const search = (e.target as HTMLInputElement).value;

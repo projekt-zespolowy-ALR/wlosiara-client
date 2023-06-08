@@ -1,5 +1,5 @@
 import type {Actions} from "./$types.js";
-import userIdBySessionToken from "$lib/server/features/auth/userIdBySessionToken.js";
+import {userIdBySessionToken} from "$lib/server/features/auth/userIdBySessionToken.js";
 
 export const actions: Actions = {
 	default: async ({cookies}) => {

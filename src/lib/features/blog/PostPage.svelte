@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type BlogEntry from "./types/BlogEntry.js";
+	import type {BlogEntry} from "./types/BlogEntry.js";
 	import SubpageH1 from "$lib/ui/subpage_h1/SubpageH1.svelte";
 	import Markdown from "@magidoc/plugin-svelte-marked";
 	import type {DeepReadonly} from "ts-essentials";

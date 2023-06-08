@@ -1,3 +1,1 @@
-const userIdBySessionToken = new Map<string, string>();
-
-export default userIdBySessionToken;
+export const userIdBySessionToken = new Map<string, string>();

@@ -1,4 +1,4 @@
-import currentUserStore from "../auth/currentUserStore.js";
+import {currentUserStore} from "../auth/currentUserStore.js";
 import {get} from "svelte/store";
 
 export const addProductToFav = (id: string) => {

@@ -1,6 +1,6 @@
-import type User from "$lib/features/users/types/User.js";
+import type {User} from "$lib/features/users/types/User.js";
 import {writable} from "svelte/store";
-// import type UserCredentials from "./UserCredentials.js";
+// import type {UserCredentials} from "./UserCredentials.js";
 
 function createCurrentUserStore() {
 	const {subscribe, set, update} = writable<User | null>(null);
@@ -50,6 +50,4 @@ function createCurrentUserStore() {
 	};
 }
 
-const currentUserStore = createCurrentUserStore();
-
-export default currentUserStore;
+export const currentUserStore = createCurrentUserStore();

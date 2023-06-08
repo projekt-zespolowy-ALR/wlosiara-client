@@ -2,8 +2,8 @@
 	import ProductListItem from "$lib/features/products/ProductListItem.svelte";
 	import type {DeepReadonly} from "ts-essentials";
 	export let currentUser: DeepReadonly<User> | null;
-	import type Product from "../../products/types/Product.js";
-	import type User from "../types/User.js";
+	import type {Product} from "../../products/types/Product.js";
+	import type {User} from "../types/User.js";
 
 	export let allProducts: DeepReadonly<Product[]>;
 	export let favProductIds: DeepReadonly<string[]>;

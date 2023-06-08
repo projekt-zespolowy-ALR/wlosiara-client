@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type Product from "./types/Product.js";
+	import type {Product} from "./types/Product.js";
 	import {addProductToFav, productLiked} from "./product-functions.js";
 	import type {DeepReadonly} from "ts-essentials";
 

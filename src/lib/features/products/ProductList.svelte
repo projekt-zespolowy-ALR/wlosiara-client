@@ -1,11 +1,11 @@
 <script lang="ts">
 	import SubpageH1 from "$lib/ui/subpage_h1/SubpageH1.svelte";
 
-	import type Product from "./types/Product.js";
+	import type {Product} from "./types/Product.js";
 	import ProductListItem from "./ProductListItem.svelte";
 	import {page} from "$app/stores";
 	import {goto} from "$app/navigation";
-	import type ProductCategory from "$lib/features/products/types/ProductCategory.js";
+	import type {ProductCategory} from "$lib/features/products/types/ProductCategory.js";
 	import type {DeepReadonly} from "ts-essentials";
 
 	let filt: (product: DeepReadonly<Product>) => boolean = () => true;

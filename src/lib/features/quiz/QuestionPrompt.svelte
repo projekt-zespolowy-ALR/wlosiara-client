@@ -2,8 +2,8 @@
 	import {createEventDispatcher} from "svelte";
 	const dispatch = createEventDispatcher();
 
-	import type Question from "./types/Question.js";
-	import type AnswerToQuestion from "./types/AnswerToQuestion.js";
+	import type {Question} from "./types/Question.js";
+	import type {AnswerToQuestion} from "./types/AnswerToQuestion.js";
 	import type {DeepReadonly} from "ts-essentials";
 
 	export let question: DeepReadonly<Question>;
