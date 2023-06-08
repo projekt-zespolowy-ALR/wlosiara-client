@@ -10,10 +10,10 @@
 		["Niskoporowate", 0],
 	]);
 
-	interface AnswersCount {
+	type AnswersCount = {
 		type: HairType;
 		count: number;
-	}
+	};
 	userAnswers.forEach((answer) => {
 		const type = answer.type;
 		types.set(type, (types.get(type) as number) + 1);

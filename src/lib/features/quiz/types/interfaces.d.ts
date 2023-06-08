@@ -2,18 +2,18 @@ export type HairType = "Niskoporowate" | "Średnioporowate" | "Wysokoporowate";
 
 export type QuestionId = number;
 
-export interface Question {
+export type Question = {
 	text: string;
 	id: QuestionId;
 	answers: Array<Answer>;
-}
+};
 
-export interface Answer {
+export type Answer = {
 	text: string;
 	type: HairType;
-}
+};
 
-export interface AnswerToQuestion {
+export type AnswerToQuestion = {
 	questionId: QuestionId;
 	type: HairType;
-}
+};
