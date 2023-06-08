@@ -1,9 +1,9 @@
 <script lang="ts">
-	import PostPage from "$lib/features/blog/PostPage.svelte";
+	// import PostPage from "$lib/features/blog/PostPage.svelte";
 
-	import type {PageServerData} from "./$types.js";
+	// import type {PageServerData} from "./$types.js";
 
-	export let data: PageServerData;
+	// export let data: PageServerData;
 </script>
 
-<PostPage blogEntry={data.blogEntry} />
+<!-- <PostPage blogEntry={data.blogEntry} /> -->

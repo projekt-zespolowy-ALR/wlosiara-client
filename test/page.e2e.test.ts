@@ -63,22 +63,22 @@ test.describe("/", () => {
 	// 	server.httpServer.close();
 	// });
 
-	test("blog page", async () => {
-		const server = await preview();
-		const browser = await chromium.launch();
-		const page = await browser.newPage();
-		if (!server.resolvedUrls.local[0]) {
-			throw new Error("No local URL");
-		}
-		await page.goto(server.resolvedUrls.local[0]);
-		await page.getByText("baza wiedzy").click();
-		const posts = await page.locator(".product-list-page > ul > li > a");
-		const linksCount = await posts.count();
-		const randomPost = Math.floor(Math.random() * linksCount);
-		await posts.nth(randomPost).click();
+	// test("blog page", async () => {
+	// 	const server = await preview();
+	// 	const browser = await chromium.launch();
+	// 	const page = await browser.newPage();
+	// 	if (!server.resolvedUrls.local[0]) {
+	// 		throw new Error("No local URL");
+	// 	}
+	// 	await page.goto(server.resolvedUrls.local[0]);
+	// 	await page.getByText("baza wiedzy").click();
+	// 	const posts = await page.locator(".product-list-page > ul > li > a");
+	// 	const linksCount = await posts.count();
+	// 	const randomPost = Math.floor(Math.random() * linksCount);
+	// 	await posts.nth(randomPost).click();
 
-		await expect(page.locator(".post")).toBeVisible();
-		await browser.close();
-		server.httpServer.close();
-	});
+	// 	await expect(page.locator(".post")).toBeVisible();
+	// 	await browser.close();
+	// 	server.httpServer.close();
+	// });
 });
