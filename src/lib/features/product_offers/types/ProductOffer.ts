@@ -1,5 +1,5 @@
 import type {DataSource} from "$lib/features/data_sources/types/DataSource.js";
-import type {Product} from "./Product.js";
+import type {Product} from "../../products/types/Product.js";
 
 export type ProductOffer = {
 	product: Product;

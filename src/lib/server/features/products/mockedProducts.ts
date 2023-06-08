@@ -1,6 +1,6 @@
 import type {Product} from "$lib/features/products/types/Product.js";
 import type {Brand} from "$lib/features/brands/types/Brand.js";
-import type {ProductOffer} from "$lib/features/products/types/ProductOffer.js";
+import type {ProductOffer} from "$lib/features/product_offers/types/ProductOffer.js";
 import type {DeepReadonly} from "ts-essentials";
 
 const tolpaProduct: DeepReadonly<

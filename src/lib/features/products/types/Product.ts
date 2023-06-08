@@ -1,7 +1,7 @@
 import type {Brand} from "$lib/features/brands/types/Brand.js";
 import type {Ingredient} from "./Ingredient.js";
 import type {ProductCategory} from "./ProductCategory.js";
-import type {ProductOffer} from "./ProductOffer.js";
+import type {ProductOffer} from "../../product_offers/types/ProductOffer.js";
 
 export type Product = {
 	/**
