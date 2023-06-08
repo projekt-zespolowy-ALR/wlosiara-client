@@ -1,5 +1,5 @@
 import type {Brand} from "$lib/features/brands/types/Brand.js";
-import type {Ingredient} from "./Ingredient.js";
+import type {ProductIngredient} from "./ProductIngredient.js";
 import type {ProductCategory} from "./ProductCategory.js";
 import type {ProductOffer} from "../../product_offers/types/ProductOffer.js";
 
@@ -46,5 +46,5 @@ export type Product = {
 
 	offers: Omit<ProductOffer, "product">[];
 
-	ingredients: Ingredient[] | null;
+	ingredients: ProductIngredient[] | null;
 };
