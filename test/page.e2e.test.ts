@@ -1,3 +1,8 @@
+import {dirname} from "path";
+import {fileURLToPath} from "url";
+import dotenv from "dotenv";
+import * as path from "path";
+dotenv.config({path: path.join(dirname(fileURLToPath(import.meta.url)), ".env.test")});
 import {preview} from "vite";
 import {chromium} from "playwright";
 import {test, expect} from "@playwright/test";
