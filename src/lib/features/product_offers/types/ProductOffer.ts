@@ -1,9 +1,9 @@
-import type {DataSource} from "$lib/features/data_sources/types/DataSource.js";
+import type {ProductDataSource} from "$lib/features/product_data_sources/types/ProductDataSource.js";
 import type {Product} from "../../products/types/Product.js";
 
 export type ProductOffer = {
 	product: Product;
-	dataSource: DataSource;
+	dataSource: ProductDataSource;
 	/**
 	 * The URL of the product's page in the data source.
 	 * @example "https://www.hebe.pl/claresa-zel-do-laminacji-brwi-8-g-000000000000407817.html"
