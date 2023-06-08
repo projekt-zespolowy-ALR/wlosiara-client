@@ -10,11 +10,7 @@
 </script>
 
 {#if data.currentUser}
-	<UserProfile
-		{allProducts}
-		favProductIds={data.currentUser.fav_products}
-		currentUser={data.currentUser}
-	/>
+	<UserProfile {allProducts} favProductIds={[]} currentUser={data.currentUser} />
 {:else}
 	<UserProfile {allProducts} favProductIds={[]} currentUser={data.currentUser} />
 {/if}

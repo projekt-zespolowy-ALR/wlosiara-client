@@ -1,40 +1,12 @@
 import type {BlogEntry} from "$lib/features/blog/types/BlogEntry.js";
-import {mockedBlogEntries} from "$lib/server/features/blog/mockedBlogEntries.js";
-import {mockedUsers} from "$lib/server/features/users/mockedUsers.js";
+import type {DeepReadonly} from "ts-essentials";
 
 import type {PageServerLoad} from "./$types.js";
 
-function populateBlogEntry(blogEntry: Omit<BlogEntry, "author"> & {authorId: string}) {
-	const author = mockedUsers.find((user) => user.id === blogEntry.authorId);
-	if (!author) {
-		throw new Error(`Author with id "${blogEntry.authorId}" not found.`);
-	}
-
-	const blogEntryWithoutAuthorId = (({authorId, ...blogEntryWithoutAuthorId}) =>
-		blogEntryWithoutAuthorId)(blogEntry);
-
-	const BlogEntry = {
-		...blogEntryWithoutAuthorId,
-		author,
-	};
-
+export const load: PageServerLoad = async () => {
+	// const search = url.searchParams.get("search");
+	const filteredBlogEntries: DeepReadonly<BlogEntry[]> = [] as const;
 	return {
-		...BlogEntry,
-		author,
-	} as const;
-}
-
-export const load: PageServerLoad = async ({url}) => {
-	const search = url.searchParams.get("search");
-	const filteredBlogEntries =
-		search === null
-			? mockedBlogEntries
-			: mockedBlogEntries.filter(
-					(blogEntry) =>
-						blogEntry.title !== null && blogEntry.title.toLowerCase().includes(search.toLowerCase())
-			  );
-	const populatedBlogEntries = filteredBlogEntries.map(populateBlogEntry);
-	return {
-		blogEntries: populatedBlogEntries,
+		blogEntries: filteredBlogEntries,
 	} as const;
 };
