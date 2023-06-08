@@ -1,10 +1,10 @@
 import type {Product} from "$lib/features/products/types/Product.js";
 import type {Brand} from "$lib/features/brands/types/Brand.js";
-import type {ProductInDataSource} from "$lib/features/products/types/ProductInDataSource.js";
+import type {ProductOffer} from "$lib/features/products/types/ProductOffer.js";
 import type {DeepReadonly} from "ts-essentials";
 
 const tolpaProduct: DeepReadonly<
-	Omit<Product, "brand" | "ingredients" | "categories" | "inDataSources"> & {
+	Omit<Product, "brand" | "ingredients" | "categories" | "offers"> & {
 		brandId: string;
 		categoryIds: string[];
 	}
@@ -18,7 +18,7 @@ const tolpaProduct: DeepReadonly<
 	brandId: "0",
 };
 
-const tolpaInDataSource: DeepReadonly<Omit<ProductInDataSource, "product">> = {
+const tolpaInDataSource: DeepReadonly<Omit<ProductOffer, "product">> = {
 	dataSource: {
 		id: "0",
 		name: "hebe",
@@ -46,7 +46,7 @@ const tolpaPopulatedProduct: DeepReadonly<Product> = {
 		{id: "7", name: "Cannabis Sativa Seed Oil", slug: "cannabis-oil"},
 	],
 	categories: [{id: "1", name: "szampon", slug: "szampon"}],
-	inDataSources: [tolpaInDataSource],
+	offers: [tolpaInDataSource],
 };
 
 export const mockedProducts: DeepReadonly<Product[]> = [
@@ -71,7 +71,7 @@ export const mockedProducts: DeepReadonly<Product[]> = [
 		id: "4",
 		name: "Tołpa green 4",
 		categories: [{id: "2", name: "odżywka", slug: "odżywka"}],
-		inDataSources: [
+		offers: [
 			{
 				...tolpaInDataSource,
 				price: 15.99,

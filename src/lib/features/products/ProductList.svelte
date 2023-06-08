@@ -43,10 +43,10 @@
 			case "price-ascending":
 				visibleProducts = [...visibleProducts].sort(
 					(a: DeepReadonly<Product>, b: DeepReadonly<Product>) => {
-						const aDataSource = a.inDataSources[0];
-						const bDataSource = b.inDataSources[0];
-						if (aDataSource?.price && bDataSource?.price) {
-							return aDataSource.price - bDataSource.price;
+						const aOffer = a.offers[0];
+						const bOffer = b.offers[0];
+						if (aOffer?.price && bOffer?.price) {
+							return aOffer.price - bOffer.price;
 						}
 						return 0;
 					}
@@ -55,10 +55,10 @@
 			case "price-descending":
 				visibleProducts = [...visibleProducts].sort(
 					(a: DeepReadonly<Product>, b: DeepReadonly<Product>) => {
-						const aDataSource = a.inDataSources[0];
-						const bDataSource = b.inDataSources[0];
-						if (aDataSource?.price && bDataSource?.price) {
-							return bDataSource.price - aDataSource.price;
+						const aOffer = a.offers[0];
+						const bOffer = b.offers[0];
+						if (aOffer?.price && bOffer?.price) {
+							return bOffer.price - aOffer.price;
 						}
 						return 0;
 					}
