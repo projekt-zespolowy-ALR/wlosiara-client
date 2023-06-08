@@ -1,6 +1,6 @@
-import type Product from "$lib/features/products/types/Product.js";
-import type Brand from "$lib/features/brands/types/Brand.js";
-import type ProductInDataSource from "$lib/features/products/types/ProductInDataSource.js";
+import type {Product} from "$lib/features/products/types/Product.js";
+import type {Brand} from "$lib/features/brands/types/Brand.js";
+import type {ProductInDataSource} from "$lib/features/products/types/ProductInDataSource.js";
 import type {DeepReadonly} from "ts-essentials";
 
 const tolpaProduct: DeepReadonly<
@@ -49,7 +49,7 @@ const tolpaPopulatedProduct: DeepReadonly<Product> = {
 	inDataSources: [tolpaInDataSource],
 };
 
-const mockedProducts: DeepReadonly<Product[]> = [
+export const mockedProducts: DeepReadonly<Product[]> = [
 	tolpaPopulatedProduct,
 	{
 		...tolpaPopulatedProduct,
@@ -79,5 +79,3 @@ const mockedProducts: DeepReadonly<Product[]> = [
 		],
 	},
 ];
-
-export default mockedProducts;

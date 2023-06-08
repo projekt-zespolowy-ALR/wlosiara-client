@@ -1,4 +1,4 @@
-import mockedProducts from "$lib/server/features/products/mockedProducts.js";
+import {mockedProducts} from "$lib/server/features/products/mockedProducts.js";
 import type {PageServerLoad} from "./$types.js";
 
 export const load: PageServerLoad = async ({params}) => {

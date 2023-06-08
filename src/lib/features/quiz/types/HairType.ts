@@ -1,3 +1,1 @@
-type HairType = "Niskoporowate" | "Średnioporowate" | "Wysokoporowate";
-
-export default HairType;
+export type HairType = "Niskoporowate" | "Średnioporowate" | "Wysokoporowate";

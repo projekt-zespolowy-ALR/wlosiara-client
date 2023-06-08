@@ -1,3 +1,1 @@
-const appConfigSchema = {};
-
-export default appConfigSchema;
+export const appConfigSchema = {};

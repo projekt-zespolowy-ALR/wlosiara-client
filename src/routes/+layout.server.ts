@@ -1,5 +1,5 @@
-import mockedUsers from "$lib/server/features/users/mockedUsers.js";
-import userIdBySessionToken from "$lib/server/features/auth/userIdBySessionToken.js";
+import {mockedUsers} from "$lib/server/features/users/mockedUsers.js";
+import {userIdBySessionToken} from "$lib/server/features/auth/userIdBySessionToken.js";
 import type {LayoutServerLoad} from "./$types.js";
 
 export const load: LayoutServerLoad = async ({cookies}) => {

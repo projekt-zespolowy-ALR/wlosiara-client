@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type User from "$lib/features/users/types/User.js";
+	import type {User} from "$lib/features/users/types/User.js";
 	import type {DeepReadonly} from "ts-essentials";
 	import LoginSignIn from "./LoginSignIn.svelte";
 	export let currentUser: DeepReadonly<User> | null;

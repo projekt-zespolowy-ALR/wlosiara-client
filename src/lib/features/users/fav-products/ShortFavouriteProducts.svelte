@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type {DeepReadonly} from "ts-essentials";
-	import type Product from "../../products/types/Product.js";
+	import type {Product} from "../../products/types/Product.js";
 
 	export let favProducts: DeepReadonly<Product[]>;
 </script>

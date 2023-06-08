@@ -1,8 +1,6 @@
-import type HairType from "./HairType.js";
+import type {HairType} from "./HairType.js";
 
-type AnswerToQuestion = {
+export type AnswerToQuestion = {
 	questionId: number;
 	type: HairType;
 };
-
-export default AnswerToQuestion;

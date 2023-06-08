@@ -1,6 +1,6 @@
-import type BlogEntry from "$lib/features/blog/types/BlogEntry.js";
-import mockedBlogEntries from "$lib/server/features/blog/mockedBlogEntries.js";
-import mockedUsers from "$lib/server/features/users/mockedUsers.js";
+import type {BlogEntry} from "$lib/features/blog/types/BlogEntry.js";
+import {mockedBlogEntries} from "$lib/server/features/blog/mockedBlogEntries.js";
+import {mockedUsers} from "$lib/server/features/users/mockedUsers.js";
 
 import type {PageServerLoad} from "./$types.js";
 

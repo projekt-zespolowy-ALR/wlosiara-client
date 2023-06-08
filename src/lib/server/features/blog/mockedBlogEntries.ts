@@ -1,6 +1,6 @@
-import type BlogEntry from "$lib/features/blog/types/BlogEntry.js";
+import type {BlogEntry} from "$lib/features/blog/types/BlogEntry.js";
 
-const mockedBlogEntries: (Omit<BlogEntry, "author"> & {authorId: string})[] = [
+export const mockedBlogEntries: (Omit<BlogEntry, "author"> & {authorId: string})[] = [
 	{
 		id: "0",
 		title: "Jak dbać o włosy niskoporowate?",
@@ -50,5 +50,3 @@ const mockedBlogEntries: (Omit<BlogEntry, "author"> & {authorId: string})[] = [
 			"https://content.latest-hairstyles.com/wp-content/uploads/ombre-hair-colors-for-women.jpg",
 	},
 ];
-
-export default mockedBlogEntries;

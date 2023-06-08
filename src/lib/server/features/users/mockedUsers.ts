@@ -1,7 +1,7 @@
-import type User from "$lib/features/users/types/User.js";
+import type {User} from "$lib/features/users/types/User.js";
 import type {DeepReadonly} from "ts-essentials";
 
-const mockedUsers: DeepReadonly<User[]> = [
+export const mockedUsers: DeepReadonly<User[]> = [
 	{
 		id: "anna-nowak",
 		username: "annanowak",
@@ -13,5 +13,3 @@ const mockedUsers: DeepReadonly<User[]> = [
 		fav_products: [],
 	},
 ];
-
-export default mockedUsers;
