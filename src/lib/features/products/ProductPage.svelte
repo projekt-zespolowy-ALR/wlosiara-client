@@ -1,6 +1,5 @@
 <script lang="ts">
 	import type {DeepReadonly} from "ts-essentials";
-	import {addProductToFav, productLiked} from "./product-functions.js";
 	import type {Product} from "./types/Product.js";
 	import Markdown from "@magidoc/plugin-svelte-marked";
 
@@ -16,9 +15,9 @@
 				<div class="heart">
 					<i
 						class="fa-solid fa-heart"
-						class:purple={productLiked(product.id)}
+						class:purple={false}
 						on:keypress={() => {}}
-						on:click={() => addProductToFav(product.id)}
+						on:click={() => {}}
 					/>
 				</div>
 				<p>{product.name}</p>

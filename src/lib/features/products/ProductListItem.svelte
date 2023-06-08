@@ -1,6 +1,5 @@
 <script lang="ts">
 	import type {Product} from "./types/Product.js";
-	import {addProductToFav, productLiked} from "./product-functions.js";
 	import type {DeepReadonly} from "ts-essentials";
 
 	export let product: DeepReadonly<Product>;
@@ -8,12 +7,7 @@
 
 <li>
 	<div class="heart">
-		<i
-			class="fa-solid fa-heart"
-			class:purple={productLiked(product.id)}
-			on:keypress={() => {}}
-			on:click={() => addProductToFav(product.id)}
-		/>
+		<i class="fa-solid fa-heart" class:purple={false} on:keypress={() => {}} on:click={() => {}} />
 	</div>
 	<a href="/baza-produktow/{product.id}">
 		{#if product.offers[0]}
