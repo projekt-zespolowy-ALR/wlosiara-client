@@ -1,13 +1,10 @@
 import type {BlogEntry, BlogEntry as Post} from "$lib/features/blog/types/BlogEntry.js";
-import type {
-	BlogComment,
-	BlogComment as PostComment,
-} from "$lib/features/blog/types/BlogComment.js";
+import type {BlogComment} from "$lib/features/blog/types/BlogComment.js";
 import type {Page} from "$lib/server/utils/Page.js";
 import type {PostsApiClient} from "$lib/server/features/blog/blog_api_client/PostsApiClient.js";
 import type {PostInApi} from "./blog_api_client/types/PostInApi.js";
 
-export class PostsService {
+export class BlogService {
 	private readonly postsApiClient: PostsApiClient;
 
 	public constructor({postsApiClient}: {postsApiClient: PostsApiClient}) {
@@ -59,7 +56,7 @@ export class PostsService {
 	public async getPostCommentsById(
 		postId: string,
 		targetPostCommentId: string
-	): Promise<PostComment> {
+	): Promise<BlogComment> {
 		const commentInApi = await this.postsApiClient.fetchPostCommentById(
 			postId,
 			targetPostCommentId
