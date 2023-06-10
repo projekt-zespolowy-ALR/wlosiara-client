@@ -6,3 +6,4 @@ metadata:
     microservice: "{{ .Release.Name }}"
 data:
   PORT: "{{ .Values.port }}"
+  PRODUCTS_API_BASE_URL: "{{ .Values.productsApiBaseUrl }}"

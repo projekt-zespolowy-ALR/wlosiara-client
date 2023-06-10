@@ -31,3 +31,8 @@ spec:
                 configMapKeyRef:
                   name: "{{ .Release.Name }}"
                   key: PORT
+            - name: PRODUCTS_API_BASE_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: "{{ .Release.Name }}"
+                  key: PRODUCTS_API_BASE_URL
