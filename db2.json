@@ -1,0 +1,11 @@
+{
+	"products": {
+		"items": [],
+        "meta": {
+            "skip": 0,
+            "take": 10,
+            "totalItemsCount": 0,
+            "pageItemsCount": 0
+        }			
+    }
+}
