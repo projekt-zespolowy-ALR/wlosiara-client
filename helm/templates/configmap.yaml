@@ -6,3 +6,4 @@ metadata:
     microservice: "{{ .Release.Name }}"
 data:
   PORT: "{{ .Values.port }}"
+  QUIZ_ID: "{{ .Values.quizId }}"

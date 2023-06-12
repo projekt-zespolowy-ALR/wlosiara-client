@@ -31,3 +31,8 @@ spec:
                 configMapKeyRef:
                   name: "{{ .Release.Name }}"
                   key: PORT
+            - name: QUIZ_ID
+              valueFrom:
+                configMapKeyRef:
+                  name: "{{ .Release.Name }}"
+                  key: QUIZ_ID
