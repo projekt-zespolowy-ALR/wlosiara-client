@@ -8,7 +8,7 @@
 	export let quiz: DeepReadonly<Quiz>;
 
 	$: questionNumber = 0;
-	$: [previousQuestions, nextQuestions] = splitArrayAt(quiz.questions, questionNumber);
+	$: [, nextQuestions] = splitArrayAt(quiz.questions, questionNumber);
 	$: currentQuestion = nextQuestions[0];
 
 	import type {Quiz} from "./types/Quiz.js";
