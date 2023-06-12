@@ -8,10 +8,10 @@ export class QuizApiClient {
 	public constructor({quizApiBaseUrl}: {quizApiBaseUrl: string}) {
 		this.quizApiBaseUrl = quizApiBaseUrl;
 	}
-	async fetchQuizPage(): Promise<PageInApi<QuizInApi>> {
+	async fetchQuizzesPage(): Promise<PageInApi<QuizInApi>> {
 		const response = await fetch(`${this.quizApiBaseUrl}/quiz`);
-		const quizPage = await response.json();
-		return quizPage;
+		const quizzesPage = await response.json();
+		return quizzesPage;
 	}
 
 	async fetchQuizById(targetQuizId: string): Promise<QuizInApi> {
@@ -20,21 +20,43 @@ export class QuizApiClient {
 		return quiz;
 	}
 
-	async fetchQuizQuestionPage(quizId: string): Promise<PageInApi<QuizQuestionInApi>> {
-		const response = await fetch(`${this.quizApiBaseUrl}/quiz`);
-		const quizPage = await response.json();
-		return quizPage;
+	async fetchQuizQuestionsPage(quizId: string): Promise<PageInApi<QuizQuestionInApi>> {
+		const response = await fetch(`${this.quizApiBaseUrl}/quiz/${quizId}/questions`);
+		const quizQuestionsPage = await response.json();
+		return quizQuestionsPage;
 	}
 
-	async fetchQuizQuestionById(quizId: string, targetQuizQuestionId: string): Promise<QuizQuestionInApi> {
-		const response = await fetch(`${this.quizApiBaseUrl}/quiz/${quizId}/questions/${targetQuizQuestionId}`);
-		const quiz = await response.json();
-		return quiz;
+	async fetchQuizQuestionById(
+		targetQuizId: string,
+		targetQuizQuestionId: string
+	): Promise<QuizQuestionInApi> {
+		const response = await fetch(
+			`${this.quizApiBaseUrl}/quiz/${targetQuizId}/questions/${targetQuizQuestionId}`
+		);
+		const quizQuestion = await response.json();
+		return quizQuestion;
 	}
 
-    async fetchQuizQuestionAnswerById(quizId: string, targetQuestionAnswerId: string): Promise<QuizQuestionAnswerInApi> {
-		const response = await fetch(`${this.quizApiBaseUrl}/quiz/${quizId}/answers/${targetQuestionAnswerId}`);
-		const quiz = await response.json();
-		return quiz;
+	async fetchQuizQuestionAnswerById(
+		targetQuizId: string,
+		targetQuizQuestionId: string,
+		targetQuestionAnswerId: string
+	): Promise<QuizQuestionAnswerInApi> {
+		const response = await fetch(
+			`${this.quizApiBaseUrl}/quiz/${targetQuizId}/questions/${targetQuizQuestionId}/answers/${targetQuestionAnswerId}`
+		);
+		const quizQuestionAnswer = await response.json();
+		return quizQuestionAnswer;
+	}
+
+	async fetchQuizQuestionAnswers(
+		targetQuizId: string,
+		targetQuizQuestionId: string
+	): Promise<QuizQuestionAnswerInApi[]> {
+		const response = await fetch(
+			`${this.quizApiBaseUrl}/quiz/${targetQuizId}/questions/${targetQuizQuestionId}/answers`
+		);
+		const quizQuestionAnswers = await response.json();
+		return quizQuestionAnswers;
 	}
 }
