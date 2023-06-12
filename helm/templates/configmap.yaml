@@ -7,3 +7,4 @@ metadata:
 data:
   PORT: "{{ .Values.port }}"
   QUIZ_ID: "{{ .Values.quizId }}"
+  PRODUCTS_API_BASE_URL: "{{ .Values.productsApiBaseUrl }}"
