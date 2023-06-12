@@ -17,3 +17,4 @@ resources:
     memory: "256Mi"
 
 productsApiBaseUrl: null # required
+quizzesApiBaseUrl: null # required
