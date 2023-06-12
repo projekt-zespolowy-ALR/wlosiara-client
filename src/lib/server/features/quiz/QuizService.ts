@@ -1,7 +1,5 @@
 import type {QuizApiClient} from "$lib/server/features/quiz/quiz_api_client/QuizApiClient.js";
 import type {Quiz} from "$lib/features/quiz/types/Quiz.js";
-import type {QuizQuestion} from "$lib/features/quiz/types/QuizQuestion.js";
-import type {QuizQuestionAnswer} from "$lib/features/quiz/types/QuizQuestionAnswer.js";
 
 export class QuizService {
 	private readonly quizzesApiClient: QuizApiClient;
@@ -10,13 +8,7 @@ export class QuizService {
 		this.quizzesApiClient = quizzesApiClient;
 	}
 
-	public async getQuizById(targetQuizId: string): Promise<
-		Omit<Quiz, "questions"> & {
-			questions: (Omit<QuizQuestion, "quiz" | "answers"> & {
-				answers: Omit<QuizQuestionAnswer, "question">[];
-			})[];
-		}
-	> {
+	public async getQuizById(targetQuizId: string): Promise<Quiz> {
 		const [
 			quizInApi,
 			{

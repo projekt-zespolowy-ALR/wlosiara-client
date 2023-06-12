@@ -21,7 +21,7 @@ export class QuizApiClient {
 	}
 
 	async fetchQuizById(targetQuizId: string): Promise<QuizInApi> {
-		const response = await fetch(`${this.quizApiBaseUrl}/quiz/${targetQuizId}`);
+		const response = await fetch(`${this.quizApiBaseUrl}/quizzes/${targetQuizId}`);
 		const quiz = await response.json();
 		return quiz;
 	}
@@ -31,7 +31,7 @@ export class QuizApiClient {
 		pagingOptions: DeepReadonly<PagingOptionsInApi>
 	): Promise<PageInApi<QuizQuestionInApi>> {
 		const response = await fetch(
-			`${this.quizApiBaseUrl}/quiz/${quizId}/questions?skip=${pagingOptions.skip}&take=${pagingOptions.take}`
+			`${this.quizApiBaseUrl}/quizzes/${quizId}/questions?skip=${pagingOptions.skip}&take=${pagingOptions.take}`
 		);
 		const quizQuestionsPage = await response.json();
 		return quizQuestionsPage;
@@ -42,7 +42,7 @@ export class QuizApiClient {
 		targetQuizQuestionId: string
 	): Promise<QuizQuestionInApi> {
 		const response = await fetch(
-			`${this.quizApiBaseUrl}/quiz/${targetQuizId}/questions/${targetQuizQuestionId}`
+			`${this.quizApiBaseUrl}/quizzes/${targetQuizId}/questions/${targetQuizQuestionId}`
 		);
 		const quizQuestion = await response.json();
 		return quizQuestion;
@@ -54,7 +54,7 @@ export class QuizApiClient {
 		targetQuestionAnswerId: string
 	): Promise<QuizQuestionAnswerInApi> {
 		const response = await fetch(
-			`${this.quizApiBaseUrl}/quiz/${targetQuizId}/questions/${targetQuizQuestionId}/answers/${targetQuestionAnswerId}`
+			`${this.quizApiBaseUrl}/quizzes/${targetQuizId}/questions/${targetQuizQuestionId}/answers/${targetQuestionAnswerId}`
 		);
 		const quizQuestionAnswer = await response.json();
 		return quizQuestionAnswer;
@@ -65,7 +65,7 @@ export class QuizApiClient {
 		targetQuizQuestionId: string
 	): Promise<QuizQuestionAnswerInApi[]> {
 		const response = await fetch(
-			`${this.quizApiBaseUrl}/quiz/${targetQuizId}/questions/${targetQuizQuestionId}/answers`
+			`${this.quizApiBaseUrl}/quizzes/${targetQuizId}/questions/${targetQuizQuestionId}/answers`
 		);
 		const quizQuestionAnswers = await response.json();
 		return quizQuestionAnswers;
