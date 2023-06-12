@@ -2,14 +2,20 @@ import type {PageInApi} from "$lib/server/utils/PageInApi.js";
 import type {QuizInApi} from "./types/QuizInApi.js";
 import type {QuizQuestionInApi} from "./types/QuizQuestionInApi.js";
 import type {QuizQuestionAnswerInApi} from "./types/QuizQuestionAnswerInApi.js";
+import type {PagingOptionsInApi} from "$lib/server/utils/PagingOptionsInApi.js";
+import type {DeepReadonly} from "ts-essentials";
 
 export class QuizApiClient {
 	private readonly quizApiBaseUrl: string;
 	public constructor({quizApiBaseUrl}: {quizApiBaseUrl: string}) {
 		this.quizApiBaseUrl = quizApiBaseUrl;
 	}
-	async fetchQuizzesPage(): Promise<PageInApi<QuizInApi>> {
-		const response = await fetch(`${this.quizApiBaseUrl}/quiz`);
+	async fetchQuizzesPage(
+		pagingOptions: DeepReadonly<PagingOptionsInApi>
+	): Promise<PageInApi<QuizInApi>> {
+		const response = await fetch(
+			`${this.quizApiBaseUrl}/quiz?skip=${pagingOptions.skip}&take=${pagingOptions.take}`
+		);
 		const quizzesPage = await response.json();
 		return quizzesPage;
 	}
@@ -20,8 +26,13 @@ export class QuizApiClient {
 		return quiz;
 	}
 
-	async fetchQuizQuestionsPage(quizId: string): Promise<PageInApi<QuizQuestionInApi>> {
-		const response = await fetch(`${this.quizApiBaseUrl}/quiz/${quizId}/questions`);
+	async fetchQuizQuestionsPage(
+		quizId: string,
+		pagingOptions: DeepReadonly<PagingOptionsInApi>
+	): Promise<PageInApi<QuizQuestionInApi>> {
+		const response = await fetch(
+			`${this.quizApiBaseUrl}/quiz/${quizId}/questions?skip=${pagingOptions.skip}&take=${pagingOptions.take}`
+		);
 		const quizQuestionsPage = await response.json();
 		return quizQuestionsPage;
 	}
