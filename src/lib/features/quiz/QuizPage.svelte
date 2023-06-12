@@ -1,28 +1,34 @@
 <script lang="ts">
+	const splitArrayAt = <T>(array: readonly T[], index: number) => {
+		const first = array.slice(0, index);
+		const second = array.slice(index);
+		return [first, second] as const;
+	};
 	import type {DeepReadonly} from "ts-essentials";
+	export let quiz: DeepReadonly<Quiz>;
+
+	$: questionNumber = 0;
+	$: [, nextQuestions] = splitArrayAt(quiz.questions, questionNumber);
+	$: currentQuestion = nextQuestions[0];
+
+	import type {Quiz} from "./types/Quiz.js";
 	import QuestionPrompt from "./QuestionPrompt.svelte";
-	let currentQuestionId = 0;
-	import {quiz_all} from "./quiz-answers.js";
 	import QuizResults from "./QuizResults.svelte";
-	import type {AnswerToQuestion} from "./types/AnswerToQuestion.js";
-	import type {Question} from "./types/Question.js";
 
-	let userAnswers: Map<number, DeepReadonly<AnswerToQuestion>> = new Map();
+	$: userAnswerKindsCounter = new Map<string, number>();
 
-	$: question = quiz_all[currentQuestionId] as Question;
-
-	const answer = (event: CustomEvent<AnswerToQuestion>) => {
-		const {detail: userAnswer} = event;
-		userAnswers.set(currentQuestionId, userAnswer);
-		++currentQuestionId;
+	const handleAnswer = (e: CustomEvent<string>) => {
+		const anwerKind = e.detail;
+		userAnswerKindsCounter.set(anwerKind, (userAnswerKindsCounter.get(anwerKind) ?? 0) + 1);
+		++questionNumber;
 	};
 </script>
 
 <div class="quiz-page">
-	{#if currentQuestionId < quiz_all.length}
-		<QuestionPrompt {question} on:answer={answer} />
+	{#if currentQuestion}
+		<QuestionPrompt question={currentQuestion} on:answer_given={handleAnswer} />
 	{:else}
-		<QuizResults {userAnswers} />
+		<QuizResults {userAnswerKindsCounter} />
 	{/if}
 </div>
 

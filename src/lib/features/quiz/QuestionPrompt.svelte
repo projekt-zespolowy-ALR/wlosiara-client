@@ -1,23 +1,20 @@
 <script lang="ts">
 	import {createEventDispatcher} from "svelte";
-	const dispatch = createEventDispatcher();
+	const dispatch = createEventDispatcher<{
+		answer_given: string;
+	}>();
 
-	import type {Question} from "./types/Question.js";
-	import type {AnswerToQuestion} from "./types/AnswerToQuestion.js";
 	import type {DeepReadonly} from "ts-essentials";
+	import type {QuizQuestion} from "./types/QuizQuestion.js";
 
-	export let question: DeepReadonly<Question>;
-
-	const handleGiveAnswer = (userAnswer: AnswerToQuestion) => {
-		dispatch("answer", userAnswer);
-	};
+	export let question: DeepReadonly<QuizQuestion>;
 </script>
 
 <div class="question">
-	<p>{question.text}</p>
+	<p>{question.content}</p>
 	{#each question.answers as answer}
-		<button on:click={() => handleGiveAnswer({questionId: question.id, type: answer.type})}>
-			{answer.text}
+		<button on:click={() => dispatch("answer_given", answer.kind)}>
+			{answer.content}
 		</button>
 	{/each}
 </div>

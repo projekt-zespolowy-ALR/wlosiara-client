@@ -1,37 +1,33 @@
 <script lang="ts">
 	import type {DeepReadonly} from "ts-essentials";
-	import type {AnswerToQuestion} from "./types/AnswerToQuestion.js";
-	import type {HairType} from "./types/HairType.js";
-	export let userAnswers: DeepReadonly<Map<number, AnswerToQuestion>>;
 
-	const types: Map<HairType, number> = new Map<HairType, number>([
-		["Wysokoporowate", 0],
-		["Średnioporowate", 0],
-		["Niskoporowate", 0],
-	]);
+	export let userAnswerKindsCounter: DeepReadonly<Map<string, number>>;
 
-	type AnswersCount = {
-		type: HairType;
-		count: number;
-	};
-	userAnswers.forEach((answer) => {
-		const type = answer.type;
-		types.set(type, (types.get(type) as number) + 1);
-	});
-
-	const maxType = Array.from(types.entries()).reduce(
-		(acc: AnswersCount, [type, count]) => {
-			return count > acc.count ? {type, count} : acc;
-		},
-		{
-			type: "Średnioporowate",
-			count: 0,
+	const maxType = (() => {
+		const entriesArray = Array.from(userAnswerKindsCounter.entries());
+		const firstEntry = entriesArray[0];
+		if (firstEntry === undefined) {
+			return null;
 		}
-	).type;
+		const otherEntries = entriesArray.slice(1);
+		return otherEntries.reduce(
+			(acc: {kind: string; count: number}, [kind, count]) => {
+				return count > acc.count ? {kind, count} : acc;
+			},
+			{
+				kind: firstEntry[0],
+				count: firstEntry[1],
+			}
+		).kind;
+	})();
 </script>
 
 <div class="answer">
-	<p>Twój typ włosów to: <span>{maxType}</span></p>
+	{#if maxType === null}
+		<p>Brak odpowiedzi</p>
+	{:else}
+		<p>Twój typ włosów to: <span>{maxType}</span></p>
+	{/if}
 </div>
 
 <style>

@@ -2,6 +2,8 @@ port: 3000
 
 replicaCount: 1
 
+quizId: null # required
+
 image:
   dockerRegistry:
     host: null # required
