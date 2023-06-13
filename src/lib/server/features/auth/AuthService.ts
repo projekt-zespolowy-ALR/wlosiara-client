@@ -3,6 +3,8 @@ import type {UserRegistrationPayload} from "$lib/features/auth/types/UserRegistr
 import type {AuthApiClient} from "./auth_api_client/AuthApiClient.js";
 import type {UsersApiClient} from "../users/users_api_client/UsersApiClient.js";
 import type {Session} from "./Session.js";
+import {AuthApiClientLoginInvalidEmailOrPasswordError} from "./auth_api_client/errors/AuthApiClientLoginInvalidEmailOrPasswordError.js";
+import {AuthServiceLoginInvalidEmailOrPasswordError} from "./errors/AuthServiceLoginInvalidEmailOrPasswordError.js";
 
 export class AuthService {
 	private readonly authApiClient: AuthApiClient;
@@ -24,18 +26,25 @@ export class AuthService {
 	}
 
 	public async login(userCredentials: UserCredentials): Promise<Session> {
-		const loginResponseBody = await this.authApiClient.login(userCredentials);
-		const userInApi = await this.usersApiClient.getUserById(loginResponseBody.userId);
-		const session: Session = {
-			// id: loginResponseBody.id,
-			token: loginResponseBody.token,
-			user: {
-				...userInApi,
-				fav_products: [], // TODO: Remove this when fav_products is correctly implemented
-			},
-		};
+		try {
+			const loginResponseBody = await this.authApiClient.login(userCredentials);
+			const userInApi = await this.usersApiClient.getUserById(loginResponseBody.userId);
+			const session: Session = {
+				// id: loginResponseBody.id,
+				token: loginResponseBody.token,
+				user: {
+					...userInApi,
+					fav_products: [], // TODO: Remove this when fav_products is correctly implemented
+				},
+			};
 
-		return session;
+			return session;
+		} catch (error) {
+			if (error instanceof AuthApiClientLoginInvalidEmailOrPasswordError) {
+				throw new AuthServiceLoginInvalidEmailOrPasswordError();
+			}
+			throw error;
+		}
 	}
 
 	public async me(sessionToken: string): Promise<Session> {
