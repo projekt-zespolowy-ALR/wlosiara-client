@@ -46,3 +46,13 @@ spec:
                 configMapKeyRef:
                   name: "{{ .Release.Name }}"
                   key: QUIZZES_API_BASE_URL
+            - name: USERS_API_BASE_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: "{{ .Release.Name }}"
+                  key: USERS_API_BASE_URL
+            - name: AUTH_API_BASE_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: "{{ .Release.Name }}"
+                  key: AUTH_API_BASE_URL
