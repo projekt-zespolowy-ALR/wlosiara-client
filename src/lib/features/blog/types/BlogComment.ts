@@ -1,6 +1,9 @@
+import type {User} from "$lib/features/users/types/User.js";
+import type {BlogEntry} from "./BlogEntry.js";
+
 export type BlogComment = {
 	id: string;
-	authorId: string;
-	blogPostId: string;
+	author: User;
+	post: BlogEntry;
 	text: string;
 };

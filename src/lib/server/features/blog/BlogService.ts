@@ -1,7 +1,7 @@
 import type {BlogEntry, BlogEntry as Post} from "$lib/features/blog/types/BlogEntry.js";
 import type {BlogComment} from "$lib/features/blog/types/BlogComment.js";
 import type {Page} from "$lib/server/utils/Page.js";
-import type {PostsApiClient} from "$lib/server/features/blog/blog_api_client/PostsApiClient.js";
+import type {PostsApiClient} from "$lib/server/features/blog/blog_api_client/BlogApiClient.js";
 import type {PostInApi} from "./blog_api_client/types/PostInApi.js";
 
 export class BlogService {

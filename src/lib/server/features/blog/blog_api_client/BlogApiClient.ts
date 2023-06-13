@@ -1,5 +1,5 @@
 import type {PageInApi} from "$lib/server/utils/PageInApi.js";
-import type {PostCommentApi} from "./types/PostCommentApi.js";
+import type {PostCommentApi} from "./types/PostCommentInApi.js";
 import type {PostInApi} from "./types/PostInApi.js";
 
 export class PostsApiClient {
@@ -8,13 +8,13 @@ export class PostsApiClient {
 		this.postsApiBaseUrl = postsApiBaseUrl;
 	}
 	async fetchPostsPage(): Promise<PageInApi<PostInApi>> {
-		const response = await fetch(`${this.postsApiBaseUrl}/blog`);
+		const response = await fetch(`${this.postsApiBaseUrl}/posts`);
 		const postsPage = await response.json();
 		return postsPage;
 	}
 
 	async fetchPostById(targetPostId: string): Promise<PostInApi> {
-		const response = await fetch(`${this.postsApiBaseUrl}/blog/${targetPostId}`);
+		const response = await fetch(`${this.postsApiBaseUrl}/posts/${targetPostId}`);
 		const post = await response.json();
 		return post;
 	}
