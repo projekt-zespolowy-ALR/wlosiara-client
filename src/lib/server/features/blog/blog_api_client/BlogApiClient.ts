@@ -1,4 +1,5 @@
 import type {PageInApi} from "$lib/server/utils/PageInApi.js";
+import type {PagingOptionsInApi} from "$lib/server/utils/PagingOptionsInApi.js";
 import type {PostCommentApi} from "./types/PostCommentInApi.js";
 import type {PostInApi} from "./types/PostInApi.js";
 
@@ -7,8 +8,10 @@ export class PostsApiClient {
 	public constructor({postsApiBaseUrl}: {postsApiBaseUrl: string}) {
 		this.postsApiBaseUrl = postsApiBaseUrl;
 	}
-	async fetchPostsPage(): Promise<PageInApi<PostInApi>> {
-		const response = await fetch(`${this.postsApiBaseUrl}/posts`);
+	async fetchPostsPage(pagingOptions: PagingOptionsInApi): Promise<PageInApi<PostInApi>> {
+		const response = await fetch(
+			`${this.postsApiBaseUrl}/posts?take=${pagingOptions.take}&skip=${pagingOptions.skip}`
+		);
 		const postsPage = await response.json();
 		return postsPage;
 	}

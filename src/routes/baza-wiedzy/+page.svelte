@@ -5,4 +5,4 @@
 	export let data: PageData;
 </script>
 
-<PostList blogEntries={data.blogEntries} currentUser={data.currentUser} />
+<PostList blogEntriesPage={data.blogEntriesPage} currentUser={data.currentUser} />

@@ -1,8 +1,10 @@
 import type {BlogEntry, BlogEntry as Post} from "$lib/features/blog/types/BlogEntry.js";
-import type {BlogComment} from "$lib/features/blog/types/BlogComment.js";
 import type {Page} from "$lib/server/utils/Page.js";
 import type {PostsApiClient} from "$lib/server/features/blog/blog_api_client/BlogApiClient.js";
 import type {PostInApi} from "./blog_api_client/types/PostInApi.js";
+import type {DeepReadonly} from "ts-essentials";
+import type {PagingOptions} from "$lib/utils/PagingOptions.js";
+import {apifyPagingOptions} from "$lib/server/utils/apifyPagingOptions.js";
 
 export class BlogService {
 	private readonly postsApiClient: PostsApiClient;
@@ -23,11 +25,14 @@ export class BlogService {
 			...postInApi,
 			text: postInApi.contentMd,
 			author,
+			comments: [],
 		};
 	}
 
-	public async getPostsPage(): Promise<Page<Post>> {
-		const postsPageInApi = await this.postsApiClient.fetchPostsPage();
+	public async getPostsPage(pagingOptions: DeepReadonly<PagingOptions>): Promise<Page<Post>> {
+		const postsPageInApi = await this.postsApiClient.fetchPostsPage(
+			apifyPagingOptions(pagingOptions)
+		);
 		const posts = await Promise.all(
 			postsPageInApi.items.map((postInApi) => this.populatePostInApi(postInApi))
 		);
@@ -41,27 +46,5 @@ export class BlogService {
 		const postInApi = await this.postsApiClient.fetchPostById(targetPostId);
 		const post = await this.populatePostInApi(postInApi);
 		return post;
-	}
-
-	public async getPostComments(targetPostId: string): Promise<Page<BlogComment>> {
-		const commentsPageInApi = await this.postsApiClient.fetchPostCommentsPage(targetPostId);
-		const postCommentsInApi = (await this.postsApiClient.fetchPostCommentsPage(targetPostId)).items;
-
-		return {
-			...commentsPageInApi,
-			items: postCommentsInApi,
-		};
-	}
-
-	public async getPostCommentsById(
-		postId: string,
-		targetPostCommentId: string
-	): Promise<BlogComment> {
-		const commentInApi = await this.postsApiClient.fetchPostCommentById(
-			postId,
-			targetPostCommentId
-		);
-
-		return commentInApi;
 	}
 }

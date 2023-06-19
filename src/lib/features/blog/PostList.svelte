@@ -6,12 +6,13 @@
 	import type {BlogEntry} from "./types/BlogEntry.js";
 	import SubpageH1 from "$lib/ui/subpage_h1/SubpageH1.svelte";
 
-	export let blogEntries: DeepReadonly<BlogEntry[]>;
+	export let blogEntriesPage: DeepReadonly<Page<BlogEntry>>;
 
 	import {page} from "$app/stores";
 
 	import {goto} from "$app/navigation";
 	import type {User} from "../users/types/User.js";
+	import type {Page} from "$lib/server/utils/Page.js";
 
 	const handleSearchInputChange = (e: Event) => {
 		const search = (e.target as HTMLInputElement).value;
@@ -34,7 +35,7 @@
 		on:input={handleSearchInputChange}
 	/>
 	<ul>
-		{#each blogEntries as blogEntry (blogEntry.id)}
+		{#each blogEntriesPage.items as blogEntry (blogEntry.id)}
 			<PostListItem {blogEntry} />
 		{/each}
 		{#if currentUser}
