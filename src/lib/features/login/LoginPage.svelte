@@ -2,7 +2,7 @@
 </script>
 
 <div class="page">
-	<div class="login">
+	<!-- <div class="login">
 		<div class="inline">
 			<span>E-mail: </span>
 			<input placeholder="email..." />
@@ -11,8 +11,19 @@
 			<span>Wpisz hasło: </span>
 			<input type="password" placeholder="..." />
 		</div>
-	</div>
-	<button>Zaloguj</button>
+	</div> -->
+	<!-- <button>Zaloguj</button> -->
+	<form action="/login" method="post" class="login">
+		<div class="inline">
+			<span>E-mail: </span>
+			<input name="email" placeholder="email..." />
+		</div>
+		<div class="inline">
+			<span>Hasło: </span>
+			<input name="password" type="password" placeholder="..." />
+		</div>
+		<button>Zaloguj</button>
+	</form>
 </div>
 
 <style>
@@ -32,12 +43,14 @@
 		padding: 10px;
 		/* width: 50%; */
 		font-size: 12px;
-		margin-bottom: 20px;
 	}
 	.inline {
 		display: grid;
 		grid-template-columns: 50% 50%;
 		grid-template-rows: auto;
 		margin: 5px;
+	}
+	button {
+		margin-top: 10px;
 	}
 </style>

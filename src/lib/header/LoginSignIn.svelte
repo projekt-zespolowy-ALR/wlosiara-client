@@ -4,17 +4,17 @@
 	import type {User} from "$lib/features/users/types/User.js";
 	import type {DeepReadonly} from "ts-essentials";
 
-	const login = async (event: Event) => {
-		event.preventDefault();
-		const formEl = event.target as HTMLFormElement;
+	// const login = async (event: Event) => {
+	// 	event.preventDefault();
+	// 	const formEl = event.target as HTMLFormElement;
 
-		await fetch(formEl.action, {
-			method: "POST",
-			body: "",
-		});
+	// 	await fetch(formEl.action, {
+	// 		method: "POST",
+	// 		body: "",
+	// 	});
 
-		await invalidateAll();
-	};
+	// 	await invalidateAll();
+	// };
 
 	const logout = async (event: Event) => {
 		event.preventDefault();
@@ -36,9 +36,9 @@
 				<button class="nav-link" type="submit">Log Out</button>
 			</form>
 		{:else}
-			<form action="/login" method="post" on:submit={login}>
-				<button class="nav-link" type="submit">Log In</button>
-			</form>
+			<a href="/login">
+				<button class="nav-link">Log In</button>
+			</a>
 		{/if}
 	</span>
 </li>
