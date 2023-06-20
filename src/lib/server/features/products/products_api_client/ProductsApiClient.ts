@@ -1,4 +1,5 @@
 import type {PageInApi} from "$lib/server/utils/PageInApi.js";
+import type {PagingOptionsInApi} from "$lib/server/utils/PagingOptionsInApi.js";
 import type {ProductBrandInApi} from "./types/ProductBrandInApi.js";
 import type {ProductCategoryInApi} from "./types/ProductCategoryInApi.js";
 import type {ProductDataSourceInApi} from "./types/ProductDataSourceInApi.js";
@@ -11,8 +12,10 @@ export class ProductsApiClient {
 	public constructor({productsApiBaseUrl}: {productsApiBaseUrl: string}) {
 		this.productsApiBaseUrl = productsApiBaseUrl;
 	}
-	async fetchProductsPage(): Promise<PageInApi<ProductInApi>> {
-		const response = await fetch(`${this.productsApiBaseUrl}/products`);
+	async fetchProductsPage(pagingOptions: PagingOptionsInApi): Promise<PageInApi<ProductInApi>> {
+		const response = await fetch(
+			`${this.productsApiBaseUrl}/products?skip=${pagingOptions.skip}&take=${pagingOptions.take}`
+		);
 		const productsPage = await response.json();
 		return productsPage;
 	}

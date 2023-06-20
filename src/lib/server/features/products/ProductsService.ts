@@ -8,6 +8,9 @@ import type {ProductOfferInApi} from "./products_api_client/types/ProductOfferIn
 import type {ProductDataSource} from "$lib/features/product_data_sources/types/ProductDataSource.js";
 import type {ProductIngredient} from "$lib/features/products/types/ProductIngredient.js";
 import type {ProductBrand} from "$lib/features/product_brands/types/ProductBrand.js";
+import type {DeepReadonly} from "ts-essentials";
+import type {PagingOptions} from "$lib/utils/PagingOptions.js";
+import {apifyPagingOptions} from "$lib/server/utils/apifyPagingOptions.js";
 
 export class ProductsService {
 	private readonly productsApiClient: ProductsApiClient;
@@ -90,8 +93,10 @@ export class ProductsService {
 		};
 	}
 
-	public async getProductsPage(): Promise<Page<Product>> {
-		const productsPageInApi = await this.productsApiClient.fetchProductsPage();
+	public async getProductsPage(pagingOptions: DeepReadonly<PagingOptions>): Promise<Page<Product>> {
+		const productsPageInApi = await this.productsApiClient.fetchProductsPage(
+			apifyPagingOptions(pagingOptions)
+		);
 		const products = await Promise.all(
 			productsPageInApi.items.map((productInApi) => this.populateProductInApi(productInApi))
 		);
