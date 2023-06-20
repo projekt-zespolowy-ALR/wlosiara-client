@@ -1,0 +1,357 @@
+{
+    "products": {
+        "items": [
+      {
+        "id": "awrf-fr4d-ef4tf-dfer4",
+  
+        "slug": "wizaz",
+  
+        "massKilograms":  0.5,
+  
+        "volumeLiters": 0.5,
+  
+        "name": "Tresemme Biotin Repair 7 Shampoo",
+  
+        "brandId": "gfwr",
+        "categories": [
+          {
+          "id": "sfre-434fd-verg-43ds",
+          "name": "szampony",
+          "slug": "szampony"
+          }
+        ],
+          "brands": [
+            {
+              "id": "gfwr",
+              "name": "loreal",
+              "slug": "loreal"
+            }
+          ],
+        
+        "offers": [
+          {
+            "dataSourceId": "wef-234f-degr-ergre",
+            "pricePln": 12.99,
+            "description": "szampon do wlosow, mega fajny, polecanko 1000",
+            "imageUrl": "https://static.wizaz.pl/media/cache/500x500/kwc/product/246/234/234246/568441.png",
+            "referenceUrl": "https://wizaz.pl/kosmetyki/produkt,234246,tresemme-szampon-do-wlosow-zniszczonych-biotin-repair-7-z-biotyna-i-kompleksem-pro-bond.html"
+          }
+        ],
+        "ingredients": [
+          {
+            "id": "awrf-fr4d-ef4tf-dfer4",
+            "latinName": "aqua",
+            "slug": "aqua"
+          },
+          {
+            "id": "rfre-reerg-sdf-323",
+              "latinName": "sodium laureth sulfate",
+              "slug": "sodium-laureth-sulfate"
+          },
+          {
+            "id": "rfew-dsdr-sfys-ascr",
+            "latinName": "cocamidopropyl betaine",
+              "slug": "cocamidopropyl-betaine"
+          }
+        ]
+      },
+      {
+        "id": "awrf-fr4d-ef4tf-dfer5",
+  
+        "slug": "wizaz",
+  
+        "massKilograms":  0.5,
+  
+        "volumeLiters": 0.5,
+  
+        "name": "TRESemmé Biotin+ Repair 7 Conditioner",
+  
+        "brandId": "gfwr",
+        "categories": [
+          {
+          "id": "sfre-434fd-verg-43ds",
+          "name": "szampony",
+          "slug": "szampony"
+          }
+        ],
+          "brands": [
+            {
+              "id": "gfwr",
+              "name": "loreal",
+              "slug": "loreal"
+            }
+          ],
+        
+        "offers": [
+          {
+            "dataSourceId": "wef-234f-degr-ergre",
+            "pricePln": 12.99,
+            "description": "szampon do wlosow, mega fajny, polecanko 1000",
+            "imageUrl": "https://cdn.notinoimg.com/detail_main_mq/tresemme/8710522323144_01-o/tresemme-biotin-repair-7-odzywka-regenerujaca-do-wlosow-zniszczonych_.jpg",
+            "referenceUrl": "https://wizaz.pl/kosmetyki/produkt,234246,tresemme-szampon-do-wlosow-zniszczonych-biotin-repair-7-z-biotyna-i-kompleksem-pro-bond.html"
+          }
+        ],
+        "ingredients": [
+          {
+            "id": "awrf-fr4d-ef4tf-dfer4",
+            "latinName": "aqua",
+            "slug": "aqua"
+          },
+          {
+            "id": "rfre-reerg-sdf-323",
+              "latinName": "sodium laureth sulfate",
+              "slug": "sodium-laureth-sulfate"
+          },
+          {
+            "id": "rfew-dsdr-sfys-ascr",
+            "latinName": "cocamidopropyl betaine",
+              "slug": "cocamidopropyl-betaine"
+          }
+        ]
+      },
+      {
+        "id": "awrf-fr4d-ef4tf-dfer6",
+  
+        "slug": "wizaz",
+  
+        "massKilograms":  0.5,
+  
+        "volumeLiters": 0.5,
+  
+        "name": "Tresemme Collagen + Fullness Shampoo",
+  
+        "brandId": "gfwr",
+        "categories": [
+          {
+          "id": "sfre-434fd-verg-43ds",
+          "name": "szampony",
+          "slug": "szampony"
+          }
+        ],
+          "brands": [
+            {
+              "id": "gfwr",
+              "name": "loreal",
+              "slug": "loreal"
+            }
+          ],
+        
+        "offers": [
+          {
+            "dataSourceId": "wef-234f-degr-ergre",
+            "pricePln": 12.99,
+            "description": "szampon do wlosow, mega fajny, polecanko 1000",
+            "imageUrl": "https://cdn.notinoimg.com/detail_main_mq/tresemme/8710522329528_01-o/tresemme-collagen-fullness-szampon-zwiekszajacy-objetosc_.jpg",
+            "referenceUrl": "https://wizaz.pl/kosmetyki/produkt,234246,tresemme-szampon-do-wlosow-zniszczonych-biotin-repair-7-z-biotyna-i-kompleksem-pro-bond.html"
+          }
+        ],
+        "ingredients": [
+          {
+            "id": "awrf-fr4d-ef4tf-dfer4",
+            "latinName": "aqua",
+            "slug": "aqua"
+          },
+          {
+            "id": "rfre-reerg-sdf-323",
+              "latinName": "sodium laureth sulfate",
+              "slug": "sodium-laureth-sulfate"
+          },
+          {
+            "id": "rfew-dsdr-sfys-ascr",
+            "latinName": "cocamidopropyl betaine",
+              "slug": "cocamidopropyl-betaine"
+          }
+        ]
+      },
+      {
+        "id": "awrf-fr4d-ef4tf-dfer7",
+  
+        "slug": "wizaz",
+  
+        "massKilograms":  0.5,
+  
+        "volumeLiters": 0.5,
+  
+        "name": "Tresemme Keratin Smooth Shampoo",
+  
+        "brandId": "gfwr",
+        "categories": [
+          {
+          "id": "sfre-434fd-verg-43ds",
+          "name": "szampony",
+          "slug": "szampony"
+          }
+        ],
+          "brands": [
+            {
+              "id": "gfwr",
+              "name": "loreal",
+              "slug": "loreal"
+            }
+          ],
+        
+        "offers": [
+          {
+            "dataSourceId": "wef-234f-degr-ergre",
+            "pricePln": 12.99,
+            "description": "szampon do wlosow, mega fajny, polecanko 1000",
+            "imageUrl": "https://cdn.notinoimg.com/detail_main_mq/tresemme/8710522323007_01-o/tresemme-keratin-smooth-szampon-z-keratyna-i-olejem-marula_.jpg",
+            "referenceUrl": "https://wizaz.pl/kosmetyki/produkt,234246,tresemme-szampon-do-wlosow-zniszczonych-biotin-repair-7-z-biotyna-i-kompleksem-pro-bond.html"
+          }
+        ],
+        "ingredients": [
+          {
+            "id": "awrf-fr4d-ef4tf-dfer4",
+            "latinName": "aqua",
+            "slug": "aqua"
+          },
+          {
+            "id": "rfre-reerg-sdf-323",
+              "latinName": "sodium laureth sulfate",
+              "slug": "sodium-laureth-sulfate"
+          },
+          {
+            "id": "rfew-dsdr-sfys-ascr",
+            "latinName": "cocamidopropyl betaine",
+              "slug": "cocamidopropyl-betaine"
+          }
+        ]
+      },
+      {
+        "id": "awrf-fr4d-ef4tf-dfer8",
+  
+        "slug": "wizaz",
+  
+        "massKilograms":  0.5,
+  
+        "volumeLiters": 0.5,
+  
+        "name": "szampon",
+  
+        "brandId": "gfwr",
+        "categories": [
+          {
+          "id": "sfre-434fd-verg-43ds",
+          "name": "szampony",
+          "slug": "szampony"
+          }
+        ],
+          "brands": [
+            {
+              "id": "gfwr",
+              "name": "loreal",
+              "slug": "loreal"
+            }
+          ],
+        
+        "offers": [
+          {
+            "dataSourceId": "wef-234f-degr-ergre",
+            "pricePln": 12.99,
+            "description": "szampon do wlosow, mega fajny, polecanko 1000",
+            "imageUrl": "https://static.wizaz.pl/media/cache/500x500/kwc/product/246/234/234246/568441.png",
+            "referenceUrl": "https://wizaz.pl/kosmetyki/produkt,234246,tresemme-szampon-do-wlosow-zniszczonych-biotin-repair-7-z-biotyna-i-kompleksem-pro-bond.html"
+          }
+        ],
+        "ingredients": [
+          {
+            "id": "awrf-fr4d-ef4tf-dfer4",
+            "latinName": "aqua",
+            "slug": "aqua"
+          },
+          {
+            "id": "rfre-reerg-sdf-323",
+              "latinName": "sodium laureth sulfate",
+              "slug": "sodium-laureth-sulfate"
+          },
+          {
+            "id": "rfew-dsdr-sfys-ascr",
+            "latinName": "cocamidopropyl betaine",
+              "slug": "cocamidopropyl-betaine"
+          }
+        ]
+      }
+        
+    ]
+},
+    "first_product_categories": [
+      {
+          "id": "sfre-434fd-verg-43ds",
+          "name": "szampony",
+          "slug": "szampony"
+      }
+    ],
+    "first_product_offers": [
+      {
+        "dataSourceId": "wef-234f-degr-ergre",
+        "pricePln": 12.99,
+        "description": "szampon do wlosow, mega fajny, polecanko 1000",
+        "imageUrl": "https://static.wizaz.pl/media/cache/500x500/kwc/product/246/234/234246/568441.png",
+        "referenceUrl": "https://wizaz.pl/kosmetyki/produkt,234246,tresemme-szampon-do-wlosow-zniszczonych-biotin-repair-7-z-biotyna-i-kompleksem-pro-bond.html"
+      }
+    ],
+    "first_product_ingredients": [
+      {
+        "id": "awrf-fr4d-ef4tf-dfer4",
+        "latinName": "aqua",
+        "slug": "aqua"
+      },
+      {
+        "id": "rfre-reerg-sdf-323",
+        "latinName": "sodium laureth sulfate",
+        "slug": "sodium-laureth-sulfate"
+      },
+      {
+        "id": "rfew-dsdr-sfys-ascr",
+        "latinName": "cocamidopropyl betaine",
+        "slug": "cocamidopropyl-betaine"
+      }
+    ],
+    "categories": [
+      {
+        "id": "sfre-434fd-verg-43ds",
+        "name": "szampony",
+        "slug": "szampony"
+      }
+    ],
+    "brands": [
+      {
+        "id": "gfwr",
+        "name": "loreal",
+        "slug": "loreal"
+      }
+    ],
+    "offers": [
+      {
+        "dataSourceId": "wef-234f-degr-ergre",
+        "pricePln": 12.99,
+        "description": "szampon do wlosow, mega fajny, polecanko 1000",
+        "imageUrl": "https://static.wizaz.pl/media/cache/500x500/kwc/product/246/234/234246/568441.png",
+        "referenceUrl": "https://wizaz.pl/kosmetyki/produkt,234246,tresemme-szampon-do-wlosow-zniszczonych-biotin-repair-7-z-biotyna-i-kompleksem-pro-bond.html"
+      }
+    ],
+    "ingredients": [
+      {
+        "id": "awrf-fr4d-ef4tf-dfer4",
+        "latinName": "aqua",
+        "slug": "aqua"
+      },
+      {
+        "id": "rfre-reerg-sdf-323",
+        "latinName": "sodium laureth sulfate",
+        "slug": "sodium-laureth-sulfate"
+      },
+      {
+        "id": "rfew-dsdr-sfys-ascr",
+        "latinName": "cocamidopropyl betaine",
+        "slug": "cocamidopropyl-betaine"
+      }
+    ],
+    "data-sources": [
+      {
+        "id": "wef-234f-degr-ergre",
+        "name": "wizaz",
+        "slug": "wizaz"
+      }
+    ]
+  }

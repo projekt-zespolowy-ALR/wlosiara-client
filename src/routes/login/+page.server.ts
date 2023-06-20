@@ -10,10 +10,14 @@ export const actions: DeepReadonly<Actions> = {
 		const email = data.get("email")?.toString() ?? "";
 		const password = data.get("password")?.toString() ?? "";
 
+		try {
 		const sessid = await authService.login({email, password});
 		// console.log("ssid", sessid);
 		event.cookies.set("session_token", sessid.token);
 
 		return !!sessid.token;
+		} catch (error) {
+			return false;
+		}
 	},
 } as const;
