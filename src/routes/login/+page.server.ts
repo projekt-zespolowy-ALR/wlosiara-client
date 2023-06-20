@@ -1,6 +1,5 @@
 import type {DeepReadonly} from "ts-essentials";
 import type {Actions} from "./$types.js";
-import {invalidateAll} from "$app/navigation";
 import {authService} from "$lib/server/instances/authService.js";
 
 export const actions: DeepReadonly<Actions> = {
