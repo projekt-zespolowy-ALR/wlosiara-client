@@ -1,9 +1,9 @@
 import type {DeepReadonly} from "ts-essentials";
 import type {Actions} from "./$types.js";
-import {authService} from "$lib/server/instances/authService.js";
 
 export const actions: DeepReadonly<Actions> = {
 	default: async (event) => {
+		const {authService} = await import("$lib/server/instances/authService.js");
 		// console.log("hello");
 		const data = await event.request.formData();
 		// console.log(data);
