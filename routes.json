@@ -1,8 +1,0 @@
-{
-    "/api/*": "/$1",
-    "/products/:id/categories/:id": "/categories/:id",
-  "products/awrf-fr4d-ef4tf-dfer4/categories": "/first_product_categories",
-    "products/awrf-fr4d-ef4tf-dfer4/offers": "/first_product_offers",
-    "products/awrf-fr4d-ef4tf-dfer4/ingredients": "/first_product_ingredients"
-
-  }
