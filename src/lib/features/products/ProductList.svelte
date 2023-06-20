@@ -9,19 +9,17 @@
 	import type {DeepReadonly} from "ts-essentials";
 	import type {Page} from "$lib/server/utils/Page.js";
 	import {page as pageStore} from "$app/stores";
-	import type {PagingOptions} from "$lib/server/utils/PagingOptions.js";
+	import type {PagingOptions} from "$lib/utils/PagingOptions.js";
 	export let pagingOptions: DeepReadonly<PagingOptions>;
 
 	let filt: (product: DeepReadonly<Product>) => boolean = () => true;
 
-	export let productsPage: DeepReadonly<Page<PopulatedProduct>>;
+	export let productsPage: DeepReadonly<Page<Product>>;
 	let categories: ProductCategory[] = productsPage
 		? [...new Set(productsPage.items.flatMap((product) => product.categories))]
 		: [];
 	let selectedCategory: ProductCategory | null = null;
-	let visibleProducts: DeepReadonly<PopulatedProduct[]> = productsPage.items
-		? productsPage.items
-		: [];
+	let visibleProducts: DeepReadonly<Product[]> = productsPage.items ? productsPage.items : [];
 	let sortingType = "";
 
 	const handleInputChange = (e: Event) => {
@@ -114,17 +112,17 @@
 		<a
 			href={(() => {
 				const newUrl = new URL($pageStore.url);
-				newUrl.searchParams.set("page-number", (pagingOptions.pageNumber - 1).toString());
+				newUrl.searchParams.set("page-number", (pagingOptions.number - 1).toString());
 				return newUrl.href;
 			})()}
 		>
 			<button><i class="fa-solid fa-caret-left" /></button>
 		</a>
-		<button class="unclickable">{pagingOptions.pageNumber}</button>
+		<button class="unclickable">{pagingOptions.number}</button>
 		<a
 			href={(() => {
 				const newUrl = new URL($pageStore.url);
-				newUrl.searchParams.set("page-number", (pagingOptions.pageNumber + 1).toString());
+				newUrl.searchParams.set("page-number", (pagingOptions.number + 1).toString());
 				return newUrl.href;
 			})()}
 		>
