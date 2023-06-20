@@ -59,14 +59,17 @@ export class ProductsService {
 		return offers;
 	}
 
-	private async getIngredientsOfProduct(targetProductId: string): Promise<ProductIngredient[]> {
+	private async getIngredientsOfProduct(
+		targetProductId: string
+	): Promise<ProductIngredient[] | null> {
 		const ingredientsInApi = await this.productsApiClient.fetchIngredientsOfProduct(
 			targetProductId
 		);
-		const ingredients = ingredientsInApi.map((ingredientInApi) => ({
-			...ingredientInApi,
-			name: ingredientInApi.latinName,
-		}));
+		const ingredients =
+			ingredientsInApi?.map((ingredientInApi) => ({
+				...ingredientInApi,
+				name: ingredientInApi.latinName,
+			})) ?? null;
 		return ingredients;
 	}
 

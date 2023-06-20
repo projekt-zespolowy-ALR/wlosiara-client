@@ -58,11 +58,24 @@ export class ProductsApiClient {
 		return ingredient;
 	}
 
-	async fetchIngredientsOfProduct(targetProductId: string): Promise<ProductIngredientInApi[]> {
+	async fetchIngredientsOfProduct(
+		targetProductId: string
+	): Promise<ProductIngredientInApi[] | null> {
 		const response = await fetch(
 			`${this.productsApiBaseUrl}/products/${targetProductId}/ingredients`
 		);
+		if (response.status === 404) {
+			const body = await response.json();
+			if (
+				body.message ===
+				`The ingredients of the product with id "${targetProductId}" is not available.`
+			) {
+				return null;
+			}
+			throw new Error(`Unexpected response: ${JSON.stringify(body)}`);
+		}
 		const ingredients = await response.json();
+
 		return ingredients;
 	}
 
