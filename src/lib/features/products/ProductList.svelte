@@ -7,15 +7,19 @@
 	import {goto} from "$app/navigation";
 	import type {ProductCategory} from "$lib/features/products/types/ProductCategory.js";
 	import type {DeepReadonly} from "ts-essentials";
+	import type {Page} from "$lib/server/utils/Page.js";
+	import {page as pageStore} from "$app/stores";
+	import type {PagingOptions} from "$lib/utils/PagingOptions.js";
+	export let pagingOptions: DeepReadonly<PagingOptions>;
 
 	let filt: (product: DeepReadonly<Product>) => boolean = () => true;
 
-	export let products: DeepReadonly<Product[]>;
-	let categories: ProductCategory[] = products
-		? [...new Set(products.flatMap((product) => product.categories))]
+	export let productsPage: DeepReadonly<Page<Product>>;
+	let categories: ProductCategory[] = productsPage
+		? [...new Set(productsPage.items.flatMap((product) => product.categories))]
 		: [];
 	let selectedCategory: ProductCategory | null = null;
-	let visibleProducts: DeepReadonly<Product[]> = products ? products : [];
+	let visibleProducts: DeepReadonly<Product[]> = productsPage.items ? productsPage.items : [];
 	let sortingType = "";
 
 	const handleInputChange = (e: Event) => {
@@ -30,11 +34,11 @@
 	};
 	const handleSelectCategoryChange = () => {
 		if (selectedCategory) {
-			visibleProducts = products.filter((product) =>
+			visibleProducts = productsPage.items.filter((product) =>
 				selectedCategory ? product.categories.includes(selectedCategory) : true
 			);
 		} else {
-			visibleProducts = products;
+			visibleProducts = productsPage.items;
 		}
 	};
 
@@ -103,6 +107,28 @@
 	<SubpageH1>Baza produktów</SubpageH1>
 	<!-- <FilterMenu /> -->
 
+	<div class="pagination-buttons">
+		<!-- Todo: Style and refactor -->
+		<a
+			href={(() => {
+				const newUrl = new URL($pageStore.url);
+				newUrl.searchParams.set("page-number", (pagingOptions.number - 1).toString());
+				return newUrl.href;
+			})()}
+		>
+			<button><i class="fa-solid fa-caret-left" /></button>
+		</a>
+		<button class="unclickable">{pagingOptions.number}</button>
+		<a
+			href={(() => {
+				const newUrl = new URL($pageStore.url);
+				newUrl.searchParams.set("page-number", (pagingOptions.number + 1).toString());
+				return newUrl.href;
+			})()}
+		>
+			<button><i class="fa-solid fa-caret-right" /></button>
+		</a>
+	</div>
 	<div class="filter-menu">
 		<div class="inline">
 			<span>Szukaj </span>
@@ -167,5 +193,38 @@
 	}
 	.inline {
 		display: inline-block;
+	}
+	.pagination-buttons {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+	}
+	.pagination-buttons button {
+		height: 25px;
+		width: 30px;
+		font-size: 14px;
+		background-color: #fff;
+		border: 1px solid white;
+		border-radius: 5px;
+		margin: 5px;
+		line-height: 25px;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+		padding: 10px;
+		font-family: "Poppins", sans-serif;
+		box-shadow: 3px 3px 5px lightgray;
+	}
+	button:not(.unclickable) {
+		cursor: pointer;
+	}
+	a {
+		text-decoration: none;
+	}
+	a button i {
+		color: var(--primary-color-3);
+		font-size: 20px;
 	}
 </style>
