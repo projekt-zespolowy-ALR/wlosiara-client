@@ -2,7 +2,6 @@
 	import type {DeepReadonly} from "ts-essentials";
 
 	import PostListItem from "./PostListItem.svelte";
-	// export let currentUser: DeepReadonly<User> | null;
 	import type {BlogEntry} from "./types/BlogEntry.js";
 	import SubpageH1 from "$lib/ui/subpage_h1/SubpageH1.svelte";
 
