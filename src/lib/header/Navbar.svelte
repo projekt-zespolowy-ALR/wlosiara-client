@@ -22,6 +22,7 @@
 			<div class="navbar-nav mr-auto user-details">
 				<a href="/user">
 					{#if currentUser}
+						<img src={currentUser.avatarUrl} alt="avatar" class="avatar" />
 						<span class="text-white">&nbsp;&nbsp;{currentUser.username}</span>
 					{:else}<span>&nbsp;</span>{/if}
 				</a>
@@ -53,10 +54,16 @@
 		text-decoration: none;
 		color: black;
 		font-size: 12px;
+		display: flex;
+		align-items: center;
 	}
 
 	i {
 		color: var(--primary-color-3);
 		font-size: 16px;
+	}
+	.avatar {
+		width: 30px;
+		height: 30px;
 	}
 </style>
