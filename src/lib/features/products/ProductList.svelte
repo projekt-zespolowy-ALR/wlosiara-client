@@ -15,13 +15,11 @@
 	let filt: (product: DeepReadonly<Product>) => boolean = () => true;
 
 	export let productsPage: DeepReadonly<Page<Product & {isFavorite: boolean | null}>>;
-	let categories: ProductCategory[] = productsPage
+	$: categories = productsPage
 		? [...new Set(productsPage.items.flatMap((product) => product.categories))]
 		: [];
 	let selectedCategory: ProductCategory | null = null;
-	let visibleProducts: DeepReadonly<(Product & {isFavorite: boolean | null})[]> = productsPage.items
-		? productsPage.items
-		: [];
+	$: visibleProducts = productsPage.items ? productsPage.items : [];
 	let sortingType = "";
 
 	const handleInputChange = (e: Event) => {

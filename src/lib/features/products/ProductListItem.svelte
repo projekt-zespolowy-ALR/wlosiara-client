@@ -1,5 +1,5 @@
 <script lang="ts">
-	import {invalidate} from "$app/navigation";
+	import {invalidateAll} from "$app/navigation";
 	import type {Product} from "./types/Product.js";
 	import type {DeepReadonly} from "ts-essentials";
 
@@ -14,7 +14,7 @@
 			method: "POST",
 			body: formData,
 		});
-		invalidate("/baza-produktow");
+		await invalidateAll();
 	};
 
 	const handleUnlikeSubmit = async (e: Event) => {
@@ -26,7 +26,7 @@
 			method: "POST",
 			body: formData,
 		});
-		invalidate("/baza-produktow");
+		await invalidateAll();
 	};
 
 	$: isFavorite = product.isFavorite;
