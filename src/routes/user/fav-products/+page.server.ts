@@ -4,7 +4,7 @@ import type {PageServerLoad} from "./$types.js";
 
 export const load: PageServerLoad = async () => {
 	// const search = url.searchParams.get("search");
-	const filteredProducts: DeepReadonly<Product[]> = [];
+	const filteredProducts: DeepReadonly<(Product & {isFavorite: boolean | null})[]> = [];
 	return {
 		products: filteredProducts,
 	} as const;

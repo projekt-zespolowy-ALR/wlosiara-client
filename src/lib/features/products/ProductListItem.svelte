@@ -1,14 +1,34 @@
 <script lang="ts">
+	import {invalidate} from "$app/navigation";
 	import type {Product} from "./types/Product.js";
 	import type {DeepReadonly} from "ts-essentials";
 
-	export let product: DeepReadonly<Product>;
+	export let product: DeepReadonly<Product & {isFavorite: boolean | null}>;
+
+	const handleLikeSubmit = async (e: Event) => {
+		e.preventDefault();
+		const formElement = e.target as HTMLFormElement;
+		const formData = new FormData(formElement);
+		const url = formElement.action;
+		await fetch(url, {
+			method: "POST",
+			body: formData,
+		});
+		invalidate("/baza-produktow");
+	};
 </script>
 
 <li>
-	<div class="heart">
-		<i class="fa-solid fa-heart" class:purple={false} on:keypress={() => {}} on:click={() => {}} />
-	</div>
+	<form
+		class="heart"
+		on:submit={handleLikeSubmit}
+		action="/like-product?product={product.id}"
+		method="POST"
+	>
+		<button type="submit">
+			<i class="fa-solid fa-heart" class:purple={product.isFavorite} />
+		</button>
+	</form>
 	<a href="/baza-produktow/{product.id}">
 		{#if product.offers[0]}
 			<div class="img">

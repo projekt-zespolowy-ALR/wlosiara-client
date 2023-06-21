@@ -78,12 +78,27 @@ export class ProductsService {
 		return brandInApi;
 	}
 
-	private async populateProductInApi(productInApi: ProductInApi): Promise<Product> {
-		const [categories, ingredients, offers, brand] = await Promise.all([
+	private async checkIfProductisFavorite(
+		targetProductId: string,
+		userId: string
+	): Promise<boolean> {
+		const isFavorite = await this.productsApiClient.checkIfProductisFavorite(
+			targetProductId,
+			userId
+		);
+		return isFavorite;
+	}
+
+	private async populateProductInApi(
+		productInApi: ProductInApi,
+		userId: string | null
+	): Promise<Product & {isFavorite: boolean | null}> {
+		const [categories, ingredients, offers, brand, isFavorite] = await Promise.all([
 			this.getCategoriesOfProduct(productInApi.id),
 			this.getIngredientsOfProduct(productInApi.id),
 			this.getOffersOfProduct(productInApi.id),
 			this.getBrandById(productInApi.brandId),
+			userId !== null ? this.checkIfProductisFavorite(productInApi.id, userId) : null,
 		]);
 		return {
 			...productInApi,
@@ -93,15 +108,19 @@ export class ProductsService {
 			ingredients,
 			offers,
 			brand,
+			isFavorite,
 		};
 	}
 
-	public async getProductsPage(pagingOptions: DeepReadonly<PagingOptions>): Promise<Page<Product>> {
+	public async getProductsPage(
+		pagingOptions: DeepReadonly<PagingOptions>,
+		userId: string | null
+	): Promise<Page<Product & {isFavorite: boolean | null}>> {
 		const productsPageInApi = await this.productsApiClient.fetchProductsPage(
 			apifyPagingOptions(pagingOptions)
 		);
 		const products = await Promise.all(
-			productsPageInApi.items.map((productInApi) => this.populateProductInApi(productInApi))
+			productsPageInApi.items.map((productInApi) => this.populateProductInApi(productInApi, userId))
 		);
 		return {
 			...productsPageInApi,
@@ -109,9 +128,13 @@ export class ProductsService {
 		};
 	}
 
-	public async getProductById(targetProductId: string): Promise<Product> {
+	public async getProductById(targetProductId: string, userId: string | null): Promise<Product> {
 		const productInApi = await this.productsApiClient.fetchProductById(targetProductId);
-		const product = await this.populateProductInApi(productInApi);
+		const product = await this.populateProductInApi(productInApi, userId);
 		return product;
+	}
+
+	public async likeProduct(userId: string, productId: string): Promise<void> {
+		await this.productsApiClient.likeProduct(productId, userId);
 	}
 }

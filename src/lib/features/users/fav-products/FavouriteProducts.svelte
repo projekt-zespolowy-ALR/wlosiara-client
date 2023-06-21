@@ -5,7 +5,7 @@
 	import type {Product} from "../../products/types/Product.js";
 	import type {User} from "../types/User.js";
 
-	export let allProducts: DeepReadonly<Product[]>;
+	export let allProducts: DeepReadonly<(Product & {isFavorite: boolean | null})[]>;
 	export let favProductIds: DeepReadonly<string[]>;
 	const favProducts = allProducts
 		? allProducts.filter((product: DeepReadonly<Product>) => product.id in favProductIds)
