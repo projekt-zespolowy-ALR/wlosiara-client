@@ -7,7 +7,9 @@
 	export let currentUser: User | null;
 
 	export let data: PageServerData;
-	const allProducts: DeepReadonly<Product[]> = data ? data.products : [];
+	const allProducts: DeepReadonly<(Product & {isFavorite: boolean | null})[]> = data
+		? data.products
+		: [];
 </script>
 
 {#if currentUser}

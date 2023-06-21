@@ -90,4 +90,32 @@ export class ProductsApiClient {
 		const dataSource = await response.json();
 		return dataSource;
 	}
+
+	public async likeProduct(productId: string, userId: string): Promise<void> {
+		const response = await fetch(
+			`${this.productsApiBaseUrl}/users/${userId}/favorite-products/${productId}`,
+			{
+				method: "PUT",
+			}
+		);
+		if (response.status !== 200) {
+			throw new Error(`Unexpected response: ${JSON.stringify(response)}`);
+		}
+	}
+
+	public async checkIfProductisFavorite(productId: string, userId: string): Promise<boolean> {
+		const response = await fetch(
+			`${this.productsApiBaseUrl}/users/${userId}/favorite-products/${productId}`,
+			{
+				method: "HEAD",
+			}
+		);
+		if (response.status === 404) {
+			return false;
+		}
+		if (response.status === 200) {
+			return true;
+		}
+		throw new Error(`Unexpected response: ${JSON.stringify(response)}`);
+	}
 }
