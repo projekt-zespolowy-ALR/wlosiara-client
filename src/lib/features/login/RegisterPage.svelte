@@ -1,22 +1,42 @@
 <script lang="ts">
+	import {enhance} from "$app/forms";
+	import {invalidateAll} from "$app/navigation";
+	import type {SubmitFunction} from "@sveltejs/kit";
+
+	const submit: SubmitFunction = async ({formElement}) => {
+		return ({result}) => {
+			console.log(result);
+			if (result.type === "success") {
+				formElement.reset();
+				alert("Registered successfully");
+				invalidateAll();
+			} else if (result.type === "error") {
+				console.log(result.error);
+			} else if (result.type === "failure") {
+				alert("Something went wrong");
+			} else {
+				console.log(result);
+			}
+		};
+	};
 </script>
 
 <div class="page">
-	<div class="register">
+	<form action="/register" method="post" class="register" use:enhance={submit}>
 		<div class="inline">
 			<span>E-mail: </span>
-			<input placeholder="email..." />
+			<input name="email" placeholder="email..." />
 		</div>
 		<div class="inline">
 			<span>Wpisz hasło: </span>
-			<input type="password" placeholder="..." />
+			<input name="password" type="password" placeholder="..." />
 		</div>
 		<div class="inline">
-			<span>Powtórz hasło: </span>
-			<input type="password" placeholder="..." />
+			<span>Nazwa użytkownika: </span>
+			<input name="username" placeholder="username..." />
 		</div>
-	</div>
-	<button>Zarejestruj</button>
+		<button>Zarejestruj</button>
+	</form>
 </div>
 
 <style>
