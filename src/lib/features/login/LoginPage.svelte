@@ -1,4 +1,35 @@
 <script lang="ts">
+	import {enhance} from "$app/forms";
+	import {invalidateAll} from "$app/navigation";
+	import type {SubmitFunction} from "@sveltejs/kit";
+
+	// const onSubmit = async (event: Event) => {
+	// 	event.preventDefault();
+	// 	const form = event.target as HTMLFormElement;
+	// 	const formData = new FormData(form);
+	// 	const a = await fetch("/login", {
+	// 		method: "POST",
+	// 		body: formData,
+	// 	});
+	// 	await invalidateAll();
+	// };
+
+	const submit: SubmitFunction = async ({formData, formElement}) => {
+		return ({result}) => {
+			console.log(result);
+			if (result.type === "success") {
+				formElement.reset();
+				alert("You are logged in");
+				invalidateAll();
+			} else if (result.type === "error") {
+				console.log(result.error);
+			} else if (result.type === "failure") {
+				alert("Something went wrong");
+			} else {
+				console.log(result);
+			}
+		};
+	};
 </script>
 
 <div class="page">
@@ -13,7 +44,7 @@
 		</div>
 	</div> -->
 	<!-- <button>Zaloguj</button> -->
-	<form action="/login" method="post" class="login">
+	<form action="/login" method="post" class="login" use:enhance={submit}>
 		<div class="inline">
 			<span>E-mail: </span>
 			<input name="email" placeholder="email..." />

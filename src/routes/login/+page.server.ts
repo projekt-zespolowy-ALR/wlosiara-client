@@ -1,7 +1,6 @@
-import type {DeepReadonly} from "ts-essentials";
-import type {Actions} from "./$types.js";
+import {fail} from "@sveltejs/kit";
 
-export const actions: DeepReadonly<Actions> = {
+export const actions = {
 	default: async (event) => {
 		const {authService} = await import("$lib/server/instances/authService.js");
 		// console.log("hello");
@@ -15,9 +14,11 @@ export const actions: DeepReadonly<Actions> = {
 			// console.log("ssid", sessid);
 			event.cookies.set("session_token", sessid.token);
 
-			return !!sessid.token;
+			return {
+				message: "Logged in",
+			};
 		} catch (error) {
-			return false;
+			return fail(401, {message: "Invalid credentials"});
 		}
 	},
 } as const;
