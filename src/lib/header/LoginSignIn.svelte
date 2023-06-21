@@ -39,6 +39,9 @@
 			<a href="/login">
 				<button class="nav-link">Log In</button>
 			</a>
+			<a href="/register">
+				<button class="nav-link">Register</button>
+			</a>
 		{/if}
 	</span>
 </li>

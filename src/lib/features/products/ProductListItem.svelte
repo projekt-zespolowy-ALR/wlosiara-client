@@ -30,6 +30,7 @@
 	};
 
 	$: isFavorite = product.isFavorite;
+
 </script>
 
 <li>
