@@ -137,4 +137,8 @@ export class ProductsService {
 	public async likeProduct(userId: string, productId: string): Promise<void> {
 		await this.productsApiClient.likeProduct(productId, userId);
 	}
+
+	public async unlikeProduct(userId: string, productId: string): Promise<void> {
+		await this.productsApiClient.unlikeProduct(productId, userId);
+	}
 }

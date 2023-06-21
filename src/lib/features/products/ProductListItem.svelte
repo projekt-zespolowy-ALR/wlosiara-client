@@ -16,17 +16,33 @@
 		});
 		invalidate("/baza-produktow");
 	};
+
+	const handleUnlikeSubmit = async (e: Event) => {
+		e.preventDefault();
+		const formElement = e.target as HTMLFormElement;
+		const formData = new FormData(formElement);
+		const url = formElement.action;
+		await fetch(url, {
+			method: "POST",
+			body: formData,
+		});
+		invalidate("/baza-produktow");
+	};
+
+	$: isFavorite = product.isFavorite;
 </script>
 
 <li>
 	<form
 		class="heart"
-		on:submit={handleLikeSubmit}
-		action="/like-product?product={product.id}"
+		on:submit={isFavorite ? handleUnlikeSubmit : handleLikeSubmit}
+		action={isFavorite
+			? `/unlike-product?product=${product.id}`
+			: `/like-product?product=${product.id}`}
 		method="POST"
 	>
 		<button type="submit">
-			<i class="fa-solid fa-heart" class:purple={product.isFavorite} />
+			<i class="fa-solid fa-heart" class:purple={isFavorite} />
 		</button>
 	</form>
 	<a href="/baza-produktow/{product.id}">
