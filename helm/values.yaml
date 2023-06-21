@@ -20,3 +20,4 @@ productsApiBaseUrl: null # required
 quizzesApiBaseUrl: null # required
 authApiBaseUrl: null # required
 usersApiBaseUrl: null # required
+blogApiBaseUrl: null # required
