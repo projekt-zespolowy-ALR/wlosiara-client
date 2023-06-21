@@ -6,12 +6,15 @@
 	import SubpageH1 from "$lib/ui/subpage_h1/SubpageH1.svelte";
 
 	export let blogEntriesPage: DeepReadonly<Page<BlogEntry>>;
+	export let type: string;
 
 	import {page} from "$app/stores";
 
 	import {goto} from "$app/navigation";
 
 	import type {Page} from "$lib/server/utils/Page.js";
+
+	console.log(type);
 
 	const handleSearchInputChange = (e: Event) => {
 		const search = (e.target as HTMLInputElement).value;
@@ -26,7 +29,7 @@
 </script>
 
 <div class="product-list-page">
-	<SubpageH1>Baza wiedzy</SubpageH1>
+	<SubpageH1>{type === "news" ? "Aktualności" : "Baza wiedzy"}</SubpageH1>
 	<input
 		type="text"
 		placeholder="Szukaj"
