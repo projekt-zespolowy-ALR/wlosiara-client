@@ -103,6 +103,18 @@ export class ProductsApiClient {
 		}
 	}
 
+	public async unlikeProduct(productId: string, userId: string): Promise<void> {
+		const response = await fetch(
+			`${this.productsApiBaseUrl}/users/${userId}/favorite-products/${productId}`,
+			{
+				method: "DELETE",
+			}
+		);
+		if (response.status !== 200) {
+			throw new Error(`Unexpected response: ${JSON.stringify(response)}`);
+		}
+	}
+
 	public async checkIfProductisFavorite(productId: string, userId: string): Promise<boolean> {
 		const response = await fetch(
 			`${this.productsApiBaseUrl}/users/${userId}/favorite-products/${productId}`,
