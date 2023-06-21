@@ -11,7 +11,7 @@
 	import {page} from "$app/stores";
 
 	import {goto} from "$app/navigation";
-	import type {User} from "../users/types/User.js";
+
 	import type {Page} from "$lib/server/utils/Page.js";
 
 	const handleSearchInputChange = (e: Event) => {
