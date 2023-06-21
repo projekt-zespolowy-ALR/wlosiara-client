@@ -14,7 +14,7 @@
 	// 	await invalidateAll();
 	// };
 
-	const submit: SubmitFunction = async ({formData, formElement}) => {
+	const submit: SubmitFunction = async ({formElement}) => {
 		return ({result}) => {
 			console.log(result);
 			if (result.type === "success") {
