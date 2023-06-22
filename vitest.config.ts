@@ -18,6 +18,7 @@ export default defineConfig({
 			{find: /^\$lib$/, replacement: "/src/lib"},
 			{find: /^\$lib\/(.*)$/, replacement: "/src/lib/$1"},
 			{find: /^\$app\/navigation$/, replacement: "$app/navigation"},
+			{find: /^\$app\/forms$/, replacement: "$app/forms"},
 		],
 	},
 });

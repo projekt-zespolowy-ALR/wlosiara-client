@@ -4,6 +4,7 @@ import {beforeAll, describe, expect, test, vi} from "vitest";
 import type {Quiz} from "$lib/features/quiz/types/Quiz.js";
 beforeAll(() => {
 	vi.mock("$app/navigation", () => ({}));
+	vi.mock("$app/forms", () => ({}));
 });
 
 describe("Quiz page", () => {
