@@ -69,6 +69,7 @@
 			const search = searchInput.value;
 			console.log(search);
 			const url = new URL($page.url);
+			url.searchParams.delete("page-number");
 			if (search) {
 				url.searchParams.set("search", search);
 			} else {
@@ -85,27 +86,31 @@
 
 	<div class="pagination-buttons">
 		<!-- Todo: Style and refactor -->
-		<a
-			href={(() => {
-				const newUrl = new URL($pageStore.url);
-				newUrl.searchParams.set("page-number", (pagingOptions.number - 1).toString());
-				return newUrl.href;
-			})()}
-			data-sveltekit-noscroll
-		>
-			<button><i class="fa-solid fa-caret-left" /></button>
-		</a>
+		{#if pagingOptions.number > 1}
+			<a
+				href={(() => {
+					const newUrl = new URL($pageStore.url);
+					newUrl.searchParams.set("page-number", (pagingOptions.number - 1).toString());
+					return newUrl.href;
+				})()}
+				data-sveltekit-noscroll
+			>
+				<button><i class="fa-solid fa-caret-left" /></button>
+			</a>
+		{/if}
 		<button class="unclickable">{pagingOptions.number}</button>
-		<a
-			href={(() => {
-				const newUrl = new URL($pageStore.url);
-				newUrl.searchParams.set("page-number", (pagingOptions.number + 1).toString());
-				return newUrl.href;
-			})()}
-			data-sveltekit-noscroll
-		>
-			<button><i class="fa-solid fa-caret-right" /></button>
-		</a>
+		{#if pagingOptions.number < Math.ceil(productsPage.meta.totalItemsCount / pagingOptions.size)}
+			<a
+				href={(() => {
+					const newUrl = new URL($pageStore.url);
+					newUrl.searchParams.set("page-number", (pagingOptions.number + 1).toString());
+					return newUrl.href;
+				})()}
+				data-sveltekit-noscroll
+			>
+				<button><i class="fa-solid fa-caret-right" /></button>
+			</a>
+		{/if}
 	</div>
 	<div class="filter-menu">
 		<div class="inline">
