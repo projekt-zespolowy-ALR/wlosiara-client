@@ -1,6 +1,6 @@
 {
 	"name": "wlosiara-pl-website-service",
-	"version": "0.5.0",
+	"version": "0.5.1",
 	"private": true,
 	"description": "Web client for wlosiara.pl",
 	"scripts": {
