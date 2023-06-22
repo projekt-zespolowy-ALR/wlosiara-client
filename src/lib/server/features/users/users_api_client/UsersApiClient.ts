@@ -39,4 +39,15 @@ export class UsersApiClient {
 		await response.json();
 		return;
 	}
+
+	public async getHairType(userId: string): Promise<string> {
+		const response = await fetch(`${this.usersApiBaseUrl}/users/${userId}/hair-type`, {
+			method: "GET",
+			headers: {
+				"Content-Type": "application/json",
+			},
+		});
+		const {hairType} = await response.json();
+		return hairType;
+	}
 }

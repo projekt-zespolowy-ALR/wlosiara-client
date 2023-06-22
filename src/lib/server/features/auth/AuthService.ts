@@ -29,11 +29,14 @@ export class AuthService {
 		try {
 			const loginResponseBody = await this.authApiClient.login(userCredentials);
 			const userInApi = await this.usersApiClient.getUserById(loginResponseBody.userId);
+			const hairType = await this.usersApiClient.getHairType(loginResponseBody.userId);
+
 			const session: Session = {
 				// id: loginResponseBody.id,
 				token: loginResponseBody.token,
 				user: {
 					...userInApi,
+					hairType,
 				},
 			};
 
@@ -49,10 +52,12 @@ export class AuthService {
 	public async me(sessionToken: string): Promise<Session> {
 		const meResponseBody = await this.authApiClient.me(sessionToken);
 		const userInApi = await this.usersApiClient.getUserById(meResponseBody.userId);
+		const hairType = await this.usersApiClient.getHairType(meResponseBody.userId);
 		const session: Session = {
 			token: sessionToken,
 			user: {
 				...userInApi,
+				hairType,
 			},
 		};
 

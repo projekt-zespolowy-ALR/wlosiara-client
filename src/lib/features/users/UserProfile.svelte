@@ -1,5 +1,9 @@
 <script lang="ts">
-	export let currentUser: DeepReadonly<User> | null;
+	export let currentUser: DeepReadonly<
+		User & {
+			hairType: string;
+		}
+	> | null;
 	import ShortFavouriteProducts from "$lib/features/users/fav-products/ShortFavouriteProducts.svelte";
 	import type {DeepReadonly} from "ts-essentials";
 	import type {Product} from "../products/types/Product.js";
@@ -19,13 +23,28 @@
 			await invalidateAll();
 		}
 	};
+
+	const handleSubmit = async (e: Event) => {
+		const maxType = prompt("Podaj typ włosów");
+		e.preventDefault();
+		await fetch("/send-result", {
+			method: "POST",
+			body: JSON.stringify({
+				hairType: maxType,
+				isPublic: false,
+			}),
+		});
+		await invalidateAll();
+	};
 </script>
 
 <div class="user-profile-page">
 	<div class="user-header">
 		{#if currentUser}
 			<h3>{currentUser.username}</h3>
-		{:else}<span>username</span>{/if}
+			<p>Twój typ włosów to: <span>{currentUser.hairType}</span></p>
+			<button on:click={handleSubmit}>Zmień typ włosów</button>
+		{/if}
 	</div>
 
 	<div>
