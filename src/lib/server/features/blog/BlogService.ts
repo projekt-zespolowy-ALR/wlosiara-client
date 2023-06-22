@@ -29,9 +29,13 @@ export class BlogService {
 		};
 	}
 
-	public async getPostsPage(pagingOptions: DeepReadonly<PagingOptions>): Promise<Page<Post>> {
+	public async getPostsPage(
+		pagingOptions: DeepReadonly<PagingOptions>,
+		type: string
+	): Promise<Page<Post>> {
 		const postsPageInApi = await this.postsApiClient.fetchPostsPage(
-			apifyPagingOptions(pagingOptions)
+			apifyPagingOptions(pagingOptions),
+			type
 		);
 		const posts = await Promise.all(
 			postsPageInApi.items.map((postInApi) => this.populatePostInApi(postInApi))
