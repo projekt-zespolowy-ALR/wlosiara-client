@@ -1,4 +1,5 @@
 <script lang="ts">
+	import {listen, onIdle} from "svelte-idle";
 	import SubpageH1 from "$lib/ui/subpage_h1/SubpageH1.svelte";
 
 	import type {Product} from "./types/Product.js";
@@ -12,6 +13,10 @@
 	import type {PagingOptions} from "$lib/utils/PagingOptions.js";
 	export let pagingOptions: DeepReadonly<PagingOptions>;
 
+	listen({
+		timer: 2000, //idle after 2s
+		cycle: 500,
+	});
 	let filt: (product: DeepReadonly<Product>) => boolean = () => true;
 
 	export let productsPage: DeepReadonly<Page<Product & {isFavorite: boolean | null}>>;
@@ -102,6 +107,23 @@
 				break;
 		}
 	};
+
+	let searchInput: HTMLInputElement;
+
+	onIdle(() => {
+		console.log(searchInput);
+		if (searchInput) {
+			const search = searchInput.value;
+			console.log(search);
+			const url = new URL($page.url);
+			if (search) {
+				url.searchParams.set("search", search);
+			} else {
+				url.searchParams.delete("search");
+			}
+			goto(url, {keepFocus: true});
+		}
+	});
 </script>
 
 <div class="product-list-page">
@@ -136,7 +158,8 @@
 			<input
 				placeholder="Szukaj produktu..."
 				value={$page.url.searchParams.get("search") || ""}
-				on:input={handleInputChange}
+				on:focusout={handleInputChange}
+				bind:this={searchInput}
 			/>
 		</div>
 		<div class="inline">
