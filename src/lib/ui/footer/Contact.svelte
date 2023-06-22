@@ -4,6 +4,8 @@
 
 <div class="page">
 	<SubpageH1>Kontakt</SubpageH1>
+
+	<p> wszystkie pytania prosimy kierować na adres e-mail: wlosiarapl@op.pl</p>
 </div>
 
 <style>
