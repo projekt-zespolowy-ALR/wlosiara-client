@@ -13,7 +13,7 @@
 </script>
 
 {#if currentUser}
-	<FavouriteProducts {allProducts} favProductIds={currentUser.fav_products} {currentUser} />
+	<FavouriteProducts {allProducts} favProductIds={[]} {currentUser} />
 {:else}
 	<FavouriteProducts {allProducts} favProductIds={[]} {currentUser} />
 {/if}

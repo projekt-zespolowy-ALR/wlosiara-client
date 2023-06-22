@@ -34,7 +34,6 @@ export class AuthService {
 				token: loginResponseBody.token,
 				user: {
 					...userInApi,
-					fav_products: [], // TODO: Remove this when fav_products is correctly implemented
 				},
 			};
 
@@ -54,7 +53,6 @@ export class AuthService {
 			token: sessionToken,
 			user: {
 				...userInApi,
-				fav_products: [], // TODO: Remove this when fav_products is correctly implemented
 			},
 		};
 

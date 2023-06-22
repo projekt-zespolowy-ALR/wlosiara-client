@@ -4,6 +4,7 @@
 	import type {DeepReadonly} from "ts-essentials";
 	import type {Product} from "../products/types/Product.js";
 	import type {User} from "./types/User.js";
+	import {invalidateAll} from "$app/navigation";
 
 	export let allProducts: DeepReadonly<Product[]>;
 	export let favProductIds: DeepReadonly<string[]>;
@@ -12,6 +13,17 @@
 				.filter((product: DeepReadonly<Product>) => product.id in favProductIds)
 				.slice(0, 2)
 		: [];
+
+	const handleAvatarChange = async () => {
+		const newUrl = prompt("Podaj nowy url avatara");
+		if (newUrl) {
+			await fetch("/change-avatar", {
+				method: "POST",
+				body: JSON.stringify({avatarUrl: newUrl}),
+			});
+			await invalidateAll();
+		}
+	};
 </script>
 
 <div class="user-profile-page">
@@ -19,6 +31,10 @@
 		{#if currentUser}
 			<h3>{currentUser.username}</h3>
 		{:else}<span>username</span>{/if}
+	</div>
+
+	<div>
+		<button on:click={handleAvatarChange}>Zmień avatar</button>
 	</div>
 
 	<ShortFavouriteProducts {favProducts} />
