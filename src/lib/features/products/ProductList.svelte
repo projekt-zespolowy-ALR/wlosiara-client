@@ -49,8 +49,8 @@
 					(a: DeepReadonly<Product>, b: DeepReadonly<Product>) => {
 						const aOffer = a.offers[0];
 						const bOffer = b.offers[0];
-						if (aOffer?.price && bOffer?.price) {
-							return aOffer.price - bOffer.price;
+						if (aOffer?.pricePlnAsString && bOffer?.pricePlnAsString) {
+							return Number(aOffer.pricePlnAsString) - Number(bOffer.pricePlnAsString);
 						}
 						return 0;
 					}
@@ -61,8 +61,8 @@
 					(a: DeepReadonly<Product>, b: DeepReadonly<Product>) => {
 						const aOffer = a.offers[0];
 						const bOffer = b.offers[0];
-						if (aOffer?.price && bOffer?.price) {
-							return bOffer.price - aOffer.price;
+						if (aOffer?.pricePlnAsString && bOffer?.pricePlnAsString) {
+							return Number(aOffer.pricePlnAsString) - Number(bOffer.pricePlnAsString);
 						}
 						return 0;
 					}

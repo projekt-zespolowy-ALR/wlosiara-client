@@ -19,7 +19,7 @@ export type ProductOffer = {
 	 * @example 9.99
 	 * @example null
 	 */
-	price: number | null;
+	pricePlnAsString: string | null;
 
 	description: string | null;
 };

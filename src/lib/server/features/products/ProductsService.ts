@@ -44,7 +44,7 @@ export class ProductsService {
 		const dataSource = await this.getDataSourceById(offerInApi.dataSourceId);
 		return {
 			...offerInApi,
-			price: offerInApi.pricePln,
+			pricePlnAsString: offerInApi.pricePlnAsString,
 			dataSource,
 		};
 	}
