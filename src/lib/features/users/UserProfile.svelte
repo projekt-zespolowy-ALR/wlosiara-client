@@ -54,7 +54,12 @@
 	<div class="user-header">
 		{#if currentUser}
 			<h3>{currentUser.username}</h3>
-			<p>Twój typ włosów to: <span>{currentUser.hairType}</span></p>
+			{#if currentUser.hairType === null}
+				<p>Twój typ włosów to: <span>{currentUser.hairType}</span></p>
+			{:else}
+				<p>Nie masz jeszcze przypisanego typu włosów</p>
+			{/if}
+
 			<form action="/send-result" method="POST" use:enhance={handleSubmit}>
 				<!-- <input type="text" name="hairType" placeholder="Podaj typ włosów" /> -->
 				<select name="hairType">

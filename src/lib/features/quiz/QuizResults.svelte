@@ -11,6 +11,11 @@
 		return async ({result}) => {
 			console.log(result);
 			await invalidateAll();
+			if (result.type === "success") {
+				alert("Zapisano wynik");
+			} else {
+				alert("Wystąpił błąd zapisu");
+			}
 		};
 	};
 
