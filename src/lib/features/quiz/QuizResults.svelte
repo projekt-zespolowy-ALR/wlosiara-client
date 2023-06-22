@@ -4,17 +4,14 @@
 	export let userAnswerKindsCounter: DeepReadonly<Map<string, number>>;
 	export let currentUser: DeepReadonly<User> | null;
 	import {invalidateAll} from "$app/navigation";
-	const handleSubmit = async (e: Event) => {
-		e.preventDefault();
-		await fetch("/send-result", {
-			method: "POST",
-			body: JSON.stringify({
-				hairType: maxType,
-				isPublic: false,
-			}),
-		});
-		console.log("Wynik quizu został zapisany");
-		await invalidateAll();
+	import {enhance} from "$app/forms";
+
+	import type {SubmitFunction} from "@sveltejs/kit";
+	const handleSubmit: SubmitFunction = () => {
+		return async ({result}) => {
+			console.log(result);
+			await invalidateAll();
+		};
 	};
 
 	const maxType = (() => {
@@ -42,9 +39,10 @@
 	{:else}
 		<p>Twój typ włosów to: <span>{maxType}</span></p>
 		{#if currentUser}
-			<form method="POST" action="/send-result" on:submit={handleSubmit}>
+			<form method="POST" action="/send-result" use:enhance={handleSubmit}>
 				czy chcesz zapisać wynik quizu?
-				<button> zapisz wynik </button>
+				<input type="hidden" name="hairType" value={maxType} />
+				<button type="submit"> zapisz wynik </button>
 			</form>
 		{/if}
 	{/if}
