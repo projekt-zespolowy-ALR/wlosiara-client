@@ -12,7 +12,7 @@
 	<div class="post">
 		<img src={blogEntry.imageUrl} alt="" srcset="" />
 		<SubpageH1>{blogEntry.title}</SubpageH1>
-		<p>{blogEntry.author.username}</p>
+		<!-- <p>{blogEntry.author.username}</p> -->
 		<div id="content">
 			<Markdown source={blogEntry.text} />
 		</div>
