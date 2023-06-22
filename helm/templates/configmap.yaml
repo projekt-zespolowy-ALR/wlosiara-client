@@ -11,3 +11,4 @@ data:
   QUIZZES_API_BASE_URL: "{{ .Values.quizzesApiBaseUrl }}"
   USERS_API_BASE_URL: "{{ .Values.usersApiBaseUrl }}"
   AUTH_API_BASE_URL: "{{ .Values.authApiBaseUrl }}"
+  BLOG_API_BASE_URL: "{{ .Values.blogApiBaseUrl }}"
