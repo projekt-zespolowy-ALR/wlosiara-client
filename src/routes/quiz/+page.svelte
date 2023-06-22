@@ -5,6 +5,7 @@
 
 	export let data: PageServerData;
 	$: quiz = data.quiz;
+	$: currentUser = data.currentUser;
 </script>
 
-<QuizPage {quiz} />
+<QuizPage {quiz} {currentUser} />

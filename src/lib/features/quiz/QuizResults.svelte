@@ -1,7 +1,20 @@
 <script lang="ts">
 	import type {DeepReadonly} from "ts-essentials";
-
+	import type {User} from "../users/types/User.js";
 	export let userAnswerKindsCounter: DeepReadonly<Map<string, number>>;
+	export let currentUser: DeepReadonly<User> | null;
+
+	const handleSubmit = async (e: Event) => {
+		e.preventDefault();
+		await fetch("/send-result", {
+			method: "POST",
+			body: JSON.stringify({
+				hairType: maxType,
+				isPublic: false,
+			}),
+		});
+		console.log("Wynik quizu został zapisany");
+	};
 
 	const maxType = (() => {
 		const entriesArray = Array.from(userAnswerKindsCounter.entries());
@@ -27,6 +40,12 @@
 		<p>Brak odpowiedzi</p>
 	{:else}
 		<p>Twój typ włosów to: <span>{maxType}</span></p>
+		{#if currentUser}
+			<form method="POST" action="/send-result" on:submit={handleSubmit}>
+				czy chcesz zapisać wynik quizu?
+				<button> zapisz wynik </button>
+			</form>
+		{/if}
 	{/if}
 </div>
 
@@ -47,5 +66,15 @@
 	.answer span {
 		font-weight: bold;
 		color: var(--primary-color-3);
+	}
+
+	button {
+		background-color: var(--primary-color-3);
+		border: none;
+		border-radius: 5px;
+		color: var(--gray-8);
+		padding: 5px 10px;
+		margin: 10px 0;
+		cursor: pointer;
 	}
 </style>

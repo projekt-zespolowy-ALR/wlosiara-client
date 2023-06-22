@@ -16,4 +16,16 @@ export class UsersApiClient {
 		const user = await response.json();
 		return user;
 	}
+
+	public async setHairType(userId: string, hairType: string): Promise<void> {
+		const response = await fetch(`${this.usersApiBaseUrl}/users/${userId}/hair-type`, {
+			method: "PUT",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({hairType, isPublic: false}),
+		});
+		await response.json();
+		return;
+	}
 }

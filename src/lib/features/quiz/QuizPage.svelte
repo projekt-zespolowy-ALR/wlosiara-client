@@ -6,6 +6,7 @@
 	};
 	import type {DeepReadonly} from "ts-essentials";
 	export let quiz: DeepReadonly<Quiz>;
+	export let currentUser: DeepReadonly<User> | null;
 
 	$: questionNumber = 0;
 	$: [, nextQuestions] = splitArrayAt(quiz.questions, questionNumber);
@@ -14,6 +15,7 @@
 	import type {Quiz} from "./types/Quiz.js";
 	import QuestionPrompt from "./QuestionPrompt.svelte";
 	import QuizResults from "./QuizResults.svelte";
+	import type {User} from "../users/types/User.js";
 
 	$: userAnswerKindsCounter = new Map<string, number>();
 
@@ -28,7 +30,7 @@
 	{#if currentQuestion}
 		<QuestionPrompt question={currentQuestion} on:answer_given={handleAnswer} />
 	{:else}
-		<QuizResults {userAnswerKindsCounter} />
+		<QuizResults {userAnswerKindsCounter} {currentUser} />
 	{/if}
 </div>
 
