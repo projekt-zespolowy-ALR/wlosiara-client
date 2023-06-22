@@ -64,4 +64,13 @@
 		grid-template-rows: auto;
 		margin: 5px;
 	}
+	button {
+		background-color: var(--primary-color-3);
+		border: none;
+		border-radius: 5px;
+		color: var(--gray-8);
+		padding: 5px 10px;
+		margin: 10px 0;
+		cursor: pointer;
+	}
 </style>
