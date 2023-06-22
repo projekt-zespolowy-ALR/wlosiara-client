@@ -1,7 +1,10 @@
 import {fireEvent, render, screen} from "@testing-library/svelte";
 import QuizPage from "../src/lib/features/quiz/QuizPage.svelte";
-import {describe, expect, test} from "vitest";
+import {beforeAll, describe, expect, test, vi} from "vitest";
 import type {Quiz} from "$lib/features/quiz/types/Quiz.js";
+beforeAll(() => {
+	vi.mock("$app/navigation", () => ({}));
+});
 
 describe("Quiz page", () => {
 	test("Quiz message", () => {
@@ -17,7 +20,7 @@ describe("Quiz page", () => {
 				},
 			],
 		};
-		render(QuizPage, {props: {quiz}});
+		render(QuizPage, {props: {quiz, currentUser: null}});
 		expect(() => {
 			screen.getByText("Jakie są twoje włosy?");
 		}).not.toThrow();

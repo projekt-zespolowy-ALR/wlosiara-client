@@ -17,6 +17,7 @@ export default defineConfig({
 		alias: [
 			{find: /^\$lib$/, replacement: "/src/lib"},
 			{find: /^\$lib\/(.*)$/, replacement: "/src/lib/$1"},
+			{find: /^\$app\/navigation$/, replacement: "$app/navigation"},
 		],
 	},
 });
