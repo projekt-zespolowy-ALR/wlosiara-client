@@ -12,11 +12,22 @@ export class ProductsApiClient {
 	public constructor({productsApiBaseUrl}: {productsApiBaseUrl: string}) {
 		this.productsApiBaseUrl = productsApiBaseUrl;
 	}
-	async fetchProductsPage(pagingOptions: PagingOptionsInApi): Promise<PageInApi<ProductInApi>> {
+	async fetchProductsPage(
+		pagingOptions: PagingOptionsInApi,
+		search: string | null
+	): Promise<PageInApi<ProductInApi>> {
 		console.log(`ProductsApiClient`, `fetchProductsPage`, {pagingOptions});
-		const response = await fetch(
-			`${this.productsApiBaseUrl}/products?skip=${pagingOptions.skip}&take=${pagingOptions.take}`
-		);
+
+		let response;
+		let searchParam = search ? `search=${search}` : "";
+		if (search) {
+			response = await fetch(`${this.productsApiBaseUrl}/products?${searchParam}`);
+		} else {
+			response = await fetch(
+				`${this.productsApiBaseUrl}/products?skip=${pagingOptions.skip}&take=${pagingOptions.take}`
+			);
+		}
+
 		const productsPage = await response.json();
 		return productsPage;
 	}

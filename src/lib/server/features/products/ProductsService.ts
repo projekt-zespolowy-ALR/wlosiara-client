@@ -114,10 +114,12 @@ export class ProductsService {
 
 	public async getProductsPage(
 		pagingOptions: DeepReadonly<PagingOptions>,
-		userId: string | null
+		userId: string | null,
+		search: string | null
 	): Promise<Page<Product & {isFavorite: boolean | null}>> {
 		const productsPageInApi = await this.productsApiClient.fetchProductsPage(
-			apifyPagingOptions(pagingOptions)
+			apifyPagingOptions(pagingOptions),
+			search
 		);
 		const products = await Promise.all(
 			productsPageInApi.items.map((productInApi) => this.populateProductInApi(productInApi, userId))
