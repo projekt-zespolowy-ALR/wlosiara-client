@@ -49,32 +49,36 @@
 			</button>
 		</form>
 	{/if}
-
-	{#if product.offers[0]}
+	<div class="short-text">
+		<p>{product.name}</p>
+		<p>{product.categories.map((category) => category.name).join(", ")}</p>
+		<p>{product.brand.name}</p>
+		{#if product.volume}
+			<p>{product.volume} l</p>
+		{/if}
+		{#if product.mass}
+			<p>{1000 * product.mass} g</p>
+		{/if}
+	</div>
+	<div class="wide-text">
+		{#if product.ingredients}
+			<p>{product.ingredients.map((ingredient) => ingredient.name).join(", ")}</p>
+		{/if}
+	</div>
+	{#each product.offers as offer}
 		<div class="product">
-			<img src={product.offers[0].imageUrl} alt="" srcset="" />
+			<img src={offer.imageUrl} alt="" srcset="" />
 			<div class="short-text">
-				<p>{product.name}</p>
-				<p>{product.categories.map((category) => category.name).join(", ")}</p>
-				<p>{product.brand.name}</p>
-				<p>{product.offers[0].price} zł</p>
-				{#if product.volume}
-					<p>{product.volume} l</p>
-				{/if}
-				{#if product.mass}
-					<p>{1000 * product.mass} g</p>
-				{/if}
+				<p>{offer.price} zł</p>
 			</div>
 			<div class="wide-text">
-				{#if product.offers[0].description}
-					<Markdown source={product.offers[0].description} />
-				{/if}
-				{#if product.ingredients}
-					<p>{product.ingredients.map((ingredient) => ingredient.name).join(", ")}</p>
+				{#if offer.description}
+					<Markdown source={offer.description} />
 				{/if}
 			</div>
 		</div>
-	{:else}
+	{/each}
+	{#if !product.offers[0]}
 		<p>Brak danych</p>
 	{/if}
 </div>
