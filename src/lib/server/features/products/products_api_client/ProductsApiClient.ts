@@ -115,6 +115,17 @@ export class ProductsApiClient {
 		}
 	}
 
+	public async fetchFavoriteProductsPage(
+		userId: string,
+		pagingOptions: PagingOptionsInApi
+	): Promise<PageInApi<ProductInApi>> {
+		const response = await fetch(
+			`${this.productsApiBaseUrl}/users/${userId}/favorite-products?skip=${pagingOptions.skip}&take=${pagingOptions.take}`
+		);
+		const productsPage = await response.json();
+		return productsPage;
+	}
+
 	public async checkIfProductisFavorite(productId: string, userId: string): Promise<boolean> {
 		const response = await fetch(
 			`${this.productsApiBaseUrl}/users/${userId}/favorite-products/${productId}`,

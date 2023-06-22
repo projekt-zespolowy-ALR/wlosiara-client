@@ -5,14 +5,9 @@
 	import type {Product} from "../products/types/Product.js";
 	import type {User} from "./types/User.js";
 	import {invalidateAll} from "$app/navigation";
+	import type {Page} from "$lib/server/utils/Page.js";
 
-	export let allProducts: DeepReadonly<Product[]>;
-	export let favProductIds: DeepReadonly<string[]>;
-	const favProducts = allProducts
-		? allProducts
-				.filter((product: DeepReadonly<Product>) => product.id in favProductIds)
-				.slice(0, 2)
-		: [];
+	export let productsPage: DeepReadonly<Page<Product>>;
 
 	const handleAvatarChange = async () => {
 		const newUrl = prompt("Podaj nowy url avatara");
@@ -37,7 +32,7 @@
 		<button on:click={handleAvatarChange}>Zmień avatar</button>
 	</div>
 
-	<ShortFavouriteProducts {favProducts} />
+	<ShortFavouriteProducts favProducts={productsPage.items} />
 
 	<div class="user-info">
 		{#if currentUser}

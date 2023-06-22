@@ -4,12 +4,9 @@
 	export let currentUser: DeepReadonly<User> | null;
 	import type {Product} from "../../products/types/Product.js";
 	import type {User} from "../types/User.js";
+	import type {Page} from "$lib/server/utils/Page.js";
 
-	export let allProducts: DeepReadonly<(Product & {isFavorite: boolean | null})[]>;
-	export let favProductIds: DeepReadonly<string[]>;
-	const favProducts = allProducts
-		? allProducts.filter((product: DeepReadonly<Product>) => product.id in favProductIds)
-		: [];
+	export let productsPage: DeepReadonly<Page<Product & {isFavorite: boolean | null}>>;
 </script>
 
 <div class="fav-products-page">
@@ -17,7 +14,7 @@
 		<h3>Ulubione produkty użytkownika {currentUser.username}</h3>
 	{/if}
 	<ul>
-		{#each favProducts as product (product.id)}
+		{#each productsPage.items as product (product.id)}
 			<ProductListItem {product} />
 		{/each}
 	</ul>

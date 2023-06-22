@@ -144,4 +144,21 @@ export class ProductsService {
 	public async unlikeProduct(userId: string, productId: string): Promise<void> {
 		await this.productsApiClient.unlikeProduct(productId, userId);
 	}
+
+	public async getFavoriteProductsPage(
+		userId: string,
+		pagingOptions: DeepReadonly<PagingOptions>
+	): Promise<Page<Product & {isFavorite: boolean | null}>> {
+		const productsPageInApi = await this.productsApiClient.fetchFavoriteProductsPage(
+			userId,
+			apifyPagingOptions(pagingOptions)
+		);
+		const products = await Promise.all(
+			productsPageInApi.items.map((productInApi) => this.populateProductInApi(productInApi, userId))
+		);
+		return {
+			...productsPageInApi,
+			items: products,
+		};
+	}
 }

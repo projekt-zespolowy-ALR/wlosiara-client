@@ -1,16 +1,14 @@
 <script lang="ts">
 	import UserProfile from "$lib/features/users/UserProfile.svelte";
-	import type {DeepReadonly} from "ts-essentials";
 
-	import type {Product} from "../../lib/features/products/types/Product.js";
 	import type {PageData} from "./$types.js";
 
 	export let data: PageData;
-	const allProducts: DeepReadonly<Product[]> = data ? data.products : [];
+	$: productsPage = data.productsPage;
 </script>
 
 {#if data.currentUser}
-	<UserProfile {allProducts} favProductIds={[]} currentUser={data.currentUser} />
+	<UserProfile {productsPage} currentUser={data.currentUser} />
 {:else}
-	<UserProfile {allProducts} favProductIds={[]} currentUser={data.currentUser} />
+	<UserProfile {productsPage} currentUser={data.currentUser} />
 {/if}
