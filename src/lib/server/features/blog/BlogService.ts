@@ -19,6 +19,8 @@ export class BlogService {
 			id: postInApi.authorId,
 			username: "test",
 			fav_products: [],
+			avatarUrl:
+				"https://t4.ftcdn.net/jpg/01/52/08/01/360_F_152080192_iEJvx6ZzHHXbj2cEBec91qn7zXWLBPdk.jpg",
 		};
 
 		return {
