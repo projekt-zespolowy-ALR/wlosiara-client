@@ -5,4 +5,8 @@
 	export let data: PageData;
 </script>
 
+<svelte:head>
+	<title>Aktualności</title>
+</svelte:head>
+
 <PostList blogEntriesPage={data.blogEntriesPage} type={"news"} />
