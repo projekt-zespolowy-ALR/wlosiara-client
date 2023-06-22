@@ -18,6 +18,7 @@ export class UsersApiClient {
 		}
 	}
 	public async getUserById(userId: string): Promise<UserInApi> {
+		console.log(`UsersApiClient`, `getUserById`, {userId});
 		const response = await fetch(`${this.usersApiBaseUrl}/users/${userId}`, {
 			method: "GET",
 			headers: {

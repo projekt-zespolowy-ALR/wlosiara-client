@@ -13,6 +13,7 @@ export class ProductsApiClient {
 		this.productsApiBaseUrl = productsApiBaseUrl;
 	}
 	async fetchProductsPage(pagingOptions: PagingOptionsInApi): Promise<PageInApi<ProductInApi>> {
+		console.log(`ProductsApiClient`, `fetchProductsPage`, {pagingOptions});
 		const response = await fetch(
 			`${this.productsApiBaseUrl}/products?skip=${pagingOptions.skip}&take=${pagingOptions.take}`
 		);
@@ -21,6 +22,7 @@ export class ProductsApiClient {
 	}
 
 	async fetchProductById(targetProductId: string): Promise<ProductInApi> {
+		console.log(`ProductsApiClient`, `fetchProductById`, {targetProductId});
 		const response = await fetch(`${this.productsApiBaseUrl}/products/${targetProductId}`);
 		const product = await response.json();
 		return product;

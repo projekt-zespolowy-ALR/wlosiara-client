@@ -12,6 +12,7 @@ export class PostsApiClient {
 		pagingOptions: PagingOptionsInApi,
 		type: string
 	): Promise<PageInApi<PostInApi>> {
+		console.log(`PostsApiClient`, `fetchPostsPage`, {pagingOptions, type});
 		const response = await fetch(
 			`${this.postsApiBaseUrl}/posts?take=${pagingOptions.take}&skip=${pagingOptions.skip}&type=${type}`
 		);
@@ -20,18 +21,21 @@ export class PostsApiClient {
 	}
 
 	async fetchPostById(targetPostId: string): Promise<PostInApi> {
+		console.log(`PostsApiClient`, `fetchPostById`, {targetPostId});
 		const response = await fetch(`${this.postsApiBaseUrl}/posts/${targetPostId}`);
 		const post = await response.json();
 		return post;
 	}
 
 	async fetchPostCommentsPage(postId: string): Promise<PageInApi<PostCommentApi>> {
+		console.log(`PostsApiClient`, `fetchPostCommentsPage`, {postId});
 		const response = await fetch(`${this.postsApiBaseUrl}/blog/${postId}/comments`);
 		const postsPage = await response.json();
 		return postsPage;
 	}
 
 	async fetchPostCommentById(postId: string, commentId: string): Promise<PostCommentApi> {
+		console.log(`PostsApiClient`, `fetchPostCommentById`, {postId, commentId});
 		const response = await fetch(`${this.postsApiBaseUrl}/blog/${postId}/comments/${commentId}`);
 		const post = await response.json();
 		return post;
