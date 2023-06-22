@@ -36,7 +36,7 @@
 		} else {
 			url.searchParams.delete("search");
 		}
-		goto(url, {keepFocus: true});
+		goto(url, {keepFocus: true, noScroll: true});
 	};
 	// const handleSelectCategoryChange = () => {
 	// 	if (selectedCategory) {
@@ -57,7 +57,7 @@
 					return newUrl.href;
 				})()
 			),
-			{keepFocus: true}
+			{keepFocus: true, noScroll: true}
 		);
 	};
 
@@ -74,7 +74,7 @@
 			} else {
 				url.searchParams.delete("search");
 			}
-			goto(url, {keepFocus: true});
+			goto(url, {keepFocus: true, noScroll: true});
 		}
 	});
 </script>
@@ -91,6 +91,7 @@
 				newUrl.searchParams.set("page-number", (pagingOptions.number - 1).toString());
 				return newUrl.href;
 			})()}
+			data-sveltekit-noscroll
 		>
 			<button><i class="fa-solid fa-caret-left" /></button>
 		</a>
@@ -101,6 +102,7 @@
 				newUrl.searchParams.set("page-number", (pagingOptions.number + 1).toString());
 				return newUrl.href;
 			})()}
+			data-sveltekit-noscroll
 		>
 			<button><i class="fa-solid fa-caret-right" /></button>
 		</a>
