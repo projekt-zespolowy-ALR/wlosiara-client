@@ -33,17 +33,6 @@
 </script>
 
 <div class="page">
-	<!-- <div class="login">
-		<div class="inline">
-			<span>E-mail: </span>
-			<input placeholder="email..." />
-		</div>
-		<div class="inline">
-			<span>Wpisz hasło: </span>
-			<input type="password" placeholder="..." />
-		</div>
-	</div> -->
-	<!-- <button>Zaloguj</button> -->
 	<form action="/login" method="post" class="login" use:enhance={submit}>
 		<div class="inline">
 			<span>E-mail: </span>
@@ -82,6 +71,12 @@
 		margin: 5px;
 	}
 	button {
-		margin-top: 10px;
+		background-color: var(--primary-color-3);
+		border: none;
+		border-radius: 5px;
+		color: var(--gray-8);
+		padding: 5px 10px;
+		margin: 10px 0;
+		cursor: pointer;
 	}
 </style>

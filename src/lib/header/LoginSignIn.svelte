@@ -48,9 +48,13 @@
 
 <style>
 	button {
-		text-decoration: none;
-		color: var(--gray-0);
-		font-size: 12px;
+		background-color: var(--primary-color-3);
+		border: none;
+		border-radius: 5px;
+		color: var(--gray-8);
+		padding: 5px 10px;
+		margin: 10px 0;
+		cursor: pointer;
 	}
 
 	i {
