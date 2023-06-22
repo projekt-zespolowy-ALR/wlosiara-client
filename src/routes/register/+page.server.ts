@@ -15,11 +15,18 @@ export const actions = {
 			// console.log("ssid", sessid);
 			//event.cookies.set("session_token", sessid.token);
 
-			return {
-				message: "Registered.",
-			};
+			return;
 		} catch (error) {
-			return fail(401, {message: "Invalid credentials"});
+			if (!(error instanceof Error)) {
+				throw error;
+			}
+			if (error.message.startsWith("Bad request:")) {
+				return fail(400, {message: error.message});
+			}
+			if (error.message.startsWith("Conflict:")) {
+				return fail(409, {message: error.message});
+			}
+			return fail(500, {message: "Internal server error"});
 		}
 	},
 } as const;
