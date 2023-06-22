@@ -8,4 +8,7 @@
 	$: currentUser = data.currentUser;
 </script>
 
+<svelte:head>
+	<title>Quiz</title>
+</svelte:head>
 <QuizPage {quiz} {currentUser} />

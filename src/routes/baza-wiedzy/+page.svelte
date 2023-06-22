@@ -5,4 +5,7 @@
 	export let data: PageData;
 </script>
 
+<svelte:head>
+	<title>Baza wiedzy</title>
+</svelte:head>
 <PostList blogEntriesPage={data.blogEntriesPage} type={"tips"} />

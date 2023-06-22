@@ -8,6 +8,9 @@
 	$: productsPage = data.productsPage;
 </script>
 
+<svelte:head>
+	<title>Ulubione</title>
+</svelte:head>
 {#if currentUser}
 	<FavouriteProducts {productsPage} {currentUser} />
 {:else}
