@@ -11,7 +11,7 @@ export const load: PageServerLoad = async ({url, cookies, parent}) => {
 	]);
 	const pagingOptions: DeepReadonly<PagingOptions> = {
 		number: Number(url.searchParams.get("page-number") ?? "1"),
-		size: Number(url.searchParams.get("page-size") ?? "12"),
+		size: Number(url.searchParams.get("page-size") ?? "5"),
 	};
 
 	const productsPage: DeepReadonly<Page<Product & {isFavorite: boolean | null}>> =
