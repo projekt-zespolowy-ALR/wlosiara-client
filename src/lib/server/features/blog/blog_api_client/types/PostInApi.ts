@@ -4,4 +4,5 @@ export type PostInApi = {
 	authorId: string;
 	title: string;
 	imageUrl: string;
+	type: string;
 };
