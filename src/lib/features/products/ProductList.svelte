@@ -150,6 +150,10 @@
 	.product-list-page {
 		background-color: #f9f9f9;
 		min-height: 80vh;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
 	}
 	ul {
 		list-style: none;
