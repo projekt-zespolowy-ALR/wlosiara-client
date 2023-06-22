@@ -28,8 +28,10 @@ export class AuthService {
 	public async login(userCredentials: UserCredentials): Promise<Session> {
 		try {
 			const loginResponseBody = await this.authApiClient.login(userCredentials);
-			const userInApi = await this.usersApiClient.getUserById(loginResponseBody.userId);
-			const hairType = await this.usersApiClient.getHairType(loginResponseBody.userId);
+			const [userInApi, hairType] = await Promise.all([
+				this.usersApiClient.getUserById(loginResponseBody.userId),
+				this.usersApiClient.getHairType(loginResponseBody.userId),
+			]);
 
 			const session: Session = {
 				// id: loginResponseBody.id,
@@ -39,6 +41,7 @@ export class AuthService {
 					hairType,
 				},
 			};
+			console.log(`AuthService`, `login`, {session});
 
 			return session;
 		} catch (error) {
@@ -51,8 +54,11 @@ export class AuthService {
 
 	public async me(sessionToken: string): Promise<Session> {
 		const meResponseBody = await this.authApiClient.me(sessionToken);
-		const userInApi = await this.usersApiClient.getUserById(meResponseBody.userId);
-		const hairType = await this.usersApiClient.getHairType(meResponseBody.userId);
+		const [userInApi, hairType] = await Promise.all([
+			this.usersApiClient.getUserById(meResponseBody.userId),
+			this.usersApiClient.getHairType(meResponseBody.userId),
+		]);
+
 		const session: Session = {
 			token: sessionToken,
 			user: {
@@ -60,6 +66,7 @@ export class AuthService {
 				hairType,
 			},
 		};
+		console.log(`AuthService`, `me`, {session});
 
 		return session;
 	}

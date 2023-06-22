@@ -26,6 +26,7 @@ export class UsersApiClient {
 			},
 		});
 		const user = await response.json();
+		console.log(`UsersApiClient`, `getUserById`, {user});
 		return user;
 	}
 
