@@ -133,7 +133,7 @@
 		</div>
 		<!-- <div class="inline">
 			<span>Filtruj</span>
-			<select bind:value={selectedCategory} on:change={handleSelectCategoryChange}>
+			<select id="filter-type" bind:value={selectedCategory} on:change={handleSelectCategoryChange}>
 				<option value={null}>---</option>
 				{#each categories as category (category.id)}
 					<option value={category}>{category.name}</option>
@@ -181,6 +181,15 @@
 	}
 	.inline {
 		display: inline-block;
+	}
+	input {
+		margin-left: 4px;
+	}
+	#sort {
+		margin-left: 7px;
+	}
+	#filter-type {
+		margin-left: 10px;
 	}
 	.pagination-buttons {
 		display: flex;
