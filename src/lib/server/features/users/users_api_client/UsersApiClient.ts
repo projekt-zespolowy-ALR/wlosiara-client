@@ -31,7 +31,7 @@ export class UsersApiClient {
 
 	public async setHairType(userId: string, hairType: string): Promise<void> {
 		console.log(`UsersApiClient`, `setHairType`, {userId, hairType});
-		const response = await fetch(`${this.usersApiBaseUrl}/users/${userId}/hair-type`, {
+		await fetch(`${this.usersApiBaseUrl}/users/${userId}/hair-type`, {
 			method: "PUT",
 			headers: {
 				"Content-Type": "application/json",

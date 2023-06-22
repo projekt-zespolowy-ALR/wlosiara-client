@@ -8,34 +8,12 @@
 	export let blogEntriesPage: DeepReadonly<Page<BlogEntry>>;
 	export let type: string;
 
-	import {page} from "$app/stores";
-
-	import {goto} from "$app/navigation";
-
 	import type {Page} from "$lib/server/utils/Page.js";
-
-	console.log(type);
-
-	const handleSearchInputChange = (e: Event) => {
-		const search = (e.target as HTMLInputElement).value;
-		const url = new URL($page.url);
-		if (search) {
-			url.searchParams.set("search", search);
-		} else {
-			url.searchParams.delete("search");
-		}
-		goto(url, {keepFocus: true});
-	};
 </script>
 
 <div class="product-list-page">
 	<SubpageH1>{type === "news" ? "Aktualności" : "Baza wiedzy"}</SubpageH1>
-	<input
-		type="text"
-		placeholder="Szukaj"
-		value={$page.url.searchParams.get("search") || ""}
-		on:input={handleSearchInputChange}
-	/>
+
 	<ul>
 		{#each blogEntriesPage.items as blogEntry (blogEntry.id)}
 			<PostListItem {blogEntry} />
