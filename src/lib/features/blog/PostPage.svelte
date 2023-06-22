@@ -5,10 +5,11 @@
 	import type {DeepReadonly} from "ts-essentials";
 
 	export let blogEntry: DeepReadonly<BlogEntry>;
+	const back = blogEntry.type == "news" ? "aktualnosci" : "baza-wiedzy";
 </script>
 
 <div class="page">
-	<a class="back" href="/baza-wiedzy"><i class="fa-sharp fa-solid fa-backward-step" /></a>
+	<a class="back" href="/{back}"><i class="fa-sharp fa-solid fa-backward-step" /></a>
 	<div class="post">
 		<img src={blogEntry.imageUrl} alt="" srcset="" />
 		<SubpageH1>{blogEntry.title}</SubpageH1>

@@ -8,4 +8,5 @@ export type BlogEntry = {
 	text: string;
 	imageUrl: string;
 	comments: BlogComment[];
+	type: string;
 };

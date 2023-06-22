@@ -3,10 +3,11 @@
 	import type {BlogEntry} from "./types/BlogEntry.js";
 
 	export let blogEntry: DeepReadonly<BlogEntry>;
+	const pageName = blogEntry.type == "news" ? "aktualnosci" : "baza-wiedzy";
 </script>
 
 <li>
-	<a href="/baza-wiedzy/{blogEntry.id}">
+	<a href="/{pageName}/{blogEntry.id}">
 		<img src={blogEntry.imageUrl} alt="" />
 		<div class="item-info">
 			<p>{blogEntry.title}</p>
