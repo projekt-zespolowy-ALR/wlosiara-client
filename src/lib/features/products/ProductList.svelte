@@ -188,9 +188,9 @@
 	#sort {
 		margin-left: 7px;
 	}
-	#filter-type {
+	/* #filter-type {
 		margin-left: 10px;
-	}
+	} */
 	.pagination-buttons {
 		display: flex;
 		flex-direction: row;
