@@ -3,10 +3,8 @@
 	import type {User} from "../users/types/User.js";
 	export let userAnswerKindsCounter: DeepReadonly<Map<string, number>>;
 	export let currentUser: DeepReadonly<User> | null;
-
+	import {invalidateAll} from "$app/navigation";
 	const handleSubmit = async (e: Event) => {
-		const {invalidateAll} = await import("$app/navigation");
-
 		e.preventDefault();
 		await fetch("/send-result", {
 			method: "POST",
