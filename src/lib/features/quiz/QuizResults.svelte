@@ -1,11 +1,12 @@
 <script lang="ts">
 	import type {DeepReadonly} from "ts-essentials";
 	import type {User} from "../users/types/User.js";
-	import {invalidateAll} from "$app/navigation";
 	export let userAnswerKindsCounter: DeepReadonly<Map<string, number>>;
 	export let currentUser: DeepReadonly<User> | null;
 
 	const handleSubmit = async (e: Event) => {
+		const {invalidateAll} = await import("$app/navigation");
+
 		e.preventDefault();
 		await fetch("/send-result", {
 			method: "POST",
