@@ -31,13 +31,27 @@ export class UsersApiClient {
 
 	public async setHairType(userId: string, hairType: string): Promise<void> {
 		console.log(`UsersApiClient`, `setHairType`, {userId, hairType});
-		await fetch(`${this.usersApiBaseUrl}/users/${userId}/hair-type`, {
+		const response = await fetch(`${this.usersApiBaseUrl}/users/${userId}/hair-type`, {
 			method: "PUT",
 			headers: {
 				"Content-Type": "application/json",
 			},
 			body: JSON.stringify({hairType, isPublic: false}),
 		});
+		if (!response.ok) {
+			console.log(`UsersApiClient`, `setHairType`, `!response.ok`, {response});
+			if (response.status === 400) {
+				if ((await response.json()).message === "Invalid hair type") {
+					throw new Error(`Invalid hair type`);
+				}
+				throw new Error(`Unexpected response: ${JSON.stringify(response)}`);
+			}
+			if (response.status === 404) {
+				console.log(`UsersApiClient`, `setHairType`, `404`, await response.text());
+				throw new Error(`Unexpected response: ${JSON.stringify(response)}`);
+			}
+			throw new Error(`Unexpected response: ${JSON.stringify(response)}`);
+		}
 		return;
 	}
 

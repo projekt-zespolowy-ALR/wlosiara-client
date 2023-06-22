@@ -12,9 +12,16 @@ export const actions = {
 			return fail(401);
 		}
 		const session = await authService.me(sessionToken);
-		const bodyJson = await request.json();
-
-		await usersApiClient.setHairType(session.user.id, bodyJson.hairType);
-		return;
+		const formData = await request.formData();
+		console.log(`formData`, formData);
+		try {
+			await usersApiClient.setHairType(session.user.id, formData.get("hairType") as string);
+			return;
+		} catch (error) {
+			if (error instanceof Error && error.message === "Invalid hair type") {
+				return fail(400, {message: "Invalid hair type"});
+			}
+			throw error;
+		}
 	},
 } as const;

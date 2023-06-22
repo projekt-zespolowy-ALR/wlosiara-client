@@ -10,6 +10,8 @@
 	import type {User} from "./types/User.js";
 	import {invalidateAll} from "$app/navigation";
 	import type {Page} from "$lib/server/utils/Page.js";
+	import type {SubmitFunction} from "@sveltejs/kit";
+	import {enhance} from "$app/forms";
 
 	export let productsPage: DeepReadonly<Page<Product>>;
 
@@ -24,17 +26,26 @@
 		}
 	};
 
-	const handleSubmit = async (e: Event) => {
-		const maxType = prompt("Podaj typ włosów");
-		e.preventDefault();
-		await fetch("/send-result", {
-			method: "POST",
-			body: JSON.stringify({
-				hairType: maxType,
-				isPublic: false,
-			}),
-		});
-		await invalidateAll();
+	// const handleSubmit = async (e: Event) => {
+	// 	const maxType = prompt("Podaj typ włosów");
+	// 	e.preventDefault();
+	// 	const response = await fetch("/send-result", {
+	// 		method: "POST",
+	// 		body: JSON.stringify({
+	// 			hairType: maxType,
+	// 			isPublic: false,
+	// 		}),
+	// 	});
+	// 	const responseJson = await response.json();
+	// 	console.log(responseJson);
+	// 	await invalidateAll();
+	// };
+
+	// handleSubmit using enhanced fetch
+	const handleSubmit: SubmitFunction = () => {
+		return async ({result}) => {
+			console.log(result);
+		};
 	};
 </script>
 
@@ -43,7 +54,17 @@
 		{#if currentUser}
 			<h3>{currentUser.username}</h3>
 			<p>Twój typ włosów to: <span>{currentUser.hairType}</span></p>
-			<button on:click={handleSubmit}>Zmień typ włosów</button>
+			<form action="/send-result" method="POST" use:enhance={handleSubmit}>
+				<!-- <input type="text" name="hairType" placeholder="Podaj typ włosów" /> -->
+				<select name="hairType">
+					<option value="" disabled selected>Wybierz nowy typ włosów</option>
+					<option value="wysokoporowate">wysokoporowate</option>
+					<option value="srednioporowate">srednioporowate</option>
+					<option value="niskoporowate">niskoporowate</option>
+				</select>
+
+				<button type="submit">Zapisz</button>
+			</form>
 		{/if}
 	</div>
 
