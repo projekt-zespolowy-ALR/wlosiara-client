@@ -128,7 +128,10 @@ export class ProductsService {
 		};
 	}
 
-	public async getProductById(targetProductId: string, userId: string | null): Promise<Product> {
+	public async getProductById(
+		targetProductId: string,
+		userId: string | null
+	): Promise<Product & {isFavorite: boolean | null}> {
 		const productInApi = await this.productsApiClient.fetchProductById(targetProductId);
 		const product = await this.populateProductInApi(productInApi, userId);
 		return product;

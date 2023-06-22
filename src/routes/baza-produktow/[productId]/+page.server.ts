@@ -11,10 +11,11 @@ export const load: PageServerLoad = async ({params, cookies}) => {
 	const sessionToken = cookies.get("session_token");
 	const session = sessionToken === undefined ? null : await authService.me(sessionToken);
 
-	const product: DeepReadonly<Product> = await productsService.getProductById(
-		productId,
-		session?.user.id ?? null
-	);
+	const product: DeepReadonly<
+		Product & {
+			isFavorite: boolean | null;
+		}
+	> = await productsService.getProductById(productId, session?.user.id ?? null);
 	return {
 		product,
 	} as const;
