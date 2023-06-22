@@ -8,9 +8,12 @@ export class PostsApiClient {
 	public constructor({postsApiBaseUrl}: {postsApiBaseUrl: string}) {
 		this.postsApiBaseUrl = postsApiBaseUrl;
 	}
-	async fetchPostsPage(pagingOptions: PagingOptionsInApi): Promise<PageInApi<PostInApi>> {
+	async fetchPostsPage(
+		pagingOptions: PagingOptionsInApi,
+		type: string
+	): Promise<PageInApi<PostInApi>> {
 		const response = await fetch(
-			`${this.postsApiBaseUrl}/posts?take=${pagingOptions.take}&skip=${pagingOptions.skip}`
+			`${this.postsApiBaseUrl}/posts?take=${pagingOptions.take}&skip=${pagingOptions.skip}&type=${type}`
 		);
 		const postsPage = await response.json();
 		return postsPage;
