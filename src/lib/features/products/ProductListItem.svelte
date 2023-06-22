@@ -33,18 +33,20 @@
 </script>
 
 <li>
-	<form
-		class="heart"
-		on:submit={isFavorite ? handleUnlikeSubmit : handleLikeSubmit}
-		action={isFavorite
-			? `/unlike-product?product=${product.id}`
-			: `/like-product?product=${product.id}`}
-		method="POST"
-	>
-		<button type="submit">
-			<i class="fa-solid fa-heart" class:purple={isFavorite} />
-		</button>
-	</form>
+	{#if isFavorite !== null}
+		<form
+			class="heart"
+			on:submit={isFavorite ? handleUnlikeSubmit : handleLikeSubmit}
+			action={isFavorite
+				? `/unlike-product?product=${product.id}`
+				: `/like-product?product=${product.id}`}
+			method="POST"
+		>
+			<button type="submit">
+				<i class="fa-solid fa-heart" class:purple={isFavorite} />
+			</button>
+		</form>
+	{/if}
 	<a href="/baza-produktow/{product.id}">
 		{#if product.offers[0]}
 			<div class="img">
