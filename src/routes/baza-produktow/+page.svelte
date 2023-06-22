@@ -6,4 +6,7 @@
 	export let data: PageServerData;
 </script>
 
+<svelte:head>
+	<title>Baza produktów</title>
+</svelte:head>
 <ProductList productsPage={data.productsPage} pagingOptions={data.pagingOptions} />

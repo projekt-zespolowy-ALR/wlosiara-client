@@ -7,6 +7,9 @@
 	$: productsPage = data.productsPage;
 </script>
 
+<svelte:head>
+	<title>Profil</title>
+</svelte:head>
 {#if data.currentUser}
 	<UserProfile {productsPage} currentUser={data.currentUser} />
 {:else}

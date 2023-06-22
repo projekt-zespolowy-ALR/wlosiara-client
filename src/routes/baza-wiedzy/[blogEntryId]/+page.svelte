@@ -4,6 +4,10 @@
 	import type {PageServerData} from "./$types.js";
 
 	export let data: PageServerData;
+	$: title = data.blogEntry.title;
 </script>
 
+<svelte:head>
+	<title>{title ?? "Baza wiedzy"}</title>
+</svelte:head>
 <PostPage blogEntry={data.blogEntry} />
