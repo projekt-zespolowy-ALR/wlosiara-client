@@ -69,7 +69,7 @@
 		<div class="product">
 			<img src={offer.imageUrl} alt="" srcset="" />
 			<div class="short-text">
-				<p>{offer.price} zł</p>
+				<p>{offer.pricePlnAsString} zł</p>
 			</div>
 			<div class="wide-text">
 				{#if offer.description}
