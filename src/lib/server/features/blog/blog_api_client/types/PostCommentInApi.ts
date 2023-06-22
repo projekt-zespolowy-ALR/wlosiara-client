@@ -3,4 +3,5 @@ export type PostCommentApi = {
 	authorId: string;
 	blogPostId: string;
 	text: string;
+	type: string;
 };
