@@ -14,19 +14,19 @@ export class ProductsApiClient {
 	}
 	async fetchProductsPage(
 		pagingOptions: PagingOptionsInApi,
-		search: string | null
+		search: string | null,
+		sort: string | null
 	): Promise<PageInApi<ProductInApi>> {
 		console.log(`ProductsApiClient`, `fetchProductsPage`, {pagingOptions});
 
-		let response;
 		let searchParam = search ? `search=${search}` : "";
-		if (search) {
-			response = await fetch(`${this.productsApiBaseUrl}/products?${searchParam}`);
-		} else {
-			response = await fetch(
-				`${this.productsApiBaseUrl}/products?skip=${pagingOptions.skip}&take=${pagingOptions.take}`
-			);
-		}
+		let sortParam = sort ? `sort=${sort}` : "";
+
+		const response = await fetch(
+			`${this.productsApiBaseUrl}/products?${searchParam}${search ? "&" : ""}${sortParam}${
+				sort ? "&" : ""
+			}skip=${pagingOptions.skip}&take=${pagingOptions.take}`
+		);
 
 		const productsPage = await response.json();
 		return productsPage;
