@@ -6,7 +6,7 @@
 	import ProductListItem from "./ProductListItem.svelte";
 	import {page} from "$app/stores";
 	import {goto} from "$app/navigation";
-	import type {ProductCategory} from "$lib/features/products/types/ProductCategory.js";
+	// import type {ProductCategory} from "$lib/features/products/types/ProductCategory.js";
 	import type {DeepReadonly} from "ts-essentials";
 	import type {Page} from "$lib/server/utils/Page.js";
 	import {page as pageStore} from "$app/stores";
@@ -20,10 +20,10 @@
 	let filt: (product: DeepReadonly<Product>) => boolean = () => true;
 
 	export let productsPage: DeepReadonly<Page<Product & {isFavorite: boolean | null}>>;
-	$: categories = productsPage
-		? [...new Set(productsPage.items.flatMap((product) => product.categories))]
-		: [];
-	let selectedCategory: ProductCategory | null = null;
+	// $: categories = productsPage
+	// 	? [...new Set(productsPage.items.flatMap((product) => product.categories))]
+	// 	: [];
+	// let selectedCategory: ProductCategory | null = null;
 	$: visibleProducts = productsPage.items ? productsPage.items : [];
 	let sortingType = "";
 
@@ -38,15 +38,15 @@
 		}
 		goto(url, {keepFocus: true});
 	};
-	const handleSelectCategoryChange = () => {
-		if (selectedCategory) {
-			visibleProducts = productsPage.items.filter((product) =>
-				selectedCategory ? product.categories.includes(selectedCategory) : true
-			);
-		} else {
-			visibleProducts = productsPage.items;
-		}
-	};
+	// const handleSelectCategoryChange = () => {
+	// 	if (selectedCategory) {
+	// 		visibleProducts = productsPage.items.filter((product) =>
+	// 			selectedCategory ? product.categories.includes(selectedCategory) : true
+	// 		);
+	// 	} else {
+	// 		visibleProducts = productsPage.items;
+	// 	}
+	// };
 
 	const handleSelectSortingType = () => {
 		goto(
@@ -124,7 +124,7 @@
 				<option value="price-desc">cena malejąco</option>
 			</select>
 		</div>
-		<div class="inline">
+		<!-- <div class="inline">
 			<span>Filtruj</span>
 			<select bind:value={selectedCategory} on:change={handleSelectCategoryChange}>
 				<option value={null}>---</option>
@@ -132,7 +132,7 @@
 					<option value={category}>{category.name}</option>
 				{/each}
 			</select>
-		</div>
+		</div> -->
 	</div>
 
 	<ul>

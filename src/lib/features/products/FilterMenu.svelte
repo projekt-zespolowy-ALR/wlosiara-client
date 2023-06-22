@@ -13,13 +13,13 @@
 			<option value="decreasing">cena malejąco</option>
 		</select>
 	</div>
-	<div class="inline">
+	<!-- <div class="inline">
 		<span>Filtruj</span>
 		<select>
 			<option value="keyword">keyword</option>
 			<option value="keyword">keyword2</option>
 		</select>
-	</div>
+	</div> -->
 </div>
 
 <style>
