@@ -24,6 +24,7 @@
 
 	const handleInputChange = (e: Event) => {
 		const search = (e.target as HTMLInputElement).value;
+		console.log(search);
 		const url = new URL($page.url);
 		if (search) {
 			url.searchParams.set("search", search);

@@ -14,11 +14,14 @@ export const load: PageServerLoad = async ({url, parent}) => {
 		size: Number(url.searchParams.get("page-size") ?? "5"),
 	};
 
+	const search = url.searchParams.get("search");
+
 	const productsPage: DeepReadonly<Page<Product & {isFavorite: boolean | null}>> =
-		await productsService.getProductsPage(pagingOptions, currentUser?.id ?? null);
+		await productsService.getProductsPage(pagingOptions, currentUser?.id ?? null, search);
 
 	return {
 		productsPage,
 		pagingOptions,
+		search,
 	} as const;
 };
