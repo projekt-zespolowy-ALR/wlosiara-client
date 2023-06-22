@@ -1,16 +1,15 @@
 import {fail} from "@sveltejs/kit";
 
 export const actions = {
-	async default(event) {
+	async default({cookies, url}) {
 		const [{productsService}, {authService}] = await Promise.all([
 			import("$lib/server/instances/productsService.js"),
 			import("$lib/server/instances/authService.js"),
 		]);
-		const targetProductId = event.url.searchParams.get("product");
+		const targetProductId = url.searchParams.get("product");
 		if (targetProductId === null) {
 			return fail(400);
 		}
-		const {cookies} = event;
 		const sessionToken = cookies.get("session_token");
 		if (sessionToken === undefined) {
 			return fail(401);
