@@ -1,22 +1,22 @@
 <script lang="ts">
 	import {enhance} from "$app/forms";
-	import {invalidateAll} from "$app/navigation";
+	import {goto} from "$app/navigation";
 	import type {SubmitFunction} from "@sveltejs/kit";
 
 	const submit: SubmitFunction = async ({formElement}) => {
-		return ({result}) => {
+		return async ({result}) => {
 			console.log(result);
 			if (result.type === "success") {
 				formElement.reset();
-				alert("Registered successfully");
-				invalidateAll();
-			} else if (result.type === "error") {
-				console.log(result.error);
-			} else if (result.type === "failure") {
-				alert("Something went wrong");
-			} else {
-				console.log(result);
+				alert("Zarejestrowano pomyślnie, możesz się zalogować");
+				goto("/login");
+				return;
 			}
+			if (result.type === "failure") {
+				alert(result.data?.["message"]);
+				return;
+			}
+			alert("Unknown error");
 		};
 	};
 </script>

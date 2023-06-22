@@ -12,13 +12,18 @@ export class AuthApiClient {
 	}
 
 	async register(registerRequestBody: DeepReadonly<RegisterRequestBody>): Promise<void> {
-		await fetch(`${this.authApiBaseUrl}/auth/register`, {
+		const response = await fetch(`${this.authApiBaseUrl}/auth/register`, {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
 			},
 			body: JSON.stringify(registerRequestBody),
 		});
+		if (response.ok) return;
+		console.log(`AuthApiClient`, `register`, {response});
+		if (response.status === 400) throw new Error(`Bad request: ${(await response.json()).message}`);
+		if (response.status === 409) throw new Error(`Conflict: ${(await response.json()).message}`);
+		throw new Error(`Unexpected response status code: ${response.status}`);
 	}
 
 	async login(loginRequestBody: DeepReadonly<LoginRequestBody>): Promise<LoginResponseBody> {

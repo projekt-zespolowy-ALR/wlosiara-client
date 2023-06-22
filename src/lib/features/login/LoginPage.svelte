@@ -15,12 +15,12 @@
 	// };
 
 	const submit: SubmitFunction = async ({formElement}) => {
-		return ({result}) => {
+		return async ({result}) => {
 			console.log(result);
 			if (result.type === "success") {
 				formElement.reset();
-				alert("You are logged in");
-				invalidateAll();
+				alert("Zostałeś zalogowany");
+				await invalidateAll();
 			} else if (result.type === "error") {
 				console.log(result.error);
 			} else if (result.type === "failure") {
