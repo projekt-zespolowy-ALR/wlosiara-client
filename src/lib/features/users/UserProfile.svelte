@@ -45,6 +45,7 @@
 	const handleSubmit: SubmitFunction = () => {
 		return async ({result}) => {
 			console.log(result);
+			await invalidateAll();
 		};
 	};
 </script>
