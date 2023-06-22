@@ -45,7 +45,13 @@
 	const handleSubmit: SubmitFunction = () => {
 		return async ({result}) => {
 			console.log(result);
-			await invalidateAll();
+			if (result.type === "success") {
+				alert("Zapisano wynik");
+				await invalidateAll();
+				return;
+			} else {
+				alert("Wystąpił błąd zapisu");
+			}
 		};
 	};
 </script>
@@ -54,10 +60,9 @@
 	<div class="user-header">
 		{#if currentUser}
 			<h3>{currentUser.username}</h3>
-			{#if currentUser.hairType === null}
-				<p>Twój typ włosów to: <span>{currentUser.hairType}</span></p>
+			{#if currentUser.hairType === null}<p>Nie masz jeszcze przypisanego typu włosów</p>
 			{:else}
-				<p>Nie masz jeszcze przypisanego typu włosów</p>
+				<p>Twój typ włosów to: <span>{currentUser.hairType}</span></p>
 			{/if}
 
 			<form action="/send-result" method="POST" use:enhance={handleSubmit}>
