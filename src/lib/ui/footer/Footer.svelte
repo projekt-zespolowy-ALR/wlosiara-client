@@ -3,7 +3,6 @@
 <footer>
 	<div class="footer-links">
 		<a href="/faq">FAQ</a>
-		<a href="/jak-to-dziala">Jak to działa?</a>
 		<a href="/about">O nas</a>
 		<a href="/kontakt">Kontakt</a>
 		<a href="/regulamin">Regulamin</a>
