@@ -15,9 +15,10 @@ export const load: PageServerLoad = async ({url, parent}) => {
 	};
 
 	const search = url.searchParams.get("search");
+	const sort = url.searchParams.get("sort");
 
 	const productsPage: DeepReadonly<Page<Product & {isFavorite: boolean | null}>> =
-		await productsService.getProductsPage(pagingOptions, currentUser?.id ?? null, search);
+		await productsService.getProductsPage(pagingOptions, currentUser?.id ?? null, search, sort);
 
 	return {
 		productsPage,
