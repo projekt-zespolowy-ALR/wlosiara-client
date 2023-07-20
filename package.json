@@ -57,7 +57,7 @@
 		"sass": "^1.63.2",
 		"svelte": "^3.56.0",
 		"svelte-check": "~3.4.3",
-		"svelte-eslint-parser": "^0.30.0",
+		"svelte-eslint-parser": "^0.32.2",
 		"svelte-preprocess": "^5.0.4",
 		"ts-essentials": "^9.3.2",
 		"typescript": "^5.1.3",
