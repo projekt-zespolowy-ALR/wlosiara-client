@@ -1,5 +1,4 @@
-# wlosiara.pl - Website
-# https://wlosiara.pl/
+# https://wlosiara.pl/ - Website
 
 This repository contains the source code of a website wlosiara.pl where hair care enthusiasts can find information about interesting products, tips, reviews and more.
 
