@@ -1,8 +1,14 @@
 # wlosiara.pl - Website
+# https://wlosiara.pl/
 
 This repository contains the source code of a website wlosiara.pl where hair care enthusiasts can find information about interesting products, tips, reviews and more.
 
 SvelteKit with TypeScript is used as a framework.
+
+![image](https://github.com/projekt-zespolowy-ALR/wlosiara-pl-website-service/assets/58569359/75aee037-a9e6-4ace-99d9-4765afab8c25)
+![image](https://github.com/projekt-zespolowy-ALR/wlosiara-pl-website-service/assets/58569359/15762e9a-f6fd-4f2b-a9c8-a79544a82886)
+![image](https://github.com/projekt-zespolowy-ALR/wlosiara-pl-website-service/assets/58569359/21c007f8-c9a8-4371-a90a-58b6d399a03f)
+
 
 # Local development
 
